@@ -798,9 +798,10 @@ GameObject:
   - component: {fileID: 396470999}
   - component: {fileID: 396470998}
   - component: {fileID: 396470997}
+  - component: {fileID: 396471000}
   m_Layer: 0
   m_Name: Road
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -869,6 +870,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &396471000
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396470996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 609001068}
 --- !u!1 &479543562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,7 +2102,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 48cb783a32fb2f04fbde1e93491a29f6, type: 3}
   _fpsCam: {fileID: 947826456}
   _FpsCamScript: {fileID: 947826454}
-  _impactEffect: {fileID: 4610464776009433381, guid: f76f7f95c6ac15746beae34fb4322529,
+  SandImpact: {fileID: 4610464776009433381, guid: f76f7f95c6ac15746beae34fb4322529,
+    type: 3}
+  StoneImpact: {fileID: 1330844396633182, guid: 48891305c6d99a8438455685691177e7,
+    type: 3}
+  MetalImpact: {fileID: 1387469084834310, guid: 587ccbf764deb4c408157e67bfa29de6,
     type: 3}
   _flashMuzzle: {fileID: 35082177}
   _muzzleFlashLight:
@@ -2097,7 +2116,7 @@ MonoBehaviour:
   _damage: 10
   _range: 100
   _maxAmmo: 30
-  _AmmoInPocket: 60
+  AmmoInPocket: 60
   _ammoText: {fileID: 858954912}
   _WeaponAnimator: {fileID: 1326687047}
   _reloadTime: 1.4
@@ -2489,7 +2508,7 @@ GameObject:
   - component: {fileID: 1709346024}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2566,7 +2585,7 @@ GameObject:
   - component: {fileID: 1739127261}
   m_Layer: 0
   m_Name: Tunnel
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

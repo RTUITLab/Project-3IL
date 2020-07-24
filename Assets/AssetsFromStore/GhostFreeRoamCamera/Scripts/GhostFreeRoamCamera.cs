@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 [RequireComponent (typeof (Camera))]
-public class GhostFreeRoamCamera : MonoBehaviour {
+public class GhostFreeRoamCamera : MonoBehaviour
+{
 	[SerializeField] float recoilSpeed = 30f;
 	[SerializeField] int _addAmmo = 60;
 	[SerializeField] private string selectableTag = "Selectable";
@@ -44,18 +45,21 @@ public class GhostFreeRoamCamera : MonoBehaviour {
 	private bool togglePressed = false;
 
 	[System.Obsolete]
-	private void OnEnable () {
-		if (cursorToggleAllowed) {
-			Screen.lockCursor = true;
+	private void OnEnable ()
+    {
+		if (cursorToggleAllowed)
+        {
 			Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 		}
 	}
 
 	[System.Obsolete]
-	private void Update () {
-
+	private void Update ()
+    {
 		// make earthquake
-		if (Input.GetKey (KeyCode.Space) && Time.time >= _nextTimetoFire) {
+		if (Input.GetKey (KeyCode.Space) && Time.time >= _nextTimetoFire)
+        {
 			_nextTimetoFire = Time.time + 1f / _earthquakeRate;
 			_thisAudioSource.PlayOneShot (_hummockSound);
 			var receiver = stressReceiver;
@@ -67,7 +71,8 @@ public class GhostFreeRoamCamera : MonoBehaviour {
 		#region  script for select object
 		//https://youtu.be/_yf5vzZ2sYE
 
-		if (_selection != null) {
+		if (_selection != null)
+        {
 			var selectionRenderer = _selection.GetComponent<Renderer> ();
 			selectionRenderer.material = defaultMaterial;
 			_selection = null;
@@ -75,16 +80,19 @@ public class GhostFreeRoamCamera : MonoBehaviour {
 
 		var ray = Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2f, Screen.height / 2f, 0f));
 		RaycastHit hit;
-		if (Physics.Raycast (ray, out hit)) {
+		if (Physics.Raycast (ray, out hit))
+        {
 			var selection = hit.transform;
-			if (selection.CompareTag (selectableTag)) {
+			if (selection.CompareTag (selectableTag))
+            {
 				var selectionRenderer = selection.GetComponent<Renderer> ();
 				if (selectionRenderer != null) {
 					defaultMaterial = selectionRenderer.material;
 					selectionRenderer.material = highlightMaterial;
 					//add ammo
-					if (Input.GetKey (_reloadButton)) {
-						_gun._AmmoInPocket = _addAmmo;
+					if (Input.GetKey (_reloadButton))
+                    {
+						_gun.AmmoInPocket = _addAmmo;
 						_gun.ReloadAmmoInfo ();
 					}
 				}
@@ -93,13 +101,15 @@ public class GhostFreeRoamCamera : MonoBehaviour {
 		}
 		#endregion
 
-		if (allowMovement) {
+		if (allowMovement)
+        {
 			bool lastMoving = moving;
 			Vector3 deltaPosition = Vector3.zero;
 
-			if (moving)
-				currentSpeed += increaseSpeed * Time.deltaTime;
-
+            if (moving)
+            {
+                currentSpeed += increaseSpeed * Time.deltaTime;
+            }
 			moving = false;
 
 			CheckMove (forwardButton, ref deltaPosition, transform.forward);
@@ -107,49 +117,69 @@ public class GhostFreeRoamCamera : MonoBehaviour {
 			CheckMove (rightButton, ref deltaPosition, transform.right);
 			CheckMove (leftButton, ref deltaPosition, -transform.right);
 
-			if (moving) {
-				if (moving != lastMoving)
-					currentSpeed = initialSpeed;
-
-				transform.position += deltaPosition * currentSpeed * Time.deltaTime;
-			} else currentSpeed = 0f;
+            if (moving)
+            {
+                if (moving != lastMoving)
+                {
+                    currentSpeed = initialSpeed;
+                }
+                transform.position += deltaPosition * currentSpeed * Time.deltaTime;
+            }
+            else
+            {
+                currentSpeed = 0f;
+            }
 		}
 
-		if (allowRotation) {
+		if (allowRotation)
+        {
 			Vector3 eulerAngles = transform.eulerAngles;
 			eulerAngles.x += -Input.GetAxis ("Mouse Y") * 359f * cursorSensitivity - _upRecoil;
 			eulerAngles.y += Input.GetAxis ("Mouse X") * 359f * cursorSensitivity - _sideRecoil;
 			_sideRecoil -= recoilSpeed * Time.deltaTime;
 			_upRecoil -= recoilSpeed * Time.deltaTime;
-			if (_sideRecoil < 0)
-				_sideRecoil = 0;
-			if (_upRecoil < 0)
-				_upRecoil = 0;
+            if (_sideRecoil < 0)
+            {
+                _sideRecoil = 0;
+            }
+            if (_upRecoil < 0)
+            {
+                _upRecoil = 0;
+            }
 			transform.eulerAngles = eulerAngles;
 		}
 		_upRecoil = 0;
 		_sideRecoil = 0;
-		if (cursorToggleAllowed) {
-			if (Input.GetKey (cursorToggleButton)) {
-				if (!togglePressed) {
+		if (cursorToggleAllowed)
+        {
+			if (Input.GetKey (cursorToggleButton))
+            {
+				if (!togglePressed)
+                {
 					togglePressed = true;
 					Screen.lockCursor = !Screen.lockCursor;
 					Cursor.visible = !Cursor.visible;
 				}
 			} else togglePressed = false;
-		} else {
+		}
+        else
+        {
 			togglePressed = false;
 			Cursor.visible = false;
 		}
 	}
 
-	private void CheckMove (KeyCode keyCode, ref Vector3 deltaPosition, Vector3 directionVector) {
-		if (Input.GetKey (keyCode)) {
+	private void CheckMove (KeyCode keyCode, ref Vector3 deltaPosition, Vector3 directionVector)
+    {
+		if (Input.GetKey (keyCode))
+        {
 			moving = true;
 			deltaPosition += directionVector;
 		}
 	}
-	public void addRecoil (float upRecoil, float sideRecoil) {
+
+	public void addRecoil (float upRecoil, float sideRecoil)
+    {
 		_upRecoil += upRecoil;
 		_sideRecoil += sideRecoil;
 	}

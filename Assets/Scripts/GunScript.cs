@@ -14,15 +14,17 @@ public class GunScript : MonoBehaviour
 	[SerializeField] Camera _fpsCam = null;
 	[Header ("Effects")]
 	[SerializeField] GhostFreeRoamCamera _FpsCamScript = null;
-	[SerializeField] GameObject _impactEffect = null;
-	[SerializeField] GameObject _flashMuzzle = null;
+	[SerializeField] GameObject SandImpact = null;
+    [SerializeField] GameObject StoneImpact = null;
+    [SerializeField] GameObject MetalImpact = null;
+    [SerializeField] GameObject _flashMuzzle = null;
 	[SerializeField] Light[] _muzzleFlashLight = null;
 	[SerializeField] ParticleSystem _muzzleFlash = null;
 	[Header ("Others")]
 	[SerializeField] float _damage = 10f;
 	[SerializeField] float _range = 100f;
 	[SerializeField] int _maxAmmo = 30;
-	public int _AmmoInPocket = 60;
+	public int AmmoInPocket = 60;
 	[SerializeField] TMP_Text _ammoText = null;
 	int currentAmmo = 0;
 	bool isReloading = false;
@@ -38,7 +40,6 @@ public class GunScript : MonoBehaviour
 	[SerializeField] float _MinSideRecoil = 1;
 	[Header ("Spread")]
 	[SerializeField] float _YSpread = 1;
-
 	[SerializeField] float _XSpread = 1;
 	[SerializeField] float _SpreadTimeUp = 0.1f;
 	[SerializeField] float _SpreadTimeDown = 0.2f;
@@ -55,18 +56,22 @@ public class GunScript : MonoBehaviour
 		isReloading = false;
 		_WeaponAnimator.SetBool ("Reloading", false);
 	}
+
 	private void Start ()
     {
 		_ThisAudioSource = gameObject.GetComponent<AudioSource> ();
 		currentAmmo = _maxAmmo;
 		ReloadAmmoInfo ();
 	}
+
 	private void Update ()
     {
-		if (isReloading)
-			return;
+        if (isReloading)
+        {
+            return;
+        }
 		if ((currentAmmo <= 0 &&
-				_AmmoInPocket > 0) || (Input.GetKey (KeyCode.R) && currentAmmo != 30))
+				AmmoInPocket > 0) || (Input.GetKey (KeyCode.R) && currentAmmo != 30))
         {
 			StartCoroutine (Reload ());
 			return;
@@ -89,6 +94,7 @@ public class GunScript : MonoBehaviour
 		}
 
 	}
+
 	IEnumerator Reload ()
     {
 		isReloading = true;
@@ -98,16 +104,17 @@ public class GunScript : MonoBehaviour
 		yield return new WaitForSeconds (_reloadTime - 0.25f);
 		_WeaponAnimator.SetBool ("Reloading", false);
 		yield return new WaitForSeconds (0.25f);
-		_AmmoInPocket -= (_maxAmmo - currentAmmo);
+		AmmoInPocket -= (_maxAmmo - currentAmmo);
 		currentAmmo = _maxAmmo;
-		if (_AmmoInPocket < 0)
+		if (AmmoInPocket < 0)
         {
-			currentAmmo += _AmmoInPocket;
-			_AmmoInPocket = 0;
+			currentAmmo += AmmoInPocket;
+			AmmoInPocket = 0;
 		}
 		ReloadAmmoInfo ();
 		isReloading = false;
 	}
+
 	void Shoot ()
     {
 		//make random color of orange light
@@ -130,10 +137,10 @@ public class GunScript : MonoBehaviour
 		_muzzleFlash.Play ();
 		RaycastHit hit;
 
-		if (Physics.Raycast (_fpsCam.transform.position + new Vector3 (
-					Random.Range (-_XSpread, _XSpread) + _WithTimeMoreSpread,
-					Random.Range (-_YSpread, _YSpread) + _WithTimeMoreSpread),
-				_fpsCam.transform.forward, out hit, _range))
+        if (Physics.Raycast(_fpsCam.transform.position + new Vector3(
+                    Random.Range(-_XSpread, _XSpread) + _WithTimeMoreSpread,
+                    Random.Range(-_YSpread, _YSpread) + _WithTimeMoreSpread),
+                _fpsCam.transform.forward, out hit, _range))
         {
 			//  Debug.Log (hit.transform.name);
 			Target target = hit.transform.GetComponent<Target> ();
@@ -148,15 +155,18 @@ public class GunScript : MonoBehaviour
             }
             if (hit.collider.tag == "Sand")
             {
-                Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
             }
-            else if (hit.collider.tag == "Stone")
+            else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
             {
-
+                GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
             }
             else if (hit.collider.tag == "Metal")
             {
-
+                GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
             }
         }
         //add spread
@@ -174,10 +184,15 @@ public class GunScript : MonoBehaviour
 		//turn off light
 		StartCoroutine (OffLight ());
 	}
+
 	IEnumerator OffLight ()
     {
 		yield return new WaitForSeconds (0.05f);
 		_flashMuzzle.SetActive (false);
 	}
-	public void ReloadAmmoInfo () => _ammoText.text = currentAmmo.ToString () + "/" + _AmmoInPocket.ToString ();
+
+    public void ReloadAmmoInfo()
+    {
+        _ammoText.text = currentAmmo.ToString() + "/" + AmmoInPocket.ToString();
+    }
 }

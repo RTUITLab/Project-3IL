@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Target : MonoBehaviour {
+public class Target : MonoBehaviour
+{
 	[SerializeField] float _health = 100f;
 	[SerializeField] ParticleSystem _Explosion = null;
 	[SerializeField] ParticleSystem _Fire = null;
@@ -20,11 +21,13 @@ public class Target : MonoBehaviour {
         StartCoroutine(Go());
         _Player = GameObject.FindGameObjectWithTag("Player");
     }
+
 	IEnumerator Go ()
     {
 		yield return new WaitForSeconds (_delayBeforeStart);
 		_pathFollower.enabled = true;
 	}
+
 	//when we get damage
 	public void TakeDamage (float amount)
     {
@@ -39,6 +42,7 @@ public class Target : MonoBehaviour {
         }
 		Debug.Log ($"Enemy Health - {_health}");
 	}
+
 	private void FixedUpdate ()
     {
         if (_NearPlayer)
@@ -56,13 +60,14 @@ public class Target : MonoBehaviour {
             _NearPlayer = true;
         }
 	}
+
 	void Die ()
     {
         SpawnEnemies.instance.Spawn();
 		_Explosion.gameObject.SetActive (true);
 		_Fire.Stop ();
 		thisAudioSource.Play ();
-		Destroy (Body);
+		Destroy (Body, 2f);
 		Destroy (gameObject, 2f);
 	}
 }
