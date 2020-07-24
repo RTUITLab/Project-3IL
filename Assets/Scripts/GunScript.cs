@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-public class GunScript : MonoBehaviour {
+public class GunScript : MonoBehaviour
+{
 	#region Settings
 	[Header ("Audio")]
 	[SerializeField] AudioClip _realodSound = null;
@@ -48,36 +49,48 @@ public class GunScript : MonoBehaviour {
 	/// <summary>
 	/// This function is called when the object becomes enabled and active.
 	/// </summary>
-	void OnEnable () {
+	void OnEnable ()
+    {
 		// fix some bug with reload, if we will have more weapons
 		isReloading = false;
 		_WeaponAnimator.SetBool ("Reloading", false);
 	}
-	private void Start () {
+	private void Start ()
+    {
 		_ThisAudioSource = gameObject.GetComponent<AudioSource> ();
 		currentAmmo = _maxAmmo;
 		ReloadAmmoInfo ();
 	}
-	private void Update () {
+	private void Update ()
+    {
 		if (isReloading)
 			return;
 		if ((currentAmmo <= 0 &&
-				_AmmoInPocket > 0) || (Input.GetKey (KeyCode.R) && currentAmmo != 30)) {
+				_AmmoInPocket > 0) || (Input.GetKey (KeyCode.R) && currentAmmo != 30))
+        {
 			StartCoroutine (Reload ());
 			return;
 		}
-		if (_WithTimeMoreSpread > 0)
-			_WithTimeMoreSpread -= _SpreadTimeDown;
-		if (Input.GetButton ("Fire1") && Time.time >= _nextTimetoFire) {
+        if (_WithTimeMoreSpread > 0)
+        {
+            _WithTimeMoreSpread -= _SpreadTimeDown;
+        }
+		if (Input.GetButton ("Fire1") && Time.time >= _nextTimetoFire)
+        {
 			_nextTimetoFire = Time.time + 1f / _fireRate;
-			if (currentAmmo > 0)
-				Shoot ();
-			else
-				_ThisAudioSource.PlayOneShot (_EmptySound);
+            if (currentAmmo > 0)
+            {
+                Shoot();
+            }
+            else
+            {
+                _ThisAudioSource.PlayOneShot(_EmptySound);
+            }
 		}
 
 	}
-	IEnumerator Reload () {
+	IEnumerator Reload ()
+    {
 		isReloading = true;
 		_WeaponAnimator.SetBool ("Reloading", true);
 		Debug.Log ("Reloading...");
@@ -87,23 +100,22 @@ public class GunScript : MonoBehaviour {
 		yield return new WaitForSeconds (0.25f);
 		_AmmoInPocket -= (_maxAmmo - currentAmmo);
 		currentAmmo = _maxAmmo;
-		if (_AmmoInPocket < 0) {
+		if (_AmmoInPocket < 0)
+        {
 			currentAmmo += _AmmoInPocket;
 			_AmmoInPocket = 0;
 		}
-
 		ReloadAmmoInfo ();
 		isReloading = false;
 	}
-	void Shoot () {
+	void Shoot ()
+    {
 		//make random color of orange light
 		float changeLightGreen = Random.Range (100, 200);
 		changeLightGreen /= 255;
 		for (int i = 0; i < _muzzleFlashLight.Length; i++)
 			_muzzleFlashLight[i].color = new Color (
-				_muzzleFlashLight[i].color.r,
-				changeLightGreen,
-				_muzzleFlashLight[i].color.b);
+				_muzzleFlashLight[i].color.r, changeLightGreen, _muzzleFlashLight[i].color.b);
 		//you will understand (for reload)
 		currentAmmo--;
 		ReloadAmmoInfo ();
@@ -113,44 +125,59 @@ public class GunScript : MonoBehaviour {
 		_ThisAudioSource.PlayOneShot (_shootsSound);
 		//make recoil
 		_FpsCamScript.addRecoil (
-			Random.Range (_MinUpRecoil, _MaxUpRecoil) / 5f,
-			Random.Range (_MinSideRecoil, _MaxSideRecoil) / 5f);
+			Random.Range (_MinUpRecoil, _MaxUpRecoil) / 5f, Random.Range (_MinSideRecoil, _MaxSideRecoil) / 5f);
 		//play partical
 		_muzzleFlash.Play ();
 		RaycastHit hit;
 
-		if (Physics.Raycast (
-				_fpsCam.transform.position + new Vector3 (
+		if (Physics.Raycast (_fpsCam.transform.position + new Vector3 (
 					Random.Range (-_XSpread, _XSpread) + _WithTimeMoreSpread,
 					Random.Range (-_YSpread, _YSpread) + _WithTimeMoreSpread),
-				_fpsCam.transform.forward,
-				out hit,
-				_range)) {
+				_fpsCam.transform.forward, out hit, _range))
+        {
 			//  Debug.Log (hit.transform.name);
 			Target target = hit.transform.GetComponent<Target> ();
-			if (target != null)
-				target.TakeDamage (_damage);
-			//we can add force to rigibody
-			if (hit.rigidbody != null)
-				hit.rigidbody.AddForce (hit.normal * _impactForce);
-			GameObject impactGO = Instantiate (_impactEffect, hit.point, Quaternion.LookRotation (hit.normal));
-			Destroy (impactGO, 1f);
-		}
-		//add spread
-		// _WithTimeMoreSpread += _SpreadTimeUp;
-		// we play bullets on floor sound with 5% chance
-		if (Random.Range (0, 100) < 5)
-			_ThisAudioSource.PlayOneShot (_bulletsOnFloorSound[Random.Range (0, _bulletsOnFloorSound.Length)]);
-		// we play miss sound with 2% chance
-		if (Random.Range (0, 100) < 2)
-			_ThisAudioSource.PlayOneShot (_missSound);
+            if (target != null)
+            {
+                target.TakeDamage(_damage);
+            }
+            //we can add force to rigibody
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(hit.normal * _impactForce);
+            }
+            if (hit.collider.tag == "Sand")
+            {
+                Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            else if (hit.collider.tag == "Stone")
+            {
+
+            }
+            else if (hit.collider.tag == "Metal")
+            {
+
+            }
+        }
+        //add spread
+        // _WithTimeMoreSpread += _SpreadTimeUp;
+        // we play bullets on floor sound with 5% chance
+        if (Random.Range(0, 100) < 5)
+        {
+            _ThisAudioSource.PlayOneShot(_bulletsOnFloorSound[Random.Range(0, _bulletsOnFloorSound.Length)]);
+        }
+        // we play miss sound with 2% chance
+        if (Random.Range(0, 100) < 2)
+        {
+            _ThisAudioSource.PlayOneShot(_missSound);
+        }
 		//turn off light
 		StartCoroutine (OffLight ());
 	}
-	IEnumerator OffLight () {
+	IEnumerator OffLight ()
+    {
 		yield return new WaitForSeconds (0.05f);
 		_flashMuzzle.SetActive (false);
 	}
 	public void ReloadAmmoInfo () => _ammoText.text = currentAmmo.ToString () + "/" + _AmmoInPocket.ToString ();
-
 }

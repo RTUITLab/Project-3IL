@@ -15,32 +15,50 @@ public class Target : MonoBehaviour {
 	[SerializeField] float distance = 7;
 	[SerializeField] bool _NearPlayer = false;
 
-	private void Start () => StartCoroutine (Go ());
-	IEnumerator Go () {
+    private void Start()
+    {
+        StartCoroutine(Go());
+        _Player = GameObject.FindGameObjectWithTag("Player");
+    }
+	IEnumerator Go ()
+    {
 		yield return new WaitForSeconds (_delayBeforeStart);
 		_pathFollower.enabled = true;
 	}
 	//when we get damage
-	public void TakeDamage (float amount) {
+	public void TakeDamage (float amount)
+    {
 		_health -= amount;
-		if (_health < 100 && !_Fire.gameObject.activeInHierarchy) {
-			_Fire.gameObject.SetActive (true);
-		} else if (_health <= 0f)
-			Die ();
+        if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
+        {
+            _Fire.gameObject.SetActive(true);
+        }
+        else if (_health <= 0f)
+        {
+            Die();
+        }
 		Debug.Log ($"Enemy Health - {_health}");
 	}
-	private void FixedUpdate () {
-		if (_NearPlayer)
-			return;
-		//check distance before player, if it big, we up speed
-		if (_Player.transform.position.x + _Player.transform.position.z - transform.position.x - transform.position.z > distance)
-			_pathFollower.speed = _speedBeforAttack;
-		else {
-			_pathFollower.speed = _normalSpeed;
-			_NearPlayer = true;
-		}
+	private void FixedUpdate ()
+    {
+        if (_NearPlayer)
+        {
+            return;
+        }
+        //check distance before player, if it big, we up speed
+        if (_Player.transform.position.x + _Player.transform.position.z - transform.position.x - transform.position.z > distance)
+        {
+            _pathFollower.speed = _speedBeforAttack;
+        }
+        else
+        {
+            _pathFollower.speed = _normalSpeed;
+            _NearPlayer = true;
+        }
 	}
-	void Die () {
+	void Die ()
+    {
+        SpawnEnemies.instance.Spawn();
 		_Explosion.gameObject.SetActive (true);
 		_Fire.Stop ();
 		thisAudioSource.Play ();
