@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
 	[SerializeField] float _speedBeforAttack = 5;
 	[SerializeField] float _normalSpeed = 1.5f;
 	public GameObject Player = null;
+    public EnemyGunScript GunScript;
 	[SerializeField] float distance = 7;
 	[SerializeField] bool _NearPlayer = false;
 
@@ -63,6 +64,7 @@ public class Target : MonoBehaviour
 
 	void Die ()
     {
+        GunScript.enabled = false;
         SpawnEnemies.instance.Spawn();
 		_Explosion.gameObject.SetActive (true);
 		_Fire.Stop ();

@@ -66,7 +66,10 @@ public class EnemyGunScript : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward + spread,  out hit, _range))
         {
             Debug.Log (hit.transform.name);
-            hit.transform.GetComponent<PlayerHealth>().Damage();
+            if (hit.transform.tag == "Player")
+            {
+                hit.transform.GetComponent<PlayerHealth>().Damage();
+            }
             if (hit.collider.tag == "Sand")
             {
                 GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));

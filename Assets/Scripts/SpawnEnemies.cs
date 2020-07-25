@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     [HideInInspector] public static SpawnEnemies instance;
-    public GameObject MotorBike;
+    public GameObject Enemy_prefab;
 
     private void Awake()
     {
@@ -19,6 +19,6 @@ public class SpawnEnemies : MonoBehaviour
 
     public void Spawn()
     {
-        Instantiate(MotorBike, gameObject.transform.position, gameObject.transform.rotation);
+        Instantiate(Enemy_prefab, gameObject.transform.position, gameObject.transform.rotation);
     }
 }
