@@ -66,12 +66,7 @@ public class EnemyGunScript : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward + spread,  out hit, _range))
         {
             Debug.Log (hit.transform.name);
-            // Target target = hit.transform.GetComponent<Target> ();
-            // if (target != null)
-            //     target.TakeDamage (_damage);
-            //we can add force to rigibody
-            // if (hit.rigidbody != null)
-            //     hit.rigidbody.AddForce (hit.normal * _impactForce);
+            hit.transform.GetComponent<PlayerHealth>().Damage();
             if (hit.collider.tag == "Sand")
             {
                 GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));

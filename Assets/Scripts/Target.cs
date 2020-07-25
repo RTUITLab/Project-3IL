@@ -12,14 +12,14 @@ public class Target : MonoBehaviour
 	[SerializeField] float _delayBeforeStart = 0;
 	[SerializeField] float _speedBeforAttack = 5;
 	[SerializeField] float _normalSpeed = 1.5f;
-	[SerializeField] GameObject _Player = null;
+	public GameObject Player = null;
 	[SerializeField] float distance = 7;
 	[SerializeField] bool _NearPlayer = false;
 
     private void Start()
     {
         StartCoroutine(Go());
-        _Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
 	IEnumerator Go ()
@@ -50,7 +50,7 @@ public class Target : MonoBehaviour
             return;
         }
         //check distance before player, if it big, we up speed
-        if (_Player.transform.position.x + _Player.transform.position.z - transform.position.x - transform.position.z > distance)
+        if (Player.transform.position.x + Player.transform.position.z - transform.position.x - transform.position.z > distance)
         {
             _pathFollower.speed = _speedBeforAttack;
         }
