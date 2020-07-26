@@ -781,7 +781,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 237658236}
   - component: {fileID: 237658237}
   - component: {fileID: 237658238}
+  - component: {fileID: 237658239}
   m_Layer: 0
   m_Name: CarHolder
   m_TagString: Untagged
@@ -1036,6 +1037,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95df37ca88c01af479ea63606fab46a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &237658239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237658235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb6da8ad8c4c7b44ab5cd9027048ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flWheel: {fileID: 966570632}
+  frWheel: {fileID: 1977229904}
+  blWheel: {fileID: 971262968}
+  brWheel: {fileID: 1397423137}
 --- !u!1 &283112670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,7 +3469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200700856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
