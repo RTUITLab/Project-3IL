@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestWheelScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float force = 100;
     void Start()
     {
         
@@ -15,7 +15,7 @@ public class TestWheelScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 10000);
+            GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * force);
         }
     }
 }
