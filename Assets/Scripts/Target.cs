@@ -21,6 +21,7 @@ public class Target : MonoBehaviour
     {
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
+        GunScript.Player = Player.transform;
     }
 
 	IEnumerator Go ()

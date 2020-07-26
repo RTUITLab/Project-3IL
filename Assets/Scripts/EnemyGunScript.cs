@@ -14,7 +14,7 @@ public class EnemyGunScript : MonoBehaviour
     [SerializeField] Light[] _muzzleFlashLight = null;
     [SerializeField] ParticleSystem _muzzleFlash = null;
     [Header ("Others")]
-    [SerializeField] Transform Player;
+    public Transform Player;
     [SerializeField] float _range = 100f;
     AudioSource _ThisAudioSource = null;
     [SerializeField] float Spread = 0f;
@@ -28,11 +28,14 @@ public class EnemyGunScript : MonoBehaviour
     }
     private void Update ()
     {
-        if (Time.time >= _nextTimetoFire)
+        if (Vector3.Distance(gameObject.transform.position, Player.transform.position) < 40)
         {
-            var buff = _fireRate / 2;
-            _nextTimetoFire = Time.time + 1f / Random.Range (_fireRate - buff, _fireRate + buff);
-            Shoot ();
+            if (Time.time >= _nextTimetoFire)
+            {
+                var buff = _fireRate / 2;
+                _nextTimetoFire = Time.time + 1f / Random.Range(_fireRate - buff, _fireRate + buff);
+                Shoot();
+            }
         }
     }
 
