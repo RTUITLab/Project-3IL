@@ -89,18 +89,5 @@ namespace Valve.VR.InteractionSystem
 				transform.localEulerAngles = startEulerAngles + new Vector3( -offset.y * 360.0f / Screen.height, offset.x * 360.0f / Screen.width, 0.0f );
 			}
 		}
-
-
-		//-------------------------------------------------
-		void OnGUI()
-		{
-			if ( showInstructions )
-			{
-				GUI.Label( new Rect( 10.0f, 10.0f, 600.0f, 400.0f ),
-					"WASD EQ/Arrow Keys to translate the camera\n" +
-					"Right mouse click to rotate the camera\n" +
-					"Left mouse click for standard interactions.\n" );
-			}
-		}
 	}
 }

@@ -518,6 +518,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Motorbike_LODGroup
       objectReference: {fileID: 0}
+    - target: {fileID: 6883474065171829994, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.5892142
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883474065171829994, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[4].screenRelativeHeight
+      value: 0.03290275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883474065171829994, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.15900001
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3827799616793741843, guid: b202b807427db224d9a94758cbb6558f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b202b807427db224d9a94758cbb6558f, type: 3}

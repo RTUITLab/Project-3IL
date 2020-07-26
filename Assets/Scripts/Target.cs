@@ -29,8 +29,7 @@ public class Target : MonoBehaviour
 		yield return new WaitForSeconds (_delayBeforeStart);
 		_pathFollower.enabled = true;
 	}
-
-	//when we get damage
+    
 	public void TakeDamage (float amount)
     {
         if (_health > 0)
@@ -54,7 +53,6 @@ public class Target : MonoBehaviour
         {
             return;
         }
-        //check distance before player, if it big, we up speed
         if (Player.transform.position.x + Player.transform.position.z - transform.position.x - transform.position.z > distance)
         {
             _pathFollower.speed = _speedBeforAttack;
