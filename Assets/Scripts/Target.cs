@@ -33,16 +33,19 @@ public class Target : MonoBehaviour
 	//when we get damage
 	public void TakeDamage (float amount)
     {
-		_health -= amount;
-        if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
+        if (_health > 0)
         {
-            _Fire.gameObject.SetActive(true);
+            _health -= amount;
+            if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
+            {
+                _Fire.gameObject.SetActive(true);
+            }
+            else if (_health <= 0f)
+            {
+                Die();
+            }
+            Debug.Log($"Enemy Health - {_health}");
         }
-        else if (_health <= 0f)
-        {
-            Die();
-        }
-		Debug.Log ($"Enemy Health - {_health}");
 	}
 
 	private void FixedUpdate ()
