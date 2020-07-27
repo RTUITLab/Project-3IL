@@ -7,17 +7,17 @@ using UnityEngine;
 public class CarFutuRiftController : MonoBehaviour
 {
     private FutuRiftController controller;
-
+    public UdpOptions udpOptions;
     void Start()
     {
-        controller = new FutuRiftController(new UdpOptions(), new FutuRiftOptions { interval = 50 });
+        controller = new FutuRiftController(udpOptions, new FutuRiftOptions { interval = 50 });
         controller.Start();
     }
 
     void Update()
     {
         var euler = transform.eulerAngles;
-        controller.Pitch = -(euler.x > 150 ? euler.x - 360 : euler.x);
+        controller.Pitch = (euler.x > 150 ? euler.x - 360 : euler.x);
         controller.Roll = -(euler.z > 150 ? euler.z - 360 : euler.z);
     }
 
