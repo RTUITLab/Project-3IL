@@ -4,50 +4,47 @@ using UnityEngine;
 
 public class HighlightSelection : MonoBehaviour
 {
-    [SerializeField] GunScript _gun = null;
-    [SerializeField] private Material highlightMaterial = null;
-    Material defaultMaterial = null;
-    [SerializeField] KeyCode _reloadButton = KeyCode.R;
-    [SerializeField] int _addAmmo = 60;
-    Transform _selection;
+    [SerializeField] GunScript Gun = null;
+    [SerializeField] private Material HighlightMaterial = null;
+    Material DefaultMaterial = null;
+    [SerializeField] KeyCode ReloadButton = KeyCode.R;
+    [SerializeField] int AddAmmo = 60;
+    Transform Selection;
+    private Transform Camera;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        
+        Camera = gameObject.transform;
     }
-
-    // Update is called once per frame
 
     private void FixedUpdate()
     {
-        if (_selection != null)
+        if (Selection != null)
         {
-            var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
-            _selection = null;
+            var selectionRenderer = Selection.GetComponent<Renderer>();
+            selectionRenderer.material = DefaultMaterial;
+            Selection = null;
         }
-
-        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        Ray ray = new Ray(Camera.position, Camera.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            var selection = hit.transform;
+            Transform selection = hit.transform;
             if (selection.CompareTag("Selectable"))
             {
-                var selectionRenderer = selection.GetComponent<Renderer>();
+                Renderer selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
                 {
-                    defaultMaterial = selectionRenderer.material;
-                    selectionRenderer.material = highlightMaterial;
-                    //add ammo
-                    if (Input.GetKey(_reloadButton))
+                    DefaultMaterial = selectionRenderer.material;
+                    selectionRenderer.material = HighlightMaterial;
+                    if (Input.GetKey(ReloadButton))
                     {
-                        _gun.AmmoInPocket = _addAmmo;
-                        _gun.ReloadAmmoInfo();
+                        Gun.AmmoInPocket = AddAmmo;
+                        Gun.ReloadAmmoInfo();
                     }
                 }
-                _selection = selection;
+                Selection = selection;
             }
         }
     }

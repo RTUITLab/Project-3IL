@@ -24,29 +24,6 @@ public class Target : MonoBehaviour
         GunScript.Player = Player.transform;
     }
 
-	IEnumerator Go ()
-    {
-		yield return new WaitForSeconds (_delayBeforeStart);
-		_pathFollower.enabled = true;
-	}
-    
-	public void TakeDamage (float amount)
-    {
-        if (_health > 0)
-        {
-            _health -= amount;
-            if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
-            {
-                _Fire.gameObject.SetActive(true);
-            }
-            else if (_health <= 0f)
-            {
-                Die();
-            }
-            Debug.Log($"Enemy Health - {_health}");
-        }
-	}
-
 	private void FixedUpdate ()
     {
         if (_NearPlayer)
@@ -64,7 +41,23 @@ public class Target : MonoBehaviour
         }
 	}
 
-	void Die ()
+    public void TakeDamage(float amount)
+    {
+        if (_health > 0)
+        {
+            _health -= amount;
+            if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
+            {
+                _Fire.gameObject.SetActive(true);
+            }
+            else if (_health <= 0f)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die ()
     {
         GunScript.enabled = false;
         SpawnEnemies.instance.Spawn();
@@ -74,4 +67,10 @@ public class Target : MonoBehaviour
 		Destroy (Body, 2f);
 		Destroy (gameObject, 2f);
 	}
+
+    IEnumerator Go()
+    {
+        yield return new WaitForSeconds(_delayBeforeStart);
+        _pathFollower.enabled = true;
+    }
 }

@@ -28,22 +28,14 @@ public class GunScript : MonoBehaviour
 	[SerializeField] float _fireRate = 30;
 	[SerializeField] float _impactForce = 30f;
 	float _nextTimetoFire = 0f;
-	AudioSource _ThisAudioSource;
-    Animator _WeaponAnimator;
-    LODGroup lod;
+	public AudioSource ThisAudioSource;
+    public Animator WeaponAnimator;
     #endregion
-
-
-    void OnEnable ()
-    {
-		isReloading = false;
-		_WeaponAnimator.SetBool ("Reloading", false);
-	}
 
 	private void Start ()
     {
-		_ThisAudioSource = gameObject.GetComponent<AudioSource> ();
-        _WeaponAnimator = gameObject.GetComponent<Animator>();
+        isReloading = false;
+        WeaponAnimator.SetBool("Reloading", false);
         currentAmmo = ClipSize;
 		ReloadAmmoInfo ();
 	}
@@ -68,7 +60,7 @@ public class GunScript : MonoBehaviour
             }
             else
             {
-                _ThisAudioSource.PlayOneShot(_EmptySound);
+                ThisAudioSource.PlayOneShot(_EmptySound);
             }
 		}
 	}
@@ -76,11 +68,10 @@ public class GunScript : MonoBehaviour
 	IEnumerator Reload ()
     {
 		isReloading = true;
-		_WeaponAnimator.SetBool ("Reloading", true);
-		Debug.Log ("Reloading...");
-		_ThisAudioSource.PlayOneShot (_realodSound);
+		WeaponAnimator.SetBool ("Reloading", true);
+		ThisAudioSource.PlayOneShot (_realodSound);
 		yield return new WaitForSeconds (_reloadTime - 0.25f);
-		_WeaponAnimator.SetBool ("Reloading", false);
+		WeaponAnimator.SetBool ("Reloading", false);
 		yield return new WaitForSeconds (0.25f);
 		AmmoInPocket -= (ClipSize - currentAmmo);
 		currentAmmo = ClipSize;
@@ -95,7 +86,6 @@ public class GunScript : MonoBehaviour
 
 	private void Shoot ()
     {
-		//make random color of orange light
 		float changeLightGreen = Random.Range (100, 200);
 		changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
@@ -103,26 +93,20 @@ public class GunScript : MonoBehaviour
             _muzzleFlashLight[i].color = new Color(
                 _muzzleFlashLight[i].color.r, changeLightGreen, _muzzleFlashLight[i].color.b);
         }
-		//you will understand (for reload)
 		currentAmmo--;
 		ReloadAmmoInfo ();
-		//turn on light
 		_flashMuzzle.SetActive (true);
-		//play shoot sound
-		_ThisAudioSource.PlayOneShot (_shootsSound);
-		//play partical
+		ThisAudioSource.PlayOneShot (_shootsSound);
 		_muzzleFlash.Play ();
 		RaycastHit hit;
 
         if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit))
         {
-			//  Debug.Log (hit.transform.name);
 			Target target = hit.transform.GetComponent<Target> ();
             if (target != null)
             {
                 target.TakeDamage(_damage);
             }
-            //we can add force to rigibody
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(hit.normal * _impactForce);
@@ -143,18 +127,14 @@ public class GunScript : MonoBehaviour
                 Impact.transform.parent = hit.transform;
             }
         }
-        //add spread
-        // we play bullets on floor sound with 5% chance
         if (Random.Range(0, 100) < 5)
         {
-            _ThisAudioSource.PlayOneShot(_bulletsOnFloorSound[Random.Range(0, _bulletsOnFloorSound.Length)]);
+            ThisAudioSource.PlayOneShot(_bulletsOnFloorSound[Random.Range(0, _bulletsOnFloorSound.Length)]);
         }
-        // we play miss sound with 2% chance
-        if (Random.Range(0, 100) < 2)
+        else if (Random.Range(0, 100) < 2)
         {
-            _ThisAudioSource.PlayOneShot(_missSound);
+            ThisAudioSource.PlayOneShot(_missSound);
         }
-		//turn off light
 		StartCoroutine (OffLight ());
 	}
 
