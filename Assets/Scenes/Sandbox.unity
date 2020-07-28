@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   udpOptions:
-    ip: 127.0.0.1
+    ip: 10.132.74.135
     port: 6065
 --- !u!145 &78284964
 SpringJoint:

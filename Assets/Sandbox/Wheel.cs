@@ -12,7 +12,6 @@ public class Wheel : MonoBehaviour
     }
     public void DoBarrier(float force)
     {
-        Debug.Log(name);
         rigidBody.AddRelativeForce(Vector3.up * force);
     }
 }
