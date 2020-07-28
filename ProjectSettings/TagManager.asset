@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Shootable
   - Selectable
+  - Sand
+  - Metal
+  - Stone
   layers:
   - Default
   - TransparentFX
