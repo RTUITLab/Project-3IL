@@ -165,11 +165,11 @@ MonoBehaviour:
   Body: {fileID: 7987566419435853729}
   _pathFollower: {fileID: 3827799616913649303}
   _delayBeforeStart: 4
-  _speedBeforAttack: 3.5
+  _speedBeforAttack: 3
   _normalSpeed: 1.5
   Player: {fileID: 0}
   GunScript: {fileID: 6106342391858539994}
-  distance: 6
+  distance: 9
   _NearPlayer: 0
 --- !u!114 &3827799616913649303
 MonoBehaviour:

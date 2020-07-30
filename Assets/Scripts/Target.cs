@@ -26,18 +26,18 @@ public class Target : MonoBehaviour
 
 	private void FixedUpdate ()
     {
-        if (_NearPlayer)
+        if (!_NearPlayer)
         {
-            return;
-        }
-        if (Player.transform.position.x + Player.transform.position.z - transform.position.x - transform.position.z > distance)
-        {
-            _pathFollower.speed = _speedBeforAttack;
-        }
-        else
-        {
-            _pathFollower.speed = _normalSpeed;
-            _NearPlayer = true;
+            if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > distance)
+            {
+                _pathFollower.speed = _speedBeforAttack;
+            }
+            else
+            {
+                StartCoroutine(Speed());
+                _pathFollower.speed = _normalSpeed;
+                _NearPlayer = true;
+            }
         }
 	}
 
@@ -72,5 +72,26 @@ public class Target : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayBeforeStart);
         _pathFollower.enabled = true;
+    }
+
+    IEnumerator Speed()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.45f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.55f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.47f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.52f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.4f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.52f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.5f;
+        }
     }
 }
