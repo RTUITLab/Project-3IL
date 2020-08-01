@@ -1207,11 +1207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.245
+      value: 0.132
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.725
+      value: -2.485
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1231,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1704,7 +1704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312291932}
   m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.53, z: 0}
+  m_LocalPosition: {x: 0, y: 3.53, z: -63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1709346023}
@@ -3260,7 +3260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1379937825}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 19.711, y: 139.242, z: 0}
 --- !u!108 &807380081
 Light:
@@ -3400,7 +3400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1379937825}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 11.7560005, y: 193.72899, z: 15.934001}
 --- !u!108 &834796611
 Light:
@@ -4760,6 +4760,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d327e8f12ce4e4791dd8fc0a10aa34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1858253819368010508, guid: b6d327e8f12ce4e4791dd8fc0a10aa34,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4915,7 +4920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmmoText: {fileID: 724405926}
-  HP: 1000
+  HP: 3000
   EndGamePanel: {fileID: 880983331}
 --- !u!114 &1379937831
 MonoBehaviour:
