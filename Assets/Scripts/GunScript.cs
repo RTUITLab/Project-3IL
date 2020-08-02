@@ -32,7 +32,12 @@ public class GunScript : MonoBehaviour
     public Animator WeaponAnimator;
     #endregion
 
-	private void Start ()
+    private void Awake()
+    {
+        _ammoText = GameObject.Find("AmmoText").GetComponent<TMP_Text>();
+    }
+
+    private void Start ()
     {
         isReloading = false;
         WeaponAnimator.SetBool("Reloading", false);

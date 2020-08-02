@@ -3,24 +3,27 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] TMP_Text AmmoText = null;
-    public int HP = 1000;
-    public GameObject EndGamePanel;
-    
+    [SerializeField] TMP_Text HPText = null;
+    public int HP = 3000;
+
+    private void Awake()
+    {
+        HPText = GameObject.Find("HPText").GetComponent<TMP_Text>();
+    }
+
     void Start()
     {
-        AmmoText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString() + "HP";
     }
     
     public void Damage()
     {
         HP -= 20;
-        AmmoText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString() + "HP";
 
         if (HP <= 0)
         {
             HP = 0;
-            EndGamePanel.SetActive(true);
             Time.timeScale = 0;
         }
     }

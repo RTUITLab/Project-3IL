@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PathName: EnemyPath
   pathCreator: {fileID: 3827799618088767706}
   endOfPathInstruction: 2
   speed: 1.5
@@ -197,7 +198,7 @@ GameObject:
   - component: {fileID: 3827799618088767685}
   - component: {fileID: 3827799618088767706}
   m_Layer: 0
-  m_Name: Enemy Path
+  m_Name: EnemyPath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
