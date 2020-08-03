@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using PathCreation;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -9,7 +10,8 @@ public class Target : MonoBehaviour
 	[SerializeField] AudioSource thisAudioSource = null;
 	[SerializeField] GameObject Body = null;
 	[SerializeField] PathFollower _pathFollower = null;
-	[SerializeField] float _delayBeforeStart = 0;
+    [SerializeField] PathCreator[] Creators = null;
+    [SerializeField] float _delayBeforeStart = 0;
 	[SerializeField] float _speedBeforAttack = 5;
 	[SerializeField] float _normalSpeed = 1.5f;
 	public GameObject Player = null;
@@ -19,51 +21,55 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
+        int index = Random.Range(0, Creators.Length);
+        _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
         GunScript.Player = Player.transform;
     }
 
-	IEnumerator Go ()
-    {
-		yield return new WaitForSeconds (_delayBeforeStart);
-		_pathFollower.enabled = true;
-	}
-
-	//when we get damage
-	public void TakeDamage (float amount)
-    {
-		_health -= amount;
-        if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
-        {
-            _Fire.gameObject.SetActive(true);
-        }
-        else if (_health <= 0f)
-        {
-            Die();
-        }
-		Debug.Log ($"Enemy Health - {_health}");
-	}
-
 	private void FixedUpdate ()
     {
-        if (_NearPlayer)
+        if (!_NearPlayer)
         {
-            return;
-        }
-        //check distance before player, if it big, we up speed
-        if (Player.transform.position.x + Player.transform.position.z - transform.position.x - transform.position.z > distance)
-        {
-            _pathFollower.speed = _speedBeforAttack;
-        }
-        else
-        {
-            _pathFollower.speed = _normalSpeed;
-            _NearPlayer = true;
+            if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 200)
+            {
+                _pathFollower.speed = 8;
+            }
+            else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 100)
+            {
+                _pathFollower.speed = 6;
+            }
+            else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > distance)
+            {
+                _pathFollower.speed = _speedBeforAttack;
+            }
+            else
+            {
+                StartCoroutine(Speed());
+                _pathFollower.speed = _normalSpeed;
+                _NearPlayer = true;
+            }
         }
 	}
 
-	void Die ()
+    public void TakeDamage(float amount)
+    {
+        if (_health > 0)
+        {
+            _health -= amount;
+            if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
+            {
+                _Fire.gameObject.SetActive(true);
+            }
+            else if (_health <= 0f)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die ()
     {
         GunScript.enabled = false;
         SpawnEnemies.instance.Spawn();
@@ -73,4 +79,31 @@ public class Target : MonoBehaviour
 		Destroy (Body, 2f);
 		Destroy (gameObject, 2f);
 	}
+
+    IEnumerator Go()
+    {
+        yield return new WaitForSeconds(_delayBeforeStart);
+        _pathFollower.enabled = true;
+    }
+
+    IEnumerator Speed()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.45f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.55f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.47f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.52f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.4f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.52f;
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            _pathFollower.speed = 1.5f;
+        }
+    }
 }

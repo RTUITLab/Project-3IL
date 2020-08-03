@@ -1,21 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] TMP_Text _ammoText = null;
-    public int HP = 1000;
-    
+    [SerializeField] TMP_Text HPText = null;
+    public int HP = 3000;
+
+    private void Awake()
+    {
+        HPText = GameObject.Find("HPText").GetComponent<TMP_Text>();
+    }
+
     void Start()
     {
-        _ammoText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString() + "HP";
     }
     
     public void Damage()
     {
         HP -= 20;
-        _ammoText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString() + "HP";
+
+        if (HP <= 0)
+        {
+            HP = 0;
+            Time.timeScale = 0;
+        }
     }
 }
