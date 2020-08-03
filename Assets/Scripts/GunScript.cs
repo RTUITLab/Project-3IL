@@ -30,6 +30,8 @@ public class GunScript : MonoBehaviour
 	float _nextTimetoFire = 0f;
 	public AudioSource ThisAudioSource;
     public Animator WeaponAnimator;
+    public Animation WeaponAnimation;
+    public AnimationClip Shot;
     #endregion
 
     private void Awake()
@@ -104,7 +106,7 @@ public class GunScript : MonoBehaviour
 		ThisAudioSource.PlayOneShot (_shootsSound);
 		_muzzleFlash.Play ();
 		RaycastHit hit;
-
+        StartCoroutine(ShotAnimation());
         if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit))
         {
 			Target target = hit.transform.GetComponent<Target> ();
@@ -147,7 +149,13 @@ public class GunScript : MonoBehaviour
 		StartCoroutine (OffLight ());
 	}
 
-	IEnumerator OffLight ()
+    IEnumerator ShotAnimation()
+    {
+        yield return new WaitForSeconds(Shot.length);
+        WeaponAnimation.Play(Shot.name);
+    }
+
+    IEnumerator OffLight ()
     {
 		yield return new WaitForSeconds (0.05f);
 		_flashMuzzle.SetActive (false);

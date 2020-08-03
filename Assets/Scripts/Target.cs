@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using PathCreation;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -9,7 +10,8 @@ public class Target : MonoBehaviour
 	[SerializeField] AudioSource thisAudioSource = null;
 	[SerializeField] GameObject Body = null;
 	[SerializeField] PathFollower _pathFollower = null;
-	[SerializeField] float _delayBeforeStart = 0;
+    [SerializeField] PathCreator[] Creators = null;
+    [SerializeField] float _delayBeforeStart = 0;
 	[SerializeField] float _speedBeforAttack = 5;
 	[SerializeField] float _normalSpeed = 1.5f;
 	public GameObject Player = null;
@@ -19,6 +21,8 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
+        int index = Random.Range(0, Creators.Length);
+        _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
         GunScript.Player = Player.transform;
@@ -28,7 +32,15 @@ public class Target : MonoBehaviour
     {
         if (!_NearPlayer)
         {
-            if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > distance)
+            if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 200)
+            {
+                _pathFollower.speed = 8;
+            }
+            else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 100)
+            {
+                _pathFollower.speed = 6;
+            }
+            else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > distance)
             {
                 _pathFollower.speed = _speedBeforAttack;
             }
