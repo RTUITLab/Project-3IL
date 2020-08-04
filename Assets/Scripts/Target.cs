@@ -18,6 +18,7 @@ public class Target : MonoBehaviour
     public EnemyGunScript GunScript;
 	[SerializeField] float distance = 7;
 	[SerializeField] bool _NearPlayer = false;
+    public bool isLast = false;
 
     private void Start()
     {
@@ -25,7 +26,10 @@ public class Target : MonoBehaviour
         _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
-        GunScript.Player = Player.transform;
+        if (GunScript != null)
+        {
+            GunScript.Player = Player.transform;
+        }
     }
 
 	private void FixedUpdate ()
@@ -71,8 +75,14 @@ public class Target : MonoBehaviour
 
     void Die ()
     {
-        GunScript.enabled = false;
-        SpawnEnemies.instance.Spawn();
+        if (GunScript != null)
+        {
+            GunScript.enabled = false;
+        }
+        if (isLast)
+        {
+            SpawnEnemies.instance.Spawn();
+        }
 		_Explosion.gameObject.SetActive (true);
 		_Fire.Stop ();
 		thisAudioSource.Play ();
