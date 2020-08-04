@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-	[SerializeField] float _health = 100f;
-	[SerializeField] ParticleSystem _Explosion = null;
-	[SerializeField] ParticleSystem _Fire = null;
-	[SerializeField] AudioSource thisAudioSource = null;
-	[SerializeField] GameObject Body = null;
-	[SerializeField] PathFollower _pathFollower = null;
+    [SerializeField] float _health = 100f;
+    [SerializeField] ParticleSystem _Explosion = null;
+    [SerializeField] ParticleSystem _Fire = null;
+    [SerializeField] AudioSource thisAudioSource = null;
+    [SerializeField] GameObject Body = null;
+    [SerializeField] PathFollower _pathFollower = null;
     [SerializeField] PathCreator[] Creators = null;
     [SerializeField] float _delayBeforeStart = 0;
-	[SerializeField] float _speedBeforAttack = 5;
-	[SerializeField] float _normalSpeed = 1.5f;
-	public GameObject Player = null;
+    [SerializeField] float _speedBeforAttack = 5;
+    [SerializeField] float _normalSpeed = 1.5f;
+    public GameObject Player = null;
     public EnemyGunScript GunScript;
-	[SerializeField] float distance = 7;
-	[SerializeField] bool _NearPlayer = false;
+    [SerializeField] float distance = 7;
+    [SerializeField] bool _NearPlayer = false;
     public bool isLast = false;
 
     private void Start()
@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
         }
     }
 
-	private void FixedUpdate ()
+    private void FixedUpdate()
     {
         if (!_NearPlayer)
         {
@@ -55,7 +55,7 @@ public class Target : MonoBehaviour
                 _NearPlayer = true;
             }
         }
-	}
+    }
 
     public void TakeDamage(float amount)
     {
@@ -73,7 +73,7 @@ public class Target : MonoBehaviour
         }
     }
 
-    void Die ()
+    void Die()
     {
         if (GunScript != null)
         {
@@ -83,12 +83,12 @@ public class Target : MonoBehaviour
         {
             SpawnEnemies.instance.Spawn();
         }
-		_Explosion.gameObject.SetActive (true);
-		_Fire.Stop ();
-		thisAudioSource.Play ();
-		Destroy (Body, 2f);
-		Destroy (gameObject, 2f);
-	}
+        _Explosion.gameObject.SetActive(true);
+        _Fire.Stop();
+        thisAudioSource.Play();
+        Destroy(Body, 2f);
+        Destroy(gameObject, 2f);
+    }
 
     IEnumerator Go()
     {
