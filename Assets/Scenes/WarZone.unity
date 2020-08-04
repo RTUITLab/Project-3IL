@@ -1066,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 8661044637608370448, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8661044637608370448, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
