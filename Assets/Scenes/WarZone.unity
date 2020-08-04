@@ -913,6 +913,46 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 223333068040263313, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 223333068040263313, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223333068040263313, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 223333068040263313, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252465421577519727, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Name
+      value: FoneMusicWar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055337199678756687, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: _musicClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2055337199678756687, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: _musicClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c7c005e87013da4ebbf700111fee47e, type: 3}
+    - target: {fileID: 2055337199678756687, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: _musicClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c58bc2ba7c332e4d838e5ddd29d2a69, type: 3}
     - target: {fileID: 2131557191319503188, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_IsActive
@@ -966,7 +1006,7 @@ PrefabInstance:
     - target: {fileID: 3350108734814007600, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3350108734814007600, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
@@ -982,6 +1022,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045543725982108473, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a67ebb83afaf13a449e632c811f123c4, type: 3}
+    - target: {fileID: 5045543725982108473, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5045543725982108473, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228141959124631522, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228141959124631522, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443139884870269428, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443139884870269428, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443139884870269428, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661044637608370448, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661044637608370448, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661044637608370448, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2400bb4ddd7a3d46aa5133659bf8ada, type: 3}

@@ -16604,6 +16604,8 @@ MonoBehaviour:
   _impactForce: 30
   ThisAudioSource: {fileID: 2906385290753192821}
   WeaponAnimator: {fileID: 2906385290753192820}
+  WeaponAnimation: {fileID: 0}
+  Shot: {fileID: 0}
 --- !u!1 &2906385290914151513
 GameObject:
   m_ObjectHideFlags: 0
@@ -17727,7 +17729,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3905548bcd11ca847ad8f820b65cf453, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a67ebb83afaf13a449e632c811f123c4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -17872,6 +17874,8 @@ MonoBehaviour:
   _impactForce: 30
   ThisAudioSource: {fileID: 2906385289094791802}
   WeaponAnimator: {fileID: 2906385289094791803}
+  WeaponAnimation: {fileID: 0}
+  Shot: {fileID: 0}
 --- !u!1 &7488457029494211781
 GameObject:
   m_ObjectHideFlags: 0
