@@ -69479,6 +69479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8859127652466193987}
+  - component: {fileID: 7893315341224062810}
   m_Layer: 0
   m_Name: shooter
   m_TagString: Untagged
@@ -71152,6 +71153,7 @@ MonoBehaviour:
   - {fileID: 4520744611470444082}
   _muzzleFlash: {fileID: 4247906802050714343}
   Player: {fileID: 0}
+  animator: {fileID: 7893315341224062810}
   Spread: 0.01
   _fireRate: 2
 --- !u!1 &8568499719484435781

@@ -17,6 +17,7 @@ public class EnemyGunScript : MonoBehaviour
     [Header("Other")]
     public Transform Player;
     AudioSource _ThisAudioSource = null;
+    [SerializeField] Animator animator;
     [SerializeField] float Spread = 0f;
     [SerializeField] float _fireRate = 30;
     float _nextTimetoFire = 0f;
@@ -36,6 +37,7 @@ public class EnemyGunScript : MonoBehaviour
                 float buff = _fireRate / 2;
                 _nextTimetoFire = Time.time + 1f / Random.Range(_fireRate - buff, _fireRate + buff);
                 Shoot();
+                StartCoroutine(Shot());
             }
         }
     }
@@ -86,6 +88,25 @@ public class EnemyGunScript : MonoBehaviour
             }
         }
         StartCoroutine(OffLight());
+    }
+
+    void Reload()
+    {
+        StartCoroutine(ReloadWeapon());
+    }
+
+    IEnumerator Shot()
+    {
+        animator.SetBool("Shooting", true);
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Shooting", false);
+    }
+
+    IEnumerator ReloadWeapon()
+    {
+        animator.SetBool("Reloading", true);
+        yield return new WaitForSeconds(1);
+        animator.SetBool("Reloading", false);
     }
 
     IEnumerator OffLight()
