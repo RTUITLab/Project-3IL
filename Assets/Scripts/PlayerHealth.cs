@@ -6,20 +6,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] TMP_Text HPText = null;
     public int HP = 3000;
 
-    private void Awake()
-    {
-        HPText = GameObject.Find("HPText").GetComponent<TMP_Text>();
-    }
-
     void Start()
     {
-        HPText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString();
     }
-    
+
     public void Damage()
     {
         HP -= 20;
-        HPText.text = HP.ToString() + "HP";
+        HPText.text = HP.ToString();
 
         if (HP <= 0)
         {

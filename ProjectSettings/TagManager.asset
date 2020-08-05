@@ -9,7 +9,8 @@ TagManager:
   - Sand
   - Metal
   - Stone
-  - ZIL_path
+  - PlayerObject
+  - Blood
   layers:
   - Default
   - TransparentFX

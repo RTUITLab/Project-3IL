@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-	[SerializeField] float _health = 100f;
-	[SerializeField] ParticleSystem _Explosion = null;
-	[SerializeField] ParticleSystem _Fire = null;
-	[SerializeField] AudioSource thisAudioSource = null;
-	[SerializeField] GameObject Body = null;
-	[SerializeField] PathFollower _pathFollower = null;
+    [SerializeField] float _health = 100f;
+    [SerializeField] ParticleSystem _Explosion = null;
+    [SerializeField] ParticleSystem _Fire = null;
+    [SerializeField] AudioSource thisAudioSource = null;
+    [SerializeField] GameObject Body = null;
+    [SerializeField] PathFollower _pathFollower = null;
     [SerializeField] PathCreator[] Creators = null;
     [SerializeField] float _delayBeforeStart = 0;
-	[SerializeField] float _speedBeforAttack = 5;
-	[SerializeField] float _normalSpeed = 1.5f;
-	public GameObject Player = null;
+    [SerializeField] float _speedBeforAttack = 5;
+    [SerializeField] float _normalSpeed = 1.5f;
+    public GameObject Player = null;
     public EnemyGunScript GunScript;
-	[SerializeField] float distance = 7;
-	[SerializeField] bool _NearPlayer = false;
+    [SerializeField] float distance = 7;
+    [SerializeField] bool _NearPlayer = false;
+    [SerializeField] VoiceEnemy _voiceEnemy = null;
+    public bool isLast = false;
 
     private void Start()
     {
@@ -25,10 +27,9 @@ public class Target : MonoBehaviour
         _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
-        GunScript.Player = Player.transform;
     }
 
-	private void FixedUpdate ()
+    private void FixedUpdate()
     {
         if (!_NearPlayer)
         {
@@ -51,10 +52,13 @@ public class Target : MonoBehaviour
                 _NearPlayer = true;
             }
         }
-	}
+    }
 
     public void TakeDamage(float amount)
     {
+        //with 15% chance, terrorist say something
+        if (Random.Range(0, 100) < 15)
+            _voiceEnemy.PlayVoice();
         if (_health > 0)
         {
             _health -= amount;
@@ -69,16 +73,22 @@ public class Target : MonoBehaviour
         }
     }
 
-    void Die ()
+    void Die()
     {
-        GunScript.enabled = false;
-        SpawnEnemies.instance.Spawn();
-		_Explosion.gameObject.SetActive (true);
-		_Fire.Stop ();
-		thisAudioSource.Play ();
-		Destroy (Body, 2f);
-		Destroy (gameObject, 2f);
-	}
+        if (GunScript != null)
+        {
+            GunScript.enabled = false;
+        }
+        if (isLast)
+        {
+            SpawnEnemies.instance.Spawn();
+        }
+        _Explosion.gameObject.SetActive(true);
+        _Fire.Stop();
+        thisAudioSource.Play();
+        Destroy(Body, 2f);
+        Destroy(gameObject, 2f);
+    }
 
     IEnumerator Go()
     {
