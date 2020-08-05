@@ -886,11 +886,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5045543725982108473, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5957360660791194859, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: _topBoxAnimation
       value: 
       objectReference: {fileID: 1302824404}
+    - target: {fileID: 7443139884870269428, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7804610675582351337, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_LocalRotation.x

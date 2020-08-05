@@ -18,6 +18,7 @@ public class Target : MonoBehaviour
     public EnemyGunScript GunScript;
     [SerializeField] float distance = 7;
     [SerializeField] bool _NearPlayer = false;
+    [SerializeField] VoiceEnemy _voiceEnemy=null;
     public bool isLast = false;
 
     private void Start()
@@ -59,6 +60,9 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        //with 15% chance, terrorist say something
+        if (Random.Range (0, 100) < 15)
+            _voiceEnemy.PlayVoice ();
         if (_health > 0)
         {
             _health -= amount;
