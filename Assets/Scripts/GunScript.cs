@@ -139,6 +139,7 @@ public class GunScript : MonoBehaviour
             {
                 GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
                 Impact.transform.parent = hit.transform;
+                hit.transform.GetComponent<TransferDamage>().Damage(_damage);
             }
             if (hit.transform.tag == "Player")
             {

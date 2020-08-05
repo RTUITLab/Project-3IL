@@ -25338,6 +25338,7 @@ GameObject:
   - component: {fileID: 3942605918723485061}
   - component: {fileID: 5080503992092755261}
   - component: {fileID: 7137628746625716961}
+  - component: {fileID: 6863675495723614570}
   m_Layer: 0
   m_Name: Driver_LODGroup
   m_TagString: Blood
@@ -25433,6 +25434,19 @@ LODGroup:
     - renderer: {fileID: 3745807156236217543}
     - renderer: {fileID: 7028667424382202291}
   m_Enabled: 1
+--- !u!114 &6863675495723614570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486650540130884388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3827799616913649300}
 --- !u!1 &4492388451359954652
 GameObject:
   m_ObjectHideFlags: 0
@@ -29347,6 +29361,7 @@ GameObject:
   - component: {fileID: 4104732266885932745}
   - component: {fileID: 2828178773167409478}
   - component: {fileID: 5571379684178037162}
+  - component: {fileID: 2082380087645167605}
   m_Layer: 0
   m_Name: shooter_LODGroup
   m_TagString: Blood
@@ -29527,6 +29542,19 @@ CapsuleCollider:
   m_Height: 1.1901375
   m_Direction: 1
   m_Center: {x: 0.1911952, y: 0.277066, z: 0.042851165}
+--- !u!114 &2082380087645167605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5764542202654633920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3827799616913649300}
 --- !u!1 &5769140681487473590
 GameObject:
   m_ObjectHideFlags: 0
@@ -29740,7 +29768,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25e642c9db90319499f63f2eeb8c0fe9, type: 2}
+  - {fileID: 2100000, guid: 28d8cb8068c3374459a0016d4c3f1926, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36339,7 +36367,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 25e642c9db90319499f63f2eeb8c0fe9, type: 2}
-  - {fileID: 5629084884208175553, guid: beaf840339f528b428916720b884084d, type: 3}
+  - {fileID: 2100000, guid: 28d8cb8068c3374459a0016d4c3f1926, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -50631,15 +50659,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a990e3ac1318b834488c784d851f42a9, type: 3}
---- !u!198 &1680605124465579058 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198706150799401992, guid: a990e3ac1318b834488c784d851f42a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1554664654401024058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1557598951225544744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4209731392266258, guid: a990e3ac1318b834488c784d851f42a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554664654401024058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1680605124465579058 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198706150799401992, guid: a990e3ac1318b834488c784d851f42a9,
     type: 3}
   m_PrefabInstance: {fileID: 1554664654401024058}
   m_PrefabAsset: {fileID: 0}
@@ -50978,12 +51006,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
---- !u!198 &4755530787179258835 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  m_PrefabInstance: {fileID: 4845235431905651995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4841981259175953709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
@@ -50993,6 +51015,12 @@ Transform:
 --- !u!1 &4845380908266757281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 4845235431905651995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4755530787179258835 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   m_PrefabInstance: {fileID: 4845235431905651995}
   m_PrefabAsset: {fileID: 0}
