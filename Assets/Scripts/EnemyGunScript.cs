@@ -13,9 +13,8 @@ public class EnemyGunScript : MonoBehaviour
     [SerializeField] GameObject _flashMuzzle = null;
     [SerializeField] Light[] _muzzleFlashLight = null;
     [SerializeField] ParticleSystem _muzzleFlash = null;
-    [Header ("Others")]
+    [Header ("Other")]
     public Transform Player;
-    [SerializeField] float _range = 100f;
     AudioSource _ThisAudioSource = null;
     [SerializeField] float Spread = 0f;
     [SerializeField] float _fireRate = 30;
@@ -32,17 +31,13 @@ public class EnemyGunScript : MonoBehaviour
         {
             if (Time.time >= _nextTimetoFire)
             {
-                var buff = _fireRate / 2;
+                float buff = _fireRate / 2;
                 _nextTimetoFire = Time.time + 1f / Random.Range(_fireRate - buff, _fireRate + buff);
                 Shoot();
             }
         }
     }
 
-    /// <summary>
-    /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
-    /// </summary>
-    ///  enemy look at player
     void FixedUpdate()
     {
         transform.LookAt(Player);
@@ -50,23 +45,17 @@ public class EnemyGunScript : MonoBehaviour
 
     void Shoot ()
     {
-        //make random color of orange light
-        float changeLightGreen = Random.Range (100, 200);
+        float changeLightGreen = Random.Range (100, 200); //make random color of orange light
         changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
         {
             _muzzleFlashLight[i].color = new Color(_muzzleFlashLight[i].color.r, changeLightGreen, _muzzleFlashLight[i].color.b);
         }
-        //turn on light
-        _flashMuzzle.SetActive (true);
-        //play shoot sound
-        _ThisAudioSource.PlayOneShot (_shootsSound);
-        //play partical
+        _flashMuzzle.SetActive(true);
+        _ThisAudioSource.PlayOneShot(_shootsSound);
         _muzzleFlash.Play ();
         RaycastHit hit;
-        Vector3 spread = new Vector3 (Random.Range (0, Spread), Random.Range (0, Spread), Random.Range (0, Spread));
-        Debug.DrawRay(transform.position, transform.forward + spread, Color.red);
-        if (Physics.Raycast(transform.position, transform.forward + spread,  out hit, _range))
+        if (Physics.Raycast(transform.position, transform.forward,  out hit))
         {
             Debug.Log (hit.transform.name);
             if (hit.transform.tag == "Player")
@@ -89,9 +78,6 @@ public class EnemyGunScript : MonoBehaviour
                 Impact.transform.parent = hit.transform;
             }
         }
-        //add spread
-        // _WithTimeMoreSpread += _SpreadTimeUp;
-        // we play bullets on floor sound with 5% chance
         StartCoroutine (OffLight ());
     }
 
