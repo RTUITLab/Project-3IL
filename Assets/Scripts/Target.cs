@@ -27,10 +27,6 @@ public class Target : MonoBehaviour
         _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
-        if (GunScript != null)
-        {
-            GunScript.Player = Player.transform;
-        }
     }
 
     private void FixedUpdate()

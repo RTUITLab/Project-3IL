@@ -23,6 +23,7 @@ public class EnemyGunScript : MonoBehaviour
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _ThisAudioSource = gameObject.GetComponent<AudioSource>();
     }
     private void Update ()
