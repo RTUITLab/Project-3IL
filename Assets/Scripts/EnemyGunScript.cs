@@ -4,16 +4,17 @@ using UnityEngine;
 public class EnemyGunScript : MonoBehaviour
 {
     #region Settings
-    [Header ("Audio")]
+    [Header("Audio")]
     [SerializeField] AudioClip _shootsSound = null;
-    [Header ("Effects")]
+    [Header("Effects")]
     [SerializeField] GameObject SandImpact = null;
     [SerializeField] GameObject StoneImpact = null;
     [SerializeField] GameObject MetalImpact = null;
+    [SerializeField] GameObject BloodImpact = null;
     [SerializeField] GameObject _flashMuzzle = null;
     [SerializeField] Light[] _muzzleFlashLight = null;
     [SerializeField] ParticleSystem _muzzleFlash = null;
-    [Header ("Other")]
+    [Header("Other")]
     public Transform Player;
     AudioSource _ThisAudioSource = null;
     [SerializeField] float Spread = 0f;
@@ -26,7 +27,7 @@ public class EnemyGunScript : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _ThisAudioSource = gameObject.GetComponent<AudioSource>();
     }
-    private void Update ()
+    private void Update()
     {
         if (Vector3.Distance(gameObject.transform.position, Player.transform.position) < 40)
         {
@@ -44,9 +45,9 @@ public class EnemyGunScript : MonoBehaviour
         transform.LookAt(Player);
     }
 
-    void Shoot ()
+    void Shoot()
     {
-        float changeLightGreen = Random.Range (100, 200); //make random color of orange light
+        float changeLightGreen = Random.Range(100, 200); //make random color of orange light
         changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
         {
@@ -54,11 +55,11 @@ public class EnemyGunScript : MonoBehaviour
         }
         _flashMuzzle.SetActive(true);
         _ThisAudioSource.PlayOneShot(_shootsSound);
-        _muzzleFlash.Play ();
+        _muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward,  out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out hit))
         {
-//           Debug.Log (hit.transform.name);
+            //           Debug.Log (hit.transform.name);
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<PlayerHealth>().Damage();
@@ -73,18 +74,23 @@ public class EnemyGunScript : MonoBehaviour
                 GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
                 Impact.transform.parent = hit.transform;
             }
+            else if (hit.collider.tag == "Blood")
+            {
+                GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
+            }
             else if (hit.collider.tag == "Metal")
             {
                 GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
                 Impact.transform.parent = hit.transform;
             }
         }
-        StartCoroutine (OffLight ());
+        StartCoroutine(OffLight());
     }
 
-    IEnumerator OffLight ()
+    IEnumerator OffLight()
     {
-        yield return new WaitForSeconds (0.05f);
-        _flashMuzzle.SetActive (false);
+        yield return new WaitForSeconds(0.05f);
+        _flashMuzzle.SetActive(false);
     }
 }

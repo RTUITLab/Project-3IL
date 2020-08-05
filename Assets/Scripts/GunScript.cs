@@ -3,33 +3,33 @@ using TMPro;
 using UnityEngine;
 public class GunScript : MonoBehaviour
 {
-	#region Settings
-	[Header ("Audio")]
-	[SerializeField] AudioClip _realodSound = null;
-	[SerializeField] AudioClip _shootsSound = null;
-	[SerializeField] AudioClip _missSound = null;
-	[SerializeField] AudioClip _EmptySound = null;
-	[SerializeField] AudioClip[] _bulletsOnFloorSound = null;
-	[Header ("Effects")]
-	[SerializeField] GameObject SandImpact = null;
+    #region Settings
+    [Header("Audio")]
+    [SerializeField] AudioClip _realodSound = null;
+    [SerializeField] AudioClip _shootsSound = null;
+    [SerializeField] AudioClip _missSound = null;
+    [SerializeField] AudioClip _EmptySound = null;
+    [SerializeField] AudioClip[] _bulletsOnFloorSound = null;
+    [Header("Effects")]
+    [SerializeField] GameObject SandImpact = null;
     [SerializeField] GameObject StoneImpact = null;
     [SerializeField] GameObject MetalImpact = null;
-    [SerializeField] GameObject BloodImpact= null;
+    [SerializeField] GameObject BloodImpact = null;
     [SerializeField] GameObject _flashMuzzle = null;
-	[SerializeField] Light[] _muzzleFlashLight = null;
-	[SerializeField] ParticleSystem _muzzleFlash = null;
-	[Header ("Others")]
-	[SerializeField] float _damage = 10f;
-	[SerializeField] int ClipSize = 30;
-	public int AmmoInPocket = 60;
-	[SerializeField] TMP_Text _ammoText = null;
-	int currentAmmo = 0;
-	bool isReloading = false;
-	[SerializeField] float _reloadTime = 1;
-	[SerializeField] float _fireRate = 30;
-	[SerializeField] float _impactForce = 30f;
-	float _nextTimetoFire = 0f;
-	public AudioSource ThisAudioSource;
+    [SerializeField] Light[] _muzzleFlashLight = null;
+    [SerializeField] ParticleSystem _muzzleFlash = null;
+    [Header("Others")]
+    [SerializeField] float _damage = 10f;
+    [SerializeField] int ClipSize = 30;
+    public int AmmoInPocket = 60;
+    [SerializeField] TMP_Text _ammoText = null;
+    int currentAmmo = 0;
+    bool isReloading = false;
+    [SerializeField] float _reloadTime = 1;
+    [SerializeField] float _fireRate = 30;
+    [SerializeField] float _impactForce = 30f;
+    float _nextTimetoFire = 0f;
+    public AudioSource ThisAudioSource;
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
@@ -41,28 +41,28 @@ public class GunScript : MonoBehaviour
         _ammoText = GameObject.Find("AmmoText").GetComponent<TMP_Text>();
     }
 
-    private void Start ()
+    private void Start()
     {
         isReloading = false;
         WeaponAnimator.SetBool("Reloading", false);
         currentAmmo = ClipSize;
-		ReloadAmmoInfo ();
-	}
+        ReloadAmmoInfo();
+    }
 
-	private void Update ()
+    private void Update()
     {
         if (isReloading)
         {
             return;
         }
-		if (Input.GetKey(KeyCode.R) && currentAmmo != 30)
+        if (Input.GetKey(KeyCode.R) && currentAmmo != 30)
         {
-			StartCoroutine (Reload ());
-			return;
-		}
-		if (Input.GetButton("Fire1") && Time.time >= _nextTimetoFire)
+            StartCoroutine(Reload());
+            return;
+        }
+        if (Input.GetButton("Fire1") && Time.time >= _nextTimetoFire)
         {
-			_nextTimetoFire = Time.time + 1f / _fireRate;
+            _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
             {
                 Shoot();
@@ -71,47 +71,47 @@ public class GunScript : MonoBehaviour
             {
                 ThisAudioSource.PlayOneShot(_EmptySound);
             }
-		}
-	}
+        }
+    }
 
-	IEnumerator Reload ()
+    IEnumerator Reload()
     {
-		isReloading = true;
-		WeaponAnimator.SetBool ("Reloading", true);
-		ThisAudioSource.PlayOneShot (_realodSound);
-		yield return new WaitForSeconds (_reloadTime - 0.25f);
-		WeaponAnimator.SetBool ("Reloading", false);
-		yield return new WaitForSeconds (0.25f);
-		AmmoInPocket -= (ClipSize - currentAmmo);
-		currentAmmo = ClipSize;
-		if (AmmoInPocket < 0)
+        isReloading = true;
+        WeaponAnimator.SetBool("Reloading", true);
+        ThisAudioSource.PlayOneShot(_realodSound);
+        yield return new WaitForSeconds(_reloadTime - 0.25f);
+        WeaponAnimator.SetBool("Reloading", false);
+        yield return new WaitForSeconds(0.25f);
+        AmmoInPocket -= (ClipSize - currentAmmo);
+        currentAmmo = ClipSize;
+        if (AmmoInPocket < 0)
         {
-			currentAmmo += AmmoInPocket;
-			AmmoInPocket = 0;
-		}
-		ReloadAmmoInfo ();
-		isReloading = false;
-	}
+            currentAmmo += AmmoInPocket;
+            AmmoInPocket = 0;
+        }
+        ReloadAmmoInfo();
+        isReloading = false;
+    }
 
-	private void Shoot ()
+    private void Shoot()
     {
-		float changeLightGreen = Random.Range (100, 200);
-		changeLightGreen /= 255;
+        float changeLightGreen = Random.Range(100, 200);
+        changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
         {
             _muzzleFlashLight[i].color = new Color(
                 _muzzleFlashLight[i].color.r, changeLightGreen, _muzzleFlashLight[i].color.b);
         }
-		currentAmmo--;
-		ReloadAmmoInfo ();
-		_flashMuzzle.SetActive (true);
-		ThisAudioSource.PlayOneShot (_shootsSound);
-		_muzzleFlash.Play ();
-		RaycastHit hit;
+        currentAmmo--;
+        ReloadAmmoInfo();
+        _flashMuzzle.SetActive(true);
+        ThisAudioSource.PlayOneShot(_shootsSound);
+        _muzzleFlash.Play();
+        RaycastHit hit;
         StartCoroutine(ShotAnimation());
         if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit))
         {
-			Target target = hit.transform.GetComponent<Target> ();
+            Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
                 target.TakeDamage(_damage);
@@ -153,8 +153,8 @@ public class GunScript : MonoBehaviour
         {
             ThisAudioSource.PlayOneShot(_missSound);
         }
-		StartCoroutine (OffLight ());
-	}
+        StartCoroutine(OffLight());
+    }
 
     IEnumerator ShotAnimation()
     {
@@ -162,11 +162,11 @@ public class GunScript : MonoBehaviour
         WeaponAnimation.Play(Shot.name);
     }
 
-    IEnumerator OffLight ()
+    IEnumerator OffLight()
     {
-		yield return new WaitForSeconds (0.05f);
-		_flashMuzzle.SetActive (false);
-	}
+        yield return new WaitForSeconds(0.05f);
+        _flashMuzzle.SetActive(false);
+    }
 
     public void ReloadAmmoInfo()
     {

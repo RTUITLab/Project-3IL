@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     {
         HPText.text = HP.ToString();
     }
-    
+
     public void Damage()
     {
         HP -= 20;
