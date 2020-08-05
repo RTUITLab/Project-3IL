@@ -32,6 +32,7 @@ public class GunScript : MonoBehaviour
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
+
     #endregion
 
     private void Awake()
