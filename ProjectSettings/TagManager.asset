@@ -10,6 +10,7 @@ TagManager:
   - Metal
   - Stone
   - PlayerObject
+  - Blood
   layers:
   - Default
   - TransparentFX

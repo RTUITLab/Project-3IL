@@ -862,6 +862,12 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 541665250506493169, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: BloodImpact
+      value: 
+      objectReference: {fileID: 1240250018707908, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
+        type: 3}
     - target: {fileID: 2681377398514379658, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_Name
@@ -937,6 +943,11 @@ PrefabInstance:
       propertyPath: _topBoxAnimation
       value: 
       objectReference: {fileID: 1302824404}
+    - target: {fileID: 7239026808327414619, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7246463899153186402, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -972,11 +983,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7804610675582351337, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109288850516647082, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: _topBoxAnimation
       value: 
       objectReference: {fileID: 1302824404}
+    - target: {fileID: 8950743609510695015, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9157158629955614155, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -987,6 +1008,12 @@ PrefabInstance:
       propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 693626004}
+    - target: {fileID: 9168925843875797284, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: BloodImpact
+      value: 
+      objectReference: {fileID: 1240250018707908, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2400bb4ddd7a3d46aa5133659bf8ada, type: 3}
 --- !u!1 &693626002

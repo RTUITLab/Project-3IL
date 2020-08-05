@@ -16193,6 +16193,7 @@ MonoBehaviour:
     type: 3}
   MetalImpact: {fileID: 1387469084834310, guid: 587ccbf764deb4c408157e67bfa29de6,
     type: 3}
+  BloodImpact: {fileID: 0}
   _flashMuzzle: {fileID: 5098761982554475971}
   _muzzleFlashLight:
   - {fileID: 5821203670169819923}
@@ -17908,6 +17909,7 @@ MonoBehaviour:
     type: 3}
   MetalImpact: {fileID: 1387469084834310, guid: 587ccbf764deb4c408157e67bfa29de6,
     type: 3}
+  BloodImpact: {fileID: 0}
   _flashMuzzle: {fileID: 8620788608436436693}
   _muzzleFlashLight:
   - {fileID: 6937694768450095233}
