@@ -14,6 +14,7 @@ public class GunScript : MonoBehaviour
 	[SerializeField] GameObject SandImpact = null;
     [SerializeField] GameObject StoneImpact = null;
     [SerializeField] GameObject MetalImpact = null;
+    [SerializeField] GameObject BloodImpact= null;
     [SerializeField] GameObject _flashMuzzle = null;
 	[SerializeField] Light[] _muzzleFlashLight = null;
 	[SerializeField] ParticleSystem _muzzleFlash = null;
@@ -132,6 +133,11 @@ public class GunScript : MonoBehaviour
             else if (hit.collider.tag == "Metal")
             {
                 GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
+            }
+            else if (hit.collider.tag == "Blood")
+            {
+                GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
                 Impact.transform.parent = hit.transform;
             }
             if (hit.transform.tag == "Player")

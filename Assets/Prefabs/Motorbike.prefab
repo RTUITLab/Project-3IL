@@ -462,7 +462,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -493,9 +493,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3827799616913649297}
   - component: {fileID: 3827799616913649301}
-  - component: {fileID: 3827799616913649302}
   - component: {fileID: 3827799616913649300}
   - component: {fileID: 3827799616913649303}
+  - component: {fileID: 3827799616913649302}
+  - component: {fileID: 8674949979174578311}
   m_Layer: 0
   m_Name: Model
   m_TagString: Metal
@@ -616,19 +617,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &3827799616913649302
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3827799616913649296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3196824, y: 1.4987516, z: 2.5741463}
-  m_Center: {x: 0.028831601, y: 0.3238144, z: 0.011100769}
 --- !u!114 &3827799616913649300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +666,33 @@ MonoBehaviour:
   pathCreator: {fileID: 3827799618088767706}
   endOfPathInstruction: 2
   speed: 1.5
+--- !u!65 &3827799616913649302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827799616913649296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.24, y: 0.67, z: 2.3878002}
+  m_Center: {x: -0.43443966, y: -0.15, z: -0.08207226}
+--- !u!136 &8674949979174578311
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827799616913649296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2741031
+  m_Height: 2.1000328
+  m_Direction: 2
+  m_Center: {x: 0.24650007, y: -0.038898647, z: -0.38706017}
 --- !u!1 &3827799618088767684
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +848,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1024,7 +1039,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1470,6 +1485,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3827799616913649297}
     m_Modifications:
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: m_audioClip
@@ -1529,6 +1549,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
       objectReference: {fileID: 0}
     - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
