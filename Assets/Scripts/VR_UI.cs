@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class VR_UI : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+    }
 
     public void Restart()
     {
