@@ -11,12 +11,13 @@ public class VoiceEnemy : MonoBehaviour {
     }
     //Play a list of voices in random order
     void PlayNextSong () {
-        _audioSource.clip = _voiceClips[Random.Range (0, _voiceClips.Length)];
-        _audioSource.Play ();
+        PlayVoice();
         Invoke ("PlayNextSong", _audioSource.clip.length + Random.Range (0, 20));
     }
     public void PlayVoice () {
+        if(_audioSource!=null){
         _audioSource.clip = _voiceClips[Random.Range (0, _voiceClips.Length)];
         _audioSource.Play ();
+        }
     }
 }
