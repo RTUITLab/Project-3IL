@@ -70,7 +70,7 @@ public class GunScript : MonoBehaviour
             Debug.Log("Shoot");
         }
 
-        if (Input.GetButton("Fire1")||(grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && Time.time >= _nextTimetoFire)
+        if ((Input.GetButton("Fire1")||(grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))) && Time.time >= _nextTimetoFire)
         {
             _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
