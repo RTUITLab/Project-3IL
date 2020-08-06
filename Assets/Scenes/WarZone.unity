@@ -1163,6 +1163,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6342190680389465983, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+        type: 3}
+      propertyPath: m_Name
+      value: GunVR
+      objectReference: {fileID: 0}
     - target: {fileID: 7171025720896134360, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
         type: 3}
       propertyPath: m_Enabled
@@ -1244,8 +1249,43 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1240250018707908, guid: 5656e7ea1f1a75d4c895547ec2b824b3,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5957360660791194859, guid: d2400bb4ddd7a3d46aa5133659bf8ada, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2400bb4ddd7a3d46aa5133659bf8ada, type: 3}
+--- !u!114 &390165914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9168925843875797284, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+    type: 3}
+  m_PrefabInstance: {fileID: 390165913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338460f0d88c814a8cd143c73bd3ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &390165915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131557191319490204, guid: d2400bb4ddd7a3d46aa5133659bf8ada,
+    type: 3}
+  m_PrefabInstance: {fileID: 390165913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390165916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390165915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdff69710c0a63946bd82e38bfb6abfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: {fileID: 390165914}
+  ReloadButton: 114
+  AddAmmo: 60
+  _topBoxAnimation: {fileID: 1302824404}
 --- !u!1 &693626002
 GameObject:
   m_ObjectHideFlags: 0

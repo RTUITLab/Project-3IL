@@ -54,10 +54,6 @@ public class GunScript : MonoBehaviour
 
     private void Update()
     {
-        if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
-        {
-            Debug.Log("Shoot");
-        }
 
         if (isReloading)
         {
@@ -68,17 +64,19 @@ public class GunScript : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= _nextTimetoFire)
+        //test
+        if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Debug.Log("Shoot");
+        }
+
+        if (Input.GetButton("Fire1")||(grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand)) && Time.time >= _nextTimetoFire)
         {
             _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
-            {
                 Shoot();
-            }
             else
-            {
                 ThisAudioSource.PlayOneShot(_EmptySound);
-            }
         }
     }
 
