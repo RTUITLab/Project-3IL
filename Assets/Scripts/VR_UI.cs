@@ -5,7 +5,7 @@ public class VR_UI : MonoBehaviour
 {
     private void Start()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 
     public void StartGame()

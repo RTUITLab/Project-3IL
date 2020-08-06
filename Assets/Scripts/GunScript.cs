@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using System.Collections;
+using Valve.VR;
+
 public class GunScript : MonoBehaviour
 {
     #region Settings
@@ -33,6 +35,7 @@ public class GunScript : MonoBehaviour
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
+    public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
 
     #endregion
 
@@ -51,6 +54,11 @@ public class GunScript : MonoBehaviour
 
     private void Update()
     {
+        if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Debug.Log("Shoot");
+        }
+
         if (isReloading)
         {
             return;
