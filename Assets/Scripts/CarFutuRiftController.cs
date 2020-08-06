@@ -23,6 +23,6 @@ public class CarFutuRiftController : MonoBehaviour
 
     private void OnDestroy()
     {
-        controller.Stop();
+        controller?.Stop();
     }
 }
