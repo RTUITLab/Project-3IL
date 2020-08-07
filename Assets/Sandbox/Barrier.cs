@@ -28,7 +28,6 @@ public class Barrier : MonoBehaviour
             if (Physics.Raycast(leftRay, out var leftHitInfo, 4, LayerMask.GetMask("Wheels")))
             {
                 leftHitInfo.collider.gameObject.GetComponent<Wheel>()?.DoBarrier(leftForce);
-                Debug.LogError("LEFT");
             }
         }
         if (right)
@@ -38,7 +37,6 @@ public class Barrier : MonoBehaviour
             if (Physics.Raycast(rightRay, out var rightHitInfo, 4, LayerMask.GetMask("Wheels")))
             {
                 rightHitInfo.collider.gameObject.GetComponent<Wheel>()?.DoBarrier(rightForce);
-                Debug.LogError("RIGHT");
             }
         }
     }
