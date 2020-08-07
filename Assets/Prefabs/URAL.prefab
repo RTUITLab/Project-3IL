@@ -13270,6 +13270,7 @@ GameObject:
   - component: {fileID: 483467481454591183}
   - component: {fileID: 7773242119238038920}
   - component: {fileID: 7677815746123233606}
+  - component: {fileID: 2819634057414227527}
   m_Layer: 0
   m_Name: tire_5
   m_TagString: Untagged
@@ -13357,6 +13358,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &2819634057414227527
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785835357348590823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6943
+  m_Height: 1.388589
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1057801832206997277
 GameObject:
   m_ObjectHideFlags: 0
@@ -13369,6 +13384,7 @@ GameObject:
   - component: {fileID: 5625176045923488582}
   - component: {fileID: 6752090069069947436}
   - component: {fileID: 7153786326840376645}
+  - component: {fileID: 37318409388449092}
   m_Layer: 0
   m_Name: tire_1
   m_TagString: Untagged
@@ -13456,6 +13472,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &37318409388449092
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057801832206997277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69429946
+  m_Height: 1.388589
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1166232620672257639
 GameObject:
   m_ObjectHideFlags: 0
@@ -14994,6 +15024,7 @@ GameObject:
   - component: {fileID: 1998134852651675754}
   - component: {fileID: 5614323374363738728}
   - component: {fileID: 3533369046578890452}
+  - component: {fileID: 7919680795442652187}
   m_Layer: 0
   m_Name: tire_7
   m_TagString: Untagged
@@ -15081,6 +15112,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &7919680795442652187
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476379999725422848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69382554
+  m_Height: 1.387628
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2479355878754224737
 GameObject:
   m_ObjectHideFlags: 0
@@ -15249,11 +15294,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3350108734814007600}
   - component: {fileID: 390165915}
-  - component: {fileID: 390165916}
   - component: {fileID: 96564617284295354}
   - component: {fileID: 5447644703590861309}
   - component: {fileID: 429135435509566889}
-  - component: {fileID: 3374960899350965384}
   - component: {fileID: 2428332296873739009}
   - component: {fileID: 3685736433362560706}
   m_Layer: 0
@@ -15306,22 +15349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPText: {fileID: 0}
   HP: 3000
---- !u!114 &390165916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2681377398514379658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PathName: URALpath
-  pathCreator: {fileID: 0}
-  endOfPathInstruction: 2
-  speed: 1.5
 --- !u!65 &96564617284295354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15361,19 +15388,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.7348852, y: 0.30491257, z: 4.433235}
   m_Center: {x: -0.010298967, y: -0.2136879, z: -1.0509567}
---- !u!65 &3374960899350965384
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2681377398514379658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.651836, y: 1.1410713, z: 2.9292116}
-  m_Center: {x: 0.0050911903, y: -0.9804554, z: -1.0640607}
 --- !u!65 &2428332296873739009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15928,6 +15942,7 @@ GameObject:
   - component: {fileID: 9203183207208139333}
   - component: {fileID: 6616919810404042909}
   - component: {fileID: 3996309999057357499}
+  - component: {fileID: 7273844901765207745}
   m_Layer: 0
   m_Name: tire_3
   m_TagString: Untagged
@@ -16015,6 +16030,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &7273844901765207745
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3480997549530147829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69382554
+  m_Height: 1.387628
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3727185760591178062
 GameObject:
   m_ObjectHideFlags: 0
@@ -16222,6 +16251,7 @@ GameObject:
   - component: {fileID: 5427271044417567063}
   - component: {fileID: 4936919128354188913}
   - component: {fileID: 6588635303139696771}
+  - component: {fileID: 1274493069704979505}
   m_Layer: 0
   m_Name: tire_2
   m_TagString: Untagged
@@ -16309,6 +16339,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &1274493069704979505
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833080504060372624}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6943
+  m_Height: 1.388589
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3833980528111297229
 GameObject:
   m_ObjectHideFlags: 0
@@ -16829,6 +16873,7 @@ GameObject:
   - component: {fileID: 3777747504879058867}
   - component: {fileID: 398445344105961023}
   - component: {fileID: 8478114952825278447}
+  - component: {fileID: 4540989829367757325}
   m_Layer: 0
   m_Name: tire_4
   m_TagString: Untagged
@@ -16916,6 +16961,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &4540989829367757325
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659876564324432224}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.69382554
+  m_Height: 1.3876289
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4670409871635500004
 GameObject:
   m_ObjectHideFlags: 0
@@ -20002,15 +20061,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
---- !u!198 &1489974466139441554 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1616008277770851528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1612976654472739036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300533007854612, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1616008277770851528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1489974466139441554 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
   m_PrefabInstance: {fileID: 1616008277770851528}
   m_PrefabAsset: {fileID: 0}
@@ -20095,9 +20154,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
---- !u!4 &2131557191319123704 stripped
+--- !u!4 &2131557191319041858 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 496744, guid: dc06161b6d97feb419f45f03b62e14b9,
+  m_CorrespondingSourceObject: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9,
     type: 3}
   m_PrefabInstance: {fileID: 2131557191319478928}
   m_PrefabAsset: {fileID: 0}
@@ -20107,21 +20166,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2131557191319478928}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2131557191319507692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131557191319478928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2131557191319120102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 494198, guid: dc06161b6d97feb419f45f03b62e14b9,
     type: 3}
   m_PrefabInstance: {fileID: 2131557191319478928}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2131557191319041858 stripped
+--- !u!4 &2131557191319123704 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2131557191319478928}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2131557191319507692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 110716, guid: dc06161b6d97feb419f45f03b62e14b9,
+  m_CorrespondingSourceObject: {fileID: 496744, guid: dc06161b6d97feb419f45f03b62e14b9,
     type: 3}
   m_PrefabInstance: {fileID: 2131557191319478928}
   m_PrefabAsset: {fileID: 0}
@@ -20222,6 +20281,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+--- !u!198 &5529048367210322669 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234346748616026, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5655224965301913527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5653181277159484323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4300533007854612, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
