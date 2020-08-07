@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using System.Collections;
+using Valve.VR;
+
 public class GunScript : MonoBehaviour
 {
     #region Settings
@@ -33,6 +35,7 @@ public class GunScript : MonoBehaviour
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
+    public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
 
     #endregion
 
@@ -51,6 +54,7 @@ public class GunScript : MonoBehaviour
 
     private void Update()
     {
+
         if (isReloading)
         {
             return;
@@ -60,17 +64,19 @@ public class GunScript : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButton("Fire1") && Time.time >= _nextTimetoFire)
+        //test
+        if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
+        {
+            Debug.Log("Shoot");
+        }
+
+        if ((Input.GetButton("Fire1")||(grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))) && Time.time >= _nextTimetoFire)
         {
             _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
-            {
                 Shoot();
-            }
             else
-            {
                 ThisAudioSource.PlayOneShot(_EmptySound);
-            }
         }
     }
 
@@ -139,6 +145,7 @@ public class GunScript : MonoBehaviour
             {
                 GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
                 Impact.transform.parent = hit.transform;
+                hit.transform.GetComponent<TransferDamage>().Damage(_damage);
             }
             if (hit.transform.tag == "Player")
             {

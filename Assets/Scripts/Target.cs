@@ -60,7 +60,9 @@ public class Target : MonoBehaviour
     {
         //with 15% chance, terrorist say something
         if (Random.Range(0, 100) < 15)
+        {
             _voiceEnemy.PlayVoice();
+        }
         if (_health > 0)
         {
             _health -= amount;
