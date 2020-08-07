@@ -9,6 +9,7 @@ public class PathFollower : MonoBehaviour {
     [SerializeField] EndOfPathInstruction endOfPathInstruction;
     public float speed = 5;
     float distanceTravelled;
+    public bool needRotate;
     private void Awake()
     {
         pathCreator = GameObject.Find(PathName).GetComponent<PathCreator>();
@@ -23,7 +24,16 @@ public class PathFollower : MonoBehaviour {
         if (pathCreator != null) {
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance (distanceTravelled, endOfPathInstruction);
-            transform.rotation = pathCreator.path.GetRotationAtDistance (distanceTravelled, endOfPathInstruction);
+            if (needRotate)
+            {
+                var euler = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
+                euler = new Vector3(euler.x, euler.y, euler.z + 90);
+                transform.rotation = Quaternion.Euler(euler);
+            }
+            else
+            {
+                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+            }
         }
     }
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path

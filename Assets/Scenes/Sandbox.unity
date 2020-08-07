@@ -902,11 +902,6 @@ PrefabInstance:
       propertyPath: m_Spring
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 8435638921030732577, guid: a969c70eb8da3984aa6198053dfc30fe,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.35
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a969c70eb8da3984aa6198053dfc30fe, type: 3}
 --- !u!1 &506452333 stripped
@@ -931,6 +926,7 @@ MonoBehaviour:
   pathCreator: {fileID: 2101632940}
   endOfPathInstruction: 0
   speed: 5
+  needRotate: 0
 --- !u!1 &593074101
 GameObject:
   m_ObjectHideFlags: 0
