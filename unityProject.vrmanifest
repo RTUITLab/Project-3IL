@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.project_3il.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\Users\\Student\\Desktop\\Project-3IL\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Projects\\Project-3IL\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Project_3IL [Testing]"
