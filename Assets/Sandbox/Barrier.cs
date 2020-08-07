@@ -19,10 +19,6 @@ public class Barrier : MonoBehaviour
     {
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-    }
-
     private void Update()
     {
         if (left)
@@ -31,7 +27,8 @@ public class Barrier : MonoBehaviour
             Debug.DrawLine(leftRay.origin, leftRay.origin + leftRay.direction * 4, Color.red);
             if (Physics.Raycast(leftRay, out var leftHitInfo, 4, LayerMask.GetMask("Wheels")))
             {
-                leftHitInfo.collider.gameObject.GetComponent<Wheel>().DoBarrier(leftForce);
+                leftHitInfo.collider.gameObject.GetComponent<Wheel>()?.DoBarrier(leftForce);
+                Debug.LogError("LEFT");
             }
         }
         if (right)
@@ -40,7 +37,8 @@ public class Barrier : MonoBehaviour
             Debug.DrawLine(rightRay.origin, rightRay.origin + rightRay.direction * 4, Color.red);
             if (Physics.Raycast(rightRay, out var rightHitInfo, 4, LayerMask.GetMask("Wheels")))
             {
-                rightHitInfo.collider.gameObject.GetComponent<Wheel>().DoBarrier(rightForce);
+                rightHitInfo.collider.gameObject.GetComponent<Wheel>()?.DoBarrier(rightForce);
+                Debug.LogError("RIGHT");
             }
         }
     }
