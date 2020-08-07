@@ -1,18 +1,18 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
-using System.Collections;
 using Valve.VR;
 
-public class GunScript : MonoBehaviour
-{
+public class GunScript : MonoBehaviour {
     #region Settings
-    [Header("Audio")]
+    [Header ("Audio")]
     [SerializeField] AudioClip _realodSound = null;
     [SerializeField] AudioClip _shootsSound = null;
     [SerializeField] AudioClip _missSound = null;
     [SerializeField] AudioClip _EmptySound = null;
     [SerializeField] AudioClip[] _bulletsOnFloorSound = null;
-    [Header("Effects")]
+    [SerializeField] GameObject gun = null;
+    [Header ("Effects")]
     [SerializeField] GameObject SandImpact = null;
     [SerializeField] GameObject StoneImpact = null;
     [SerializeField] GameObject MetalImpact = null;
@@ -20,7 +20,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] GameObject _flashMuzzle = null;
     [SerializeField] Light[] _muzzleFlashLight = null;
     [SerializeField] ParticleSystem _muzzleFlash = null;
-    [Header("Others")]
+    [Header ("Others")]
     [SerializeField] float _damage = 10f;
     [SerializeField] int ClipSize = 30;
     public int AmmoInPocket = 60;
@@ -30,153 +30,148 @@ public class GunScript : MonoBehaviour
     [SerializeField] float _reloadTime = 1;
     [SerializeField] float _fireRate = 30;
     [SerializeField] float _impactForce = 30f;
+    [SerializeField] Animator _topBoxAnimation = null;
+
+    Transform Selection;
     float _nextTimetoFire = 0f;
     public AudioSource ThisAudioSource;
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
-    public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
+    public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean> ("GrabPinch");
 
     #endregion
 
-    private void Awake()
-    {
-        _ammoText = GameObject.Find("AmmoText").GetComponent<TMP_Text>();
+    private void Awake () {
+        _ammoText = GameObject.Find ("AmmoText").GetComponent<TMP_Text> ();
     }
 
-    private void Start()
-    {
+    private void Start () {
         isReloading = false;
-        WeaponAnimator.SetBool("Reloading", false);
+        WeaponAnimator.SetBool ("Reloading", false);
         currentAmmo = ClipSize;
-        ReloadAmmoInfo();
+        ReloadAmmoInfo ();
     }
 
-    private void Update()
-    {
+    private void Update () {
 
-        if (isReloading)
-        {
+        if (isReloading) {
             return;
         }
-        if (Input.GetKey(KeyCode.R) && currentAmmo != 30)
-        {
-            StartCoroutine(Reload());
+        if (Input.GetKey (KeyCode.R) && currentAmmo != 30) {
+            StartCoroutine (Reload ());
             return;
         }
         //test
-        if (grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))
-        {
-            Debug.Log("Shoot");
+        if (grabPinchAction.GetStateDown (SteamVR_Input_Sources.RightHand)) {
+            Debug.Log ("Shoot");
         }
 
-        if ((Input.GetButton("Fire1")||(grabPinchAction.GetStateDown(SteamVR_Input_Sources.RightHand))) && Time.time >= _nextTimetoFire)
-        {
+        if ((Input.GetButton ("Fire1") || (grabPinchAction.GetStateDown (SteamVR_Input_Sources.RightHand))) && Time.time >= _nextTimetoFire) {
             _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
-                Shoot();
+                Shoot ();
             else
-                ThisAudioSource.PlayOneShot(_EmptySound);
+                ThisAudioSource.PlayOneShot (_EmptySound);
         }
+        RaycastHit hit;
+        if (Selection != null) {
+            _topBoxAnimation.SetBool ("TopBox", false);
+            Selection = null;
+        }
+        if (Physics.Raycast (gameObject.transform.position, gun.transform.forward, out hit)) {
+            Transform selection = hit.transform;
+            if (selection.CompareTag ("Selectable")) {
+                _topBoxAnimation.SetBool ("TopBox", true);
+                if (Input.GetKey (KeyCode.R)) {
+                    AmmoInPocket = 60;
+                    ReloadAmmoInfo ();
+                }
+                Selection = selection;
+
+            }
+        }
+
     }
 
-    IEnumerator Reload()
-    {
+    IEnumerator Reload () {
         isReloading = true;
-        WeaponAnimator.SetBool("Reloading", true);
-        ThisAudioSource.PlayOneShot(_realodSound);
-        yield return new WaitForSeconds(_reloadTime - 0.25f);
-        WeaponAnimator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(0.25f);
+        WeaponAnimator.SetBool ("Reloading", true);
+        ThisAudioSource.PlayOneShot (_realodSound);
+        yield return new WaitForSeconds (_reloadTime - 0.25f);
+        WeaponAnimator.SetBool ("Reloading", false);
+        yield return new WaitForSeconds (0.25f);
         AmmoInPocket -= (ClipSize - currentAmmo);
         currentAmmo = ClipSize;
-        if (AmmoInPocket < 0)
-        {
+        if (AmmoInPocket < 0) {
             currentAmmo += AmmoInPocket;
             AmmoInPocket = 0;
         }
-        ReloadAmmoInfo();
+        ReloadAmmoInfo ();
         isReloading = false;
     }
 
-    private void Shoot()
-    {
-        float changeLightGreen = Random.Range(100, 200);
+    private void Shoot () {
+        float changeLightGreen = Random.Range (100, 200);
         changeLightGreen /= 255;
-        for (int i = 0; i < _muzzleFlashLight.Length; i++)
-        {
-            _muzzleFlashLight[i].color = new Color(
+        for (int i = 0; i < _muzzleFlashLight.Length; i++) {
+            _muzzleFlashLight[i].color = new Color (
                 _muzzleFlashLight[i].color.r, changeLightGreen, _muzzleFlashLight[i].color.b);
         }
         currentAmmo--;
-        ReloadAmmoInfo();
-        _flashMuzzle.SetActive(true);
-        ThisAudioSource.PlayOneShot(_shootsSound);
-        _muzzleFlash.Play();
+        ReloadAmmoInfo ();
+        _flashMuzzle.SetActive (true);
+        ThisAudioSource.PlayOneShot (_shootsSound);
+        _muzzleFlash.Play ();
         RaycastHit hit;
-        StartCoroutine(ShotAnimation());
-        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit))
-        {
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-            {
-                target.TakeDamage(_damage);
+        StartCoroutine (ShotAnimation ());
+        if (Physics.Raycast (gameObject.transform.position, gun.transform.forward, out hit)) {
+            Debug.DrawLine (gameObject.transform.position, gun.transform.forward * 1000, Color.red, 20000);
+            //  Debug.DrawRay (gameObject.transform.position, gameObject.transform.forward * 1000, Color.red, 20000);
+            Target target = hit.transform.GetComponent<Target> ();
+            if (target != null) {
+                target.TakeDamage (_damage);
             }
-            if (hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(hit.normal * _impactForce);
-            }
-            if (hit.collider.tag == "Sand")
-            {
-                GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
+            //if (hit.rigidbody != null) {
+            // hit.rigidbody.AddForce (hit.normal * _impactForce);
+            // }
+            if (hit.collider.tag == "Sand") {
+                GameObject Impact = Instantiate (SandImpact, hit.point, Quaternion.LookRotation (hit.normal));
                 Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
-            {
-                GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
+            } else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged") {
+                GameObject Impact = Instantiate (StoneImpact, hit.point, Quaternion.LookRotation (hit.normal));
                 Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Metal")
-            {
-                GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+            } else if (hit.collider.tag == "Metal") {
+                GameObject Impact = Instantiate (MetalImpact, hit.point, Quaternion.LookRotation (hit.normal));
                 Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Blood")
-            {
-                GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
+            } else if (hit.collider.tag == "Blood") {
+                GameObject Impact = Instantiate (BloodImpact, hit.point, Quaternion.LookRotation (hit.normal));
                 Impact.transform.parent = hit.transform;
-                hit.transform.GetComponent<TransferDamage>().Damage(_damage);
+                hit.transform.GetComponent<TransferDamage> ().Damage (_damage);
             }
-            if (hit.transform.tag == "Player")
-            {
-                hit.transform.GetComponent<PlayerHealth>().Damage();
+            if (hit.transform.tag == "Player") {
+                hit.transform.GetComponent<PlayerHealth> ().Damage ();
             }
         }
-        if (Random.Range(0, 100) < 5)
-        {
-            ThisAudioSource.PlayOneShot(_bulletsOnFloorSound[Random.Range(0, _bulletsOnFloorSound.Length)]);
+        if (Random.Range (0, 100) < 5) {
+            ThisAudioSource.PlayOneShot (_bulletsOnFloorSound[Random.Range (0, _bulletsOnFloorSound.Length)]);
+        } else if (Random.Range (0, 100) < 2) {
+            ThisAudioSource.PlayOneShot (_missSound);
         }
-        else if (Random.Range(0, 100) < 2)
-        {
-            ThisAudioSource.PlayOneShot(_missSound);
-        }
-        StartCoroutine(OffLight());
+        StartCoroutine (OffLight ());
     }
 
-    IEnumerator ShotAnimation()
-    {
-        yield return new WaitForSeconds(Shot.length);
-        WeaponAnimation.Play(Shot.name);
+    IEnumerator ShotAnimation () {
+        yield return new WaitForSeconds (Shot.length);
+        //   WeaponAnimation.Play(Shot.name);
     }
 
-    IEnumerator OffLight()
-    {
-        yield return new WaitForSeconds(0.05f);
-        _flashMuzzle.SetActive(false);
+    IEnumerator OffLight () {
+        yield return new WaitForSeconds (0.05f);
+        _flashMuzzle.SetActive (false);
     }
 
-    public void ReloadAmmoInfo()
-    {
-        _ammoText.text = currentAmmo.ToString() + "/" + AmmoInPocket.ToString();
+    public void ReloadAmmoInfo () {
+        _ammoText.text = currentAmmo.ToString () + "/" + AmmoInPocket.ToString ();
     }
 }
