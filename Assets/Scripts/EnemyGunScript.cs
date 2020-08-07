@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using TMPro;
 using UnityEngine;
 public class EnemyGunScript : MonoBehaviour
 {
@@ -21,6 +20,7 @@ public class EnemyGunScript : MonoBehaviour
     [SerializeField] float Spread = 0f;
     [SerializeField] float _fireRate = 30;
     float _nextTimetoFire = 0f;
+    int Ammo = 30;
     #endregion
 
     private void Start()
@@ -32,12 +32,17 @@ public class EnemyGunScript : MonoBehaviour
     {
         if (Vector3.Distance(gameObject.transform.position, Player.transform.position) < 40)
         {
-            if (Time.time >= _nextTimetoFire)
+            if (Time.time >= _nextTimetoFire && Ammo > 0)
             {
                 float buff = _fireRate / 2;
                 _nextTimetoFire = Time.time + 1f / Random.Range(_fireRate - buff, _fireRate + buff);
                 Shoot();
+                Ammo--;
                 StartCoroutine(Shot());
+            }
+            else if (Ammo <= 0)
+            {
+                StartCoroutine(ReloadWeapon());
             }
         }
     }
@@ -59,9 +64,9 @@ public class EnemyGunScript : MonoBehaviour
         _ThisAudioSource.PlayOneShot(_shootsSound);
         _muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(_flashMuzzle.transform.position, _flashMuzzle.transform.forward, out hit))
         {
-            //           Debug.Log (hit.transform.name);
+            Debug.Log (hit.transform.name);
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<PlayerHealth>().Damage();
@@ -90,11 +95,6 @@ public class EnemyGunScript : MonoBehaviour
         StartCoroutine(OffLight());
     }
 
-    void Reload()
-    {
-        StartCoroutine(ReloadWeapon());
-    }
-
     IEnumerator Shot()
     {
         animator.SetBool("Shooting", true);
@@ -104,9 +104,11 @@ public class EnemyGunScript : MonoBehaviour
 
     IEnumerator ReloadWeapon()
     {
+        animator.SetBool("Shooting", false);
         animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("Reloading", false);
+        Ammo = 30;
     }
 
     IEnumerator OffLight()

@@ -23,10 +23,12 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
+
         int index = Random.Range(0, Creators.Length);
         _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     private void FixedUpdate()
@@ -58,36 +60,41 @@ public class Target : MonoBehaviour
     {
         //with 15% chance, terrorist say something
         if (Random.Range(0, 100) < 15)
+        {
             _voiceEnemy.PlayVoice();
+        }
         if (_health > 0)
         {
             _health -= amount;
             if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
-            {
+
                 _Fire.gameObject.SetActive(true);
-            }
+
             else if (_health <= 0f)
-            {
+
                 Die();
-            }
+
         }
     }
 
     void Die()
     {
         if (GunScript != null)
-        {
+
             GunScript.enabled = false;
-        }
+
         if (isLast)
-        {
+
             SpawnEnemies.instance.Spawn();
-        }
+
         _Explosion.gameObject.SetActive(true);
         _Fire.Stop();
         thisAudioSource.Play();
-        Destroy(Body, 2f);
-        Destroy(gameObject, 2f);
+        //now it die after boom
+        //Destroy(Body, 2f);
+        Destroy(Body);
+        //disable colliders
+        Destroy(gameObject, 3f);
     }
 
     IEnumerator Go()

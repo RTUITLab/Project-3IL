@@ -1019,6 +1019,7 @@ MonoBehaviour:
   - {fileID: 4064088174940650186}
   _muzzleFlash: {fileID: 5072580936504863789}
   Player: {fileID: 0}
+  animator: {fileID: 0}
   Spread: 0.01
   _fireRate: 2
 --- !u!1 &2308259613738936082
