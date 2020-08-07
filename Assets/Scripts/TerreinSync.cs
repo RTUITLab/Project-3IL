@@ -12,9 +12,8 @@ public class TerreinSync : MonoBehaviour {
     int posYInTerrain; // position of the game object in terrain height (z axis)
     [SerializeField]
     int size = 50; // the diameter of terrain portion that will raise under the game object
-    [SerializeField]
     float desiredHeight = 0; // the height we want that portion of terrain to be
-
+    [SerializeField] float add = 0;
     void Start () {
 
         // terr = Terrain.activeTerrain;
@@ -24,7 +23,7 @@ public class TerreinSync : MonoBehaviour {
     }
 
     void Update () {
-        desiredHeight = (transform.position.y + 10) / 500;
+        desiredHeight = (transform.position.y + add) / 500;
         // get the normalized position of this game object relative to the terrain
         Vector3 tempCoord = (transform.position - terr.gameObject.transform.position);
         Vector3 coord;
