@@ -2329,10 +2329,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 1652195884529338351}
+  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
-  gun: {fileID: 5928991726478919688}
 --- !u!4 &77020903863459578
 Transform:
   m_ObjectHideFlags: 0
@@ -2514,7 +2514,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4321512991762610737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c110cc821c2a09c4b88ec71e7fe36a59, type: 3}
   m_Name: 
@@ -2690,23 +2690,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &587433754618134808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8378834845733817383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdff69710c0a63946bd82e38bfb6abfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gun: {fileID: 1652195884529338351}
-  ReloadButton: 114
-  AddAmmo: 60
-  _topBoxAnimation: {fileID: 7625533284109299334}
-  gun: {fileID: 0}
 --- !u!4 &652291914358451763
 Transform:
   m_ObjectHideFlags: 0
@@ -2892,7 +2875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3260324362207851082}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.676, y: 0.002, z: -2.468}
+  m_LocalPosition: {x: 0.489, y: 0.002, z: -2.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404437837214705954}
@@ -3237,7 +3220,7 @@ GameObject:
   - component: {fileID: 7625533284109299334}
   m_Layer: 12
   m_Name: Box_Top
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30492,10 +30475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 1652195884529338351}
+  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
-  gun: {fileID: 77020903863459578}
 --- !u!33 &6754862097626653048
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -46142,7 +46125,7 @@ GameObject:
   - component: {fileID: 8378834845735810783}
   - component: {fileID: 8378834845724287109}
   - component: {fileID: 4757151031102055794}
-  - component: {fileID: 587433754618134808}
+  - component: {fileID: 8378834845733817384}
   m_Layer: 12
   m_Name: FallbackObjects
   m_TagString: MainCamera
@@ -46150,6 +46133,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8378834845733817384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378834845733817383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdff69710c0a63946bd82e38bfb6abfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: {fileID: 7950884905045103162}
+  HighlightMaterial: {fileID: 0}
+  ReloadButton: 114
+  AddAmmo: 60
+  _topBoxAnimation: {fileID: 7625533284109299334}
 --- !u!1 &8378834845733819961
 GameObject:
   m_ObjectHideFlags: 0
@@ -46282,6 +46282,7 @@ GameObject:
   - component: {fileID: 8378834845735715475}
   - component: {fileID: 8378834845724181701}
   - component: {fileID: 8378834845725191751}
+  - component: {fileID: 8378834845733834840}
   m_Layer: 12
   m_Name: VRCamera
   m_TagString: MainCamera
@@ -46289,6 +46290,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8378834845733834840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378834845733834839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdff69710c0a63946bd82e38bfb6abfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: {fileID: 1652195884529338351}
+  HighlightMaterial: {fileID: 0}
+  ReloadButton: 114
+  AddAmmo: 60
+  _topBoxAnimation: {fileID: 7625533284109299334}
 --- !u!1 &8378834845733840045
 GameObject:
   m_ObjectHideFlags: 0
