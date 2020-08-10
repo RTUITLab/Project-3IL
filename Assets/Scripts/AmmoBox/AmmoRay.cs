@@ -16,7 +16,7 @@ public class AmmoRay : MonoBehaviour {
         }
         Ray ray = new Ray (gun.position, gun.forward);
         RaycastHit hit;
-        Debug.DrawLine (gun.position, gun.forward, Color.green, 2000);
+        // Debug.DrawLine (gun.position, gun.forward, Color.green, 2000);
         if (Physics.Raycast (ray, out hit)) {
             Transform selection = hit.transform;
             if (selection.CompareTag ("Selectable")) {

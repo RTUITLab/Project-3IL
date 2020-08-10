@@ -29737,7 +29737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartIt: 1
-  time: 3
+  time: 7
 --- !u!108 &5636698418254334048
 Light:
   m_ObjectHideFlags: 0
