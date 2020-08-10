@@ -1,14 +1,13 @@
 ﻿//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class NewFuntions : MonoBehaviour {
+public class GameManagerWarZone : MonoBehaviour {
     [SerializeField] GameObject ural;
     bool stop = false;
     void Awake () {
         Time.timeScale = 0;
     }
-    void lateUpdate()
-    {
+    void lateUpdate () {
         Time.timeScale = 0;
     }
     private void Update () {
@@ -20,10 +19,10 @@ public class NewFuntions : MonoBehaviour {
             stop = false;
         }
         if (Input.GetKeyDown (KeyCode.R) && stop == true) {
-            Debug.Log("reload game ");
+            Debug.Log ("reload game ");
             Destroy (ural);
             //SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene ("Menu");
         }
     }
 }

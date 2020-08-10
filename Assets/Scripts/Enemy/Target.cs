@@ -25,7 +25,7 @@ public class Target : MonoBehaviour
     {
 
         int index = Random.Range(0, Creators.Length);
-        _pathFollower.pathCreator = Creators[index];
+       // _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
 

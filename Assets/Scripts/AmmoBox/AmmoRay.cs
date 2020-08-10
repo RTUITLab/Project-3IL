@@ -36,7 +36,7 @@ public class AmmoRay : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Transform selection = hit.transform;
-            Debug.Log(selection.tag);
+//            Debug.Log(selection.tag);
             if (selection.CompareTag("Player"))
             {
                 //Renderer selectionRenderer = selection.GetComponent<Renderer>();
