@@ -10,7 +10,7 @@ public class LoadWarZone : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("reload game ");
-            Scene.Manager.LoadScene("WarZone");
+            SceneManager.LoadScene("WarZone");
         }
     }
 }

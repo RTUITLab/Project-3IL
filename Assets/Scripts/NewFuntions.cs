@@ -23,7 +23,7 @@ public class NewFuntions : MonoBehaviour {
             Debug.Log("reload game ");
             Destroy (ural);
             //SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-            Scene.Manager.LoadScene("Menu");
+            SceneManager.LoadScene("Menu");
         }
     }
 }
