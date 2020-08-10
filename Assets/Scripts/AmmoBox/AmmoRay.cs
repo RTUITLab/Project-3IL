@@ -2,29 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoRay : MonoBehaviour {
+public class AmmoRay : MonoBehaviour
+{
     [SerializeField] GunScript Gun = null;
+    [SerializeField] private Material HighlightMaterial = null;
+    Material DefaultMaterial = null;
     [SerializeField] KeyCode ReloadButton = KeyCode.R;
     [SerializeField] int AddAmmo = 60;
     [SerializeField] Animator _topBoxAnimation = null;
     Transform Selection;
-    [SerializeField] Transform gun;
-    private void FixedUpdate () {
-        if (Selection != null) {
-            _topBoxAnimation.SetBool ("TopBox", false);
+
+    //old method
+    //wait, for what it?
+    private Transform Camera;
+    private void Start() => Camera = gameObject.transform;
+
+    private void FixedUpdate()
+    {
+        if (Selection != null)
+        {
+            _topBoxAnimation.SetBool("TopBox", false);
+            //     var selectionRenderer = Selection.GetComponent<Renderer>();
+            //     selectionRenderer.material = DefaultMaterial;
             Selection = null;
         }
-        Ray ray = new Ray (gun.position, gun.forward);
+
+        //old method
+        Ray ray = new Ray(Camera.position, Camera.forward);
+        //new method
+        // var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
-        // Debug.DrawLine (gun.position, gun.forward, Color.green, 2000);
-        if (Physics.Raycast (ray, out hit)) {
+       // Debug.DrawRay(Camera.position, Camera.forward, Color.blue, 20);
+        if (Physics.Raycast(ray, out hit))
+        {
             Transform selection = hit.transform;
-            if (selection.CompareTag ("Selectable")) {
-                _topBoxAnimation.SetBool ("TopBox", true);
-                if (Input.GetKey (ReloadButton)) {
+            Debug.Log(selection.tag);
+            if (selection.CompareTag("Player"))
+            {
+                //Renderer selectionRenderer = selection.GetComponent<Renderer>();
+                _topBoxAnimation.SetBool("TopBox", true);
+                if (Gun.AmmoInPocket == 0 && _topBoxAnimation.GetBool("TopBox"))
+                {
                     Gun.AmmoInPocket = AddAmmo;
-                    Gun.ReloadAmmoInfo ();
+                    Gun.ReloadAmmoInfo();
                 }
+                if (Input.GetKey(ReloadButton))
+                {
+                    Gun.AmmoInPocket = AddAmmo;
+                    Gun.ReloadAmmoInfo();
+                }
+
                 Selection = selection;
             }
         }
