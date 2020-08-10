@@ -71,8 +71,10 @@ public class GunScript : MonoBehaviour {
             _nextTimetoFire = Time.time + 1f / _fireRate;
             if (currentAmmo > 0)
                 Shoot ();
-            else
+            else {
                 ThisAudioSource.PlayOneShot (_EmptySound);
+                StartCoroutine (Reload ()); // TODO For release, remove for stable release
+            }
         }
         RaycastHit hit;
         if (Selection != null) {
@@ -101,6 +103,9 @@ public class GunScript : MonoBehaviour {
         yield return new WaitForSeconds (_reloadTime - 0.25f);
         WeaponAnimator.SetBool ("Reloading", false);
         yield return new WaitForSeconds (0.25f);
+        if (AmmoInPocket == 0) { // TODO For release, remove for stable release
+            AmmoInPocket = 90;
+        }
         AmmoInPocket -= (ClipSize - currentAmmo);
         currentAmmo = ClipSize;
         if (AmmoInPocket < 0) {
@@ -126,7 +131,7 @@ public class GunScript : MonoBehaviour {
         RaycastHit hit;
         StartCoroutine (ShotAnimation ());
         if (Physics.Raycast (gameObject.transform.position, gun.transform.forward, out hit)) {
-            Debug.DrawLine (gameObject.transform.position, gun.transform.forward * 1000, Color.red, 20000);
+            // Debug.DrawLine (gameObject.transform.position, gun.transform.forward * 1000, Color.red, 20000);
             //  Debug.DrawRay (gameObject.transform.position, gameObject.transform.forward * 1000, Color.red, 20000);
             Target target = hit.transform.GetComponent<Target> ();
             if (target != null) {
