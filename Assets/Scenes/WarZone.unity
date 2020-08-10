@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f7fecbded91d74e88437066b984093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ural: {fileID: 3819256476367761981}
 --- !u!4 &39780699
 Transform:
   m_ObjectHideFlags: 0
@@ -558,7 +559,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -3101,7 +3102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1129840365558446426
 Transform:
   m_ObjectHideFlags: 0
@@ -3866,7 +3867,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: bba69720f1409344eb18b51cf06b09d5, type: 3}
+  - {fileID: 2100000, guid: 959d929612466784d904b1828dbae28e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46893,7 +46894,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 1000
+  far clip plane: 1500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -46936,7 +46937,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.05
-  far clip plane: 300
+  far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
