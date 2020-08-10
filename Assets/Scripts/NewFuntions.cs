@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class NewFuntions : MonoBehaviour {
-    [SerializeField]
+    [SerializeField] GameObject ural;
     bool stop = true;
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -22,8 +22,10 @@ public class NewFuntions : MonoBehaviour {
             Time.timeScale = 1;
             stop = false;
         }
-        if (stop && Input.GetKeyDown (KeyCode.R) && stop == true)
+        if (stop && Input.GetKeyDown (KeyCode.R) && stop == true) {
+            Destroy (ural);
             SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 
+        }
     }
 }
