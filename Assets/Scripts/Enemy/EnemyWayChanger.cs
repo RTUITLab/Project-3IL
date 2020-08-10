@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Reflection;
+using DG.Tweening;
 using UnityEngine;
 
 public class EnemyWayChanger : MonoBehaviour {
-    [SerializeField] Transform way = null;
+    public Transform way = null;
     [SerializeField] Transform FirstWheel = null;
     [Range (0f, 10f)]
     [SerializeField] float MaxDeviation = 1;
@@ -15,11 +16,13 @@ public class EnemyWayChanger : MonoBehaviour {
     float originalPositionX = 0;
     float endPositionX = 0;
     bool RightDirection = true;
+    float distance;
     Rigidbody _rigidbody = null;
     void Start () {
         originalPositionX = way.position.x;
         _rigidbody = GetComponent<Rigidbody> ();
         ChangeWay ();
+
     }
     void ChangeWay () {
         endPositionX = originalPositionX + Random.Range (-MaxDeviation, MaxDeviation);
@@ -28,9 +31,12 @@ public class EnemyWayChanger : MonoBehaviour {
         else {
             RightDirection = true;
         };
-        //var rotation = 180 * (endPositionX - way.position.x) / MaxDeviation;
-        // Debug.Log (rotation);
-        // FirstWheel.Rotate (0, 0, rotation);
+        distance=(endPositionX - way.position.x) / MaxDeviation;
+        var rotation = 30 * distance;
+        if (distance < 0)
+            distance = -distance;
+        FirstWheel.localRotation = Quaternion.Euler (0.0f, 0.0f, rotation);
+        FirstWheel.DOLocalRotate(new Vector3(0.0f, 0.0f, rotation), 0.5f);
         //Debug.Log ("endPositionX " + endPositionX);
         NowChangeWay = true;
         Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
@@ -38,7 +44,7 @@ public class EnemyWayChanger : MonoBehaviour {
     private void Update () {
         if (!NowChangeWay)
             return;
-        way.position += new Vector3 (endPositionX / animSmooth, way.position.y, way.position.z);
+        way.position += new Vector3 (endPositionX /(animSmooth), way.position.y, way.position.z);
         if (RightDirection) {
             if (way.position.x > endPositionX)
                 Chill ();
@@ -47,8 +53,7 @@ public class EnemyWayChanger : MonoBehaviour {
     }
     private void Chill () {
         NowChangeWay = false;
-        //   FirstWheel.Rotate (0, 0, FirstWheel.rotation.z);
-
+        FirstWheel.DOLocalRotate(new Vector3(0.0f, 0.0f, 0.0f), 0.5f);
     }
 
 }
