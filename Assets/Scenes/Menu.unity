@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 580626551}
   - component: {fileID: 580626550}
   m_Layer: 5
-  m_Name: Image
+  m_Name: fone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,10 +441,10 @@ RectTransform:
   m_Father: {fileID: 1045772301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 1965.6079, y: 1310.4053}
+  m_SizeDelta: {x: 45.60791, y: 230.40527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580626550
 MonoBehaviour:
@@ -519,7 +519,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.4156863, g: 0.454902, b: 0.16470589, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443"
+  m_text: "\u0421\u0442\u0430\u0440\u0442"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -834,10 +834,10 @@ MonoBehaviour:
   m_margin: {x: 272.6713, y: 171.97488, z: 194.9505, w: 332.82376}
   m_textInfo:
     textComponent: {fileID: 2053058340}
-    characterCount: 11
+    characterCount: 5
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
