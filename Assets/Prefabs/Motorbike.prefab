@@ -1561,7 +1561,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -2013,7 +2013,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 90
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -3235,6 +3235,7 @@ GameObject:
   - component: {fileID: 2180151388258742958}
   - component: {fileID: 2184571977267212369}
   - component: {fileID: 5252740544168260068}
+  - component: {fileID: 8053928699879644800}
   m_Layer: 0
   m_Name: Model
   m_TagString: Metal
@@ -3418,7 +3419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathName: URALpath
+  PathName: enemyWay
   pathCreator: {fileID: 0}
   endOfPathInstruction: 2
   speed: 1.5
@@ -3450,6 +3451,23 @@ CapsuleCollider:
   m_Height: 2.1000328
   m_Direction: 2
   m_Center: {x: 0.24650007, y: -0.038898647, z: -0.38706017}
+--- !u!114 &8053928699879644800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827799616913649296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 329dcb54dfb2f8942ba509c60c21dc8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  way: {fileID: 0}
+  FirstWheel: {fileID: 0}
+  MaxDeviation: 4
+  MaxTimeToChange: 5
+  animSmooth: 50
 --- !u!1 &3931810534997864318
 GameObject:
   m_ObjectHideFlags: 0
@@ -8657,6 +8675,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2521691610236691157}
     m_Modifications:
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -8720,36 +8768,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
@@ -8991,15 +9009,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4845235431905651995}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &4755530787179258835 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  m_PrefabInstance: {fileID: 4845235431905651995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4841981259175953709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 4845235431905651995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4755530787179258835 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   m_PrefabInstance: {fileID: 4845235431905651995}
   m_PrefabAsset: {fileID: 0}

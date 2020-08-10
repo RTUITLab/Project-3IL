@@ -22,7 +22,6 @@ public class EnemyWayChanger : MonoBehaviour {
         originalPositionX = way.position.x;
         _rigidbody = GetComponent<Rigidbody> ();
         ChangeWay ();
-
     }
     void ChangeWay () {
         endPositionX = originalPositionX + Random.Range (-MaxDeviation, MaxDeviation);
@@ -31,20 +30,18 @@ public class EnemyWayChanger : MonoBehaviour {
         else {
             RightDirection = true;
         };
-        distance=(endPositionX - way.position.x) / MaxDeviation;
+        distance = (endPositionX - way.position.x) / MaxDeviation;
         var rotation = 30 * distance;
         if (distance < 0)
             distance = -distance;
-        FirstWheel.localRotation = Quaternion.Euler (0.0f, 0.0f, rotation);
-        FirstWheel.DOLocalRotate(new Vector3(0.0f, 0.0f, rotation), 0.5f);
-        //Debug.Log ("endPositionX " + endPositionX);
+        FirstWheel.DOLocalRotate (new Vector3 (0.0f, 0.0f, rotation), 0.5f);
         NowChangeWay = true;
         Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
     }
     private void Update () {
         if (!NowChangeWay)
             return;
-        way.position += new Vector3 (endPositionX /(animSmooth), way.position.y, way.position.z);
+        way.position += new Vector3 (endPositionX / animSmooth, way.position.y, way.position.z);
         if (RightDirection) {
             if (way.position.x > endPositionX)
                 Chill ();
@@ -53,7 +50,7 @@ public class EnemyWayChanger : MonoBehaviour {
     }
     private void Chill () {
         NowChangeWay = false;
-        FirstWheel.DOLocalRotate(new Vector3(0.0f, 0.0f, 0.0f), 0.5f);
+        FirstWheel.DOLocalRotate (new Vector3 (0.0f, 0.0f, 0.0f), 0.5f);
     }
 
 }
