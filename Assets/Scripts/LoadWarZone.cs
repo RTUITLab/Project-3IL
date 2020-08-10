@@ -13,4 +13,8 @@ public class LoadWarZone : MonoBehaviour
             SceneManager.LoadScene("WarZone");
         }
     }
+    public void loadWarzone()
+    {
+        SceneManager.LoadScene("WarZone");
+    }
 }
