@@ -2,16 +2,23 @@
 using System.Reflection;
 using DG.Tweening;
 using UnityEngine;
-
+enum ChangeRotate {
+    xRotate,
+    yRotate,
+    zRotate
+}
 public class EnemyWayChanger : MonoBehaviour {
     public Transform way = null;
-    [SerializeField] Transform FirstWheel = null;
-    [Range (0f, 10f)]
-    [SerializeField] float MaxDeviation = 1;
 
-    [SerializeField] float MaxTimeToChange = 15;
+    [SerializeField] Transform[] wheels = new Transform[2];
+    [Range (0f, 10f)]
+    [SerializeField] float MaxDeviation = 5;
+    [Range (0f, 45f)]
+    [SerializeField] float MaxWheelRotate = 45;
+    [SerializeField] float MaxTimeToChange = 7;
     [Range (0.01f, 100)]
-    [SerializeField] float animSmooth = 1;
+    [SerializeField] float animSmooth = 40;
+    [SerializeField] ChangeRotate changeRotate = ChangeRotate.xRotate;
     bool NowChangeWay = false;
     float originalPositionX = 0;
     float endPositionX = 0;
@@ -31,10 +38,10 @@ public class EnemyWayChanger : MonoBehaviour {
             RightDirection = true;
         };
         distance = (endPositionX - way.position.x) / MaxDeviation;
-        var rotation = 30 * distance;
+        var rotation = MaxWheelRotate * distance;
         if (distance < 0)
             distance = -distance;
-        FirstWheel.DOLocalRotate (new Vector3 (0.0f, 0.0f, rotation), 0.5f);
+        WheelRotate (rotation, 0.5f);
         NowChangeWay = true;
         Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
     }
@@ -50,7 +57,28 @@ public class EnemyWayChanger : MonoBehaviour {
     }
     private void Chill () {
         NowChangeWay = false;
-        FirstWheel.DOLocalRotate (new Vector3 (0.0f, 0.0f, 0.0f), 0.5f);
+        WheelRotate (0, 0.5f);
     }
-
+    private void WheelRotate (float Rotate, float animSpeed) {
+        switch (changeRotate) {
+            case ChangeRotate.xRotate:
+                {
+                    for (int i = 0; i < wheels.Length; i++)
+                        wheels[i].DOLocalRotate (new Vector3 (Rotate, 0, 0), animSpeed);
+                }
+                break;
+            case ChangeRotate.yRotate:
+                {
+                    for (int i = 0; i < wheels.Length; i++)
+                        wheels[i].DOLocalRotate (new Vector3 (0, Rotate, 0), animSpeed);
+                }
+                break;
+            case ChangeRotate.zRotate:
+                {
+                    for (int i = 0; i < wheels.Length; i++)
+                        wheels[i].DOLocalRotate (new Vector3 (0, 0, Rotate), animSpeed);
+                }
+                break;
+        }
+    }
 }
