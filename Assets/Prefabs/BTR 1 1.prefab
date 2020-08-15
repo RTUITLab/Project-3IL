@@ -5062,7 +5062,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 822f8282833b91d42a96eee9aba1a7e7, type: 2}
+  - {fileID: 2100000, guid: adc272f10f135ce44bbfda876a3f5b8c, type: 2}
   - {fileID: 2100000, guid: 411e35963a6391549abb51c8209f0cc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -6205,7 +6205,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
