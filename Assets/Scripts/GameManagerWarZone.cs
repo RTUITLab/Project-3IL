@@ -7,6 +7,7 @@ public class GameManagerWarZone : MonoBehaviour {
     void Awake () {
         Time.timeScale = 0;
     }
+
     void lateUpdate () {
         Time.timeScale = 0;
     }

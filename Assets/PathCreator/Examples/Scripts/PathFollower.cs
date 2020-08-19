@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using PathCreation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 // Moves along a path at constant speed.
 // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
 public class PathFollower : MonoBehaviour {
     public string PathName = "ZILpath";
     public PathCreator pathCreator;
     [SerializeField] EndOfPathInstruction endOfPathInstruction;
+    [SerializeField] GameObject ural;
     public float speed = 5;
     float distanceTravelled;
     public bool needRotate;
@@ -32,6 +34,10 @@ public class PathFollower : MonoBehaviour {
             } else {
                 transform.rotation = pathCreator.path.GetRotationAtDistance (distanceTravelled, endOfPathInstruction);
             }
+        }
+        if (transform.position.z > 1930) {
+            SceneManager.LoadScene ("Menu");
+            Destroy (ural);
         }
     }
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path
