@@ -49,7 +49,7 @@ public class EnemyGunScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.LookAt(Player);
+        this.transform.LookAt(Player);
     }
 
     void Shoot()
