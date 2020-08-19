@@ -29849,6 +29849,7 @@ GameObject:
   - component: {fileID: 1367600535}
   - component: {fileID: 5540971906537338178}
   - component: {fileID: 5540971906537338179}
+  - component: {fileID: 5540971906537338180}
   m_Layer: 12
   m_Name: URAL
   m_TagString: Player
@@ -29885,6 +29886,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartIt: 1
   time: 7
+--- !u!114 &5540971906537338180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540971906537338177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ee1c62c905bb24ea7c9cf3d9d40b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TraumaExponent: 1
+  MaximumAngularShake: {x: 5, y: 5, z: 5}
+  MaximumTranslationShake: {x: 5, y: 5, z: 5}
 --- !u!108 &5636698418254334048
 Light:
   m_ObjectHideFlags: 0
