@@ -2547,7 +2547,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _delayBeforeStart: 3
-  _speedBeforAttack: 10
+  _speedBeforAttack: 3
   _normalSpeed: 1.5
   Player: {fileID: 0}
   GunScript: {fileID: 5868095088004369353}

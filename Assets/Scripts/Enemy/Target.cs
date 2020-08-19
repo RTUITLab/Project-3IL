@@ -37,11 +37,11 @@ public class Target : MonoBehaviour
         {
             if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 200)
             {
-                _pathFollower.speed = 8;
+                _pathFollower.speed = 50;
             }
             else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > 100)
             {
-                _pathFollower.speed = 6;
+                _pathFollower.speed = 10;
             }
             else if (Vector3.Distance(Player.transform.position, gameObject.transform.position) > distance)
             {
