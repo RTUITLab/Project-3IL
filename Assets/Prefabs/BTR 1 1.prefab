@@ -412,7 +412,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _delayBeforeStart: 3.5
-  _speedBeforAttack: 4
+  _speedBeforAttack: 10
   _normalSpeed: 1.5
   Player: {fileID: 0}
   GunScript: {fileID: 3187675665762482207}
@@ -437,6 +437,7 @@ MonoBehaviour:
   endOfPathInstruction: 2
   speed: 1.5
   needRotate: 0
+  findPathName: 0
 --- !u!65 &344332340493129292
 BoxCollider:
   m_ObjectHideFlags: 0

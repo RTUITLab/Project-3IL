@@ -10,9 +10,10 @@ public class PathFollower : MonoBehaviour {
     public float speed = 5;
     float distanceTravelled;
     public bool needRotate;
-    private void Awake()
-    {
-        pathCreator = GameObject.Find(PathName).GetComponent<PathCreator>();
+    public bool findPathName = true;
+    private void Awake () {
+        if (findPathName)
+            pathCreator = GameObject.Find (PathName).GetComponent<PathCreator> ();
     }
 
     private void start () {
@@ -24,15 +25,12 @@ public class PathFollower : MonoBehaviour {
         if (pathCreator != null) {
             distanceTravelled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance (distanceTravelled, endOfPathInstruction);
-            if (needRotate)
-            {
-                var euler = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction).eulerAngles;
-                euler = new Vector3(euler.x, euler.y, euler.z + 90);
-                transform.rotation = Quaternion.Euler(euler);
-            }
-            else
-            {
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+            if (needRotate) {
+                var euler = pathCreator.path.GetRotationAtDistance (distanceTravelled, endOfPathInstruction).eulerAngles;
+                euler = new Vector3 (euler.x, euler.y, euler.z + 90);
+                transform.rotation = Quaternion.Euler (euler);
+            } else {
+                transform.rotation = pathCreator.path.GetRotationAtDistance (distanceTravelled, endOfPathInstruction);
             }
         }
     }

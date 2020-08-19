@@ -559,7 +559,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -2177,6 +2177,7 @@ MonoBehaviour:
   endOfPathInstruction: 0
   speed: 1.5
   needRotate: 1
+  findPathName: 1
 --- !u!1001 &2042426550
 PrefabInstance:
   m_ObjectHideFlags: 0
