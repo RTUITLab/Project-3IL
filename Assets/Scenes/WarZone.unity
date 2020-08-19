@@ -559,7 +559,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -14171,6 +14171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260888978724702175}
   - component: {fileID: 4131884250871487993}
+  - component: {fileID: 3063138043021824519}
   m_Layer: 12
   m_Name: Tracker
   m_TagString: Untagged
@@ -14178,6 +14179,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3063138043021824519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063138043021824518}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f3bb7670a2e4674ea08cdaed2c6f9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObject: {fileID: 4131884250871487993}
 --- !u!4 &3104023575079011600
 Transform:
   m_ObjectHideFlags: 0
@@ -14952,12 +14966,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3063138043021824518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 2
+  index: 1
   origin: {fileID: 0}
 --- !u!33 &4145203698714645248
 MeshFilter:
