@@ -559,7 +559,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1896,6 +1896,7 @@ MonoBehaviour:
   PathName: URALpath
   pathCreator: {fileID: 155139773}
   endOfPathInstruction: 0
+  ural: {fileID: 3819256476367761981}
   speed: 1.5
   needRotate: 1
   findPathName: 1
@@ -29432,7 +29433,7 @@ GameObject:
   - component: {fileID: 5540971906537338180}
   m_Layer: 12
   m_Name: URAL
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45940,7 +45941,7 @@ GameObject:
   - component: {fileID: 8378834845724199045}
   m_Layer: 12
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

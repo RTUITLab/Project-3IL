@@ -1575,7 +1575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2823587923397018822
 Transform:
   m_ObjectHideFlags: 0
@@ -2590,6 +2590,7 @@ MonoBehaviour:
   PathName: EnemyPath
   pathCreator: {fileID: 5605647772015311547}
   endOfPathInstruction: 2
+  ural: {fileID: 0}
   speed: 1.5
   needRotate: 0
   findPathName: 0
