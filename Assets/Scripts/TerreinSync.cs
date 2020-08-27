@@ -1,38 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//https://answers.unity.com/questions/391688/how-to-set-terrain-setheights-c.html
-public class SetTerrain : MonoBehaviour {
+
+public class TerreinSync : MonoBehaviour {
+    [SerializeField]
     Terrain terr; // terrain to modify
     int hmWidth; // heightmap width
     int hmHeight; // heightmap height
 
     int posXInTerrain; // position of the game object in terrain width (x axis)
     int posYInTerrain; // position of the game object in terrain height (z axis)
-
+    [SerializeField]
     int size = 50; // the diameter of terrain portion that will raise under the game object
     float desiredHeight = 0; // the height we want that portion of terrain to be
-
+    [SerializeField] float add = 0;
     void Start () {
 
-        terr = Terrain.activeTerrain;
+        // terr = Terrain.activeTerrain;
         hmWidth = terr.terrainData.heightmapResolution;
         hmHeight = terr.terrainData.heightmapResolution;
 
     }
 
     void Update () {
+        desiredHeight = (transform.position.y + add) / 500;
 
         // get the normalized position of this game object relative to the terrain
-        Vector3 tempCoord = (transform.position - terr.gameObject.transform.position);
-        Vector3 coord;
-        coord.x = tempCoord.x / terr.terrainData.size.x;
-        coord.y = tempCoord.y / terr.terrainData.size.y;
-        coord.z = tempCoord.z / terr.terrainData.size.z;
+        Vector3 tempCoords = (transform.position - terr.gameObject.transform.position);
+        Vector3 coords;
+        coords.x = tempCoords.x / terr.terrainData.size.x;
+        coords.y = tempCoords.y / terr.terrainData.size.y;
+        coords.z = tempCoords.z / terr.terrainData.size.z;
 
         // get the position of the terrain heightmap where this game object is
-        posXInTerrain = (int) (coord.x * hmWidth);
-        posYInTerrain = (int) (coord.z * hmHeight);
+        posXInTerrain = (int) (coords.x * hmWidth);
+        posYInTerrain = (int) (coords.z * hmHeight);
 
         // we set an offset so that all the raising terrain is under this game object
         int offset = size / 2;
@@ -46,10 +48,10 @@ public class SetTerrain : MonoBehaviour {
                 heights[i, j] = desiredHeight;
 
         // go raising the terrain slowly
-        desiredHeight += Time.deltaTime;
+        //desiredHeight += Time.deltaTime;
 
         // set the new height
-        terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset, heights);
+        terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset / 20, heights);
 
     }
 
