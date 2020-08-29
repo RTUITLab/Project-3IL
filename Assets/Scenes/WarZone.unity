@@ -44753,7 +44753,7 @@ MonoBehaviour:
   _damage: 10
   ClipSize: 30
   AmmoInPocket: 60
-  _ammoText: {fileID: 0}
+  _ammoText: {fileID: 7625533284751135189}
   _reloadTime: 1.4
   _fireRate: 10
   _impactForce: 30
