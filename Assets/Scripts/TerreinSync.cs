@@ -46,10 +46,8 @@ public class TerreinSync : MonoBehaviour {
         for (int i = 0; i < size; i++)
             for (int j = 0; j < size; j++)
                 heights[i, j] = desiredHeight;
-
         // go raising the terrain slowly
         //desiredHeight += Time.deltaTime;
-
         // set the new height
         terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset / 20, heights);
 

@@ -38,7 +38,7 @@ public class EnemyGunScript : MonoBehaviour
                 _nextTimetoFire = Time.time + 1f / Random.Range(_fireRate - buff, _fireRate + buff);
                 Shoot();
                 Ammo--;
-                StartCoroutine(Shot());
+                StartCoroutine(ShootAnim());
             }
             else if (Ammo <= 0)
             {
@@ -54,6 +54,7 @@ public class EnemyGunScript : MonoBehaviour
 
     void Shoot()
     {
+        Debug.DrawLine (transform.position, Player.position, Color.blue, 1);
         float changeLightGreen = Random.Range(100, 200); //make random color of orange light
         changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
@@ -64,7 +65,7 @@ public class EnemyGunScript : MonoBehaviour
         _ThisAudioSource.PlayOneShot(_shootsSound);
         _muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(_flashMuzzle.transform.position, _flashMuzzle.transform.forward, out hit))
+        if (Physics.Raycast(transform.position, Player.position, out hit))
         {
             Debug.Log (hit.transform.name);
             if (hit.transform.tag == "Player")
@@ -95,7 +96,7 @@ public class EnemyGunScript : MonoBehaviour
         StartCoroutine(OffLight());
     }
 
-    IEnumerator Shot()
+    IEnumerator ShootAnim()
     {
         animator.SetBool("Shooting", true);
         yield return new WaitForSeconds(1);

@@ -5,7 +5,6 @@ using UnityEngine;
 public class AmmoRay : MonoBehaviour
 {
     [SerializeField] GunScript Gun = null;
-    [SerializeField] private Material HighlightMaterial = null;
     Material DefaultMaterial = null;
     [SerializeField] KeyCode ReloadButton = KeyCode.R;
     [SerializeField] int AddAmmo = 60;

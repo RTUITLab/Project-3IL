@@ -1970,7 +1970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 1652195884529338351}
-  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
@@ -2396,8 +2395,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8679245, g: 0.7372549, b: 0.29067284, a: 1}
-  m_Intensity: 0.56
-  m_Range: 1
+  m_Intensity: 3
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3763,8 +3762,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8679245, g: 0.77133507, b: 0.29067284, a: 1}
-  m_Intensity: 0.56
-  m_Range: 1
+  m_Intensity: 3
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -14490,8 +14489,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8679245, g: 0.7372549, b: 0.29067284, a: 1}
-  m_Intensity: 0.56
-  m_Range: 1
+  m_Intensity: 3
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29447,7 +29446,7 @@ GameObject:
   - component: {fileID: 5540971906537338180}
   m_Layer: 12
   m_Name: URAL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30250,7 +30249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 1652195884529338351}
-  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
@@ -30423,8 +30421,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8679245, g: 0.77133507, b: 0.29067284, a: 1}
-  m_Intensity: 0.56
-  m_Range: 1
+  m_Intensity: 3
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -45921,7 +45919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 7950884905045103162}
-  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
@@ -46078,7 +46075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 1652195884529338351}
-  HighlightMaterial: {fileID: 0}
   ReloadButton: 114
   AddAmmo: 60
   _topBoxAnimation: {fileID: 7625533284109299334}
