@@ -14,6 +14,7 @@ public class TerreinSync : MonoBehaviour {
     int size = 50; // the diameter of terrain portion that will raise under the game object
     float desiredHeight = 0; // the height we want that portion of terrain to be
     [SerializeField] float add = 0;
+    int coeffX, coeffY;
     void Start () {
 
         // terr = Terrain.activeTerrain;
@@ -49,7 +50,14 @@ public class TerreinSync : MonoBehaviour {
         // go raising the terrain slowly
         //desiredHeight += Time.deltaTime;
         // set the new height
-        terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset / 20, heights);
+        //gradus =0, y=20,x=0,
+        //gradus = 90, y=0,x=20
+        //gradus = -90,y=0,x=20
+        coeffX = (int) (20 * (transform.rotation.y));
+        Debug.Log ($"transom mod {20 * (transform.rotation.y)}");
+        coeffY = (int) (20 * (1 - transform.rotation.y));
+        //Debug.Log ($"coeffY {coeffY},coeffX {coeffX}");
+        terr.terrainData.SetHeights ((posXInTerrain), (posYInTerrain), heights);
 
     }
 
