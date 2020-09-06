@@ -312,7 +312,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 84900.516
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -435,6 +435,7 @@ MonoBehaviour:
   PathName: EnemyPath2
   pathCreator: {fileID: 4663859754453072472}
   endOfPathInstruction: 2
+  ural: {fileID: 0}
   speed: 1.5
   needRotate: 0
   findPathName: 0
@@ -449,8 +450,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.001943, y: 1.6361485, z: 3.8852234}
-  m_Center: {x: -0.00699687, y: 0.81549215, z: -0.8608017}
+  m_Size: {x: 0.7724676, y: 2.313322, z: 3.8852234}
+  m_Center: {x: 0.8103585, y: 1.154079, z: -0.8608017}
 --- !u!65 &4565691741650546184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -462,8 +463,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0503035, y: 0.95069027, z: 1.9912109}
-  m_Center: {x: 0.009048939, y: 0.68467116, z: 2.110138}
+  m_Size: {x: 0.98168707, y: 1.0690603, z: 1.9912109}
+  m_Center: {x: 0.043357134, y: 0.8497617, z: 2.110138}
 --- !u!65 &5819002177412317884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -475,8 +476,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.922604, y: 0.8705478, z: 3.6781387}
-  m_Center: {x: 0.0020120144, y: 0.14961362, z: -0.43279648}
+  m_Size: {x: 1.3956027, y: 1.8640547, z: 3.6781387}
+  m_Center: {x: -0.09680247, y: 0.8629341, z: -0.43279648}
 --- !u!136 &1732756844528870999
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -487,10 +488,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.65971947
-  m_Height: 2.6466823
-  m_Direction: 0
-  m_Center: {x: 0.020264864, y: 0, z: 2.1900082}
+  m_Radius: 0.5256243
+  m_Height: 2.5525532
+  m_Direction: 1
+  m_Center: {x: 0.73425865, y: 0.84281945, z: 2.1900082}
 --- !u!114 &344332340493129289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11384,36 +11385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3203771812325804879}
     m_Modifications:
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01
@@ -11481,6 +11452,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
