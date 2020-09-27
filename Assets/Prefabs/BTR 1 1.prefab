@@ -436,9 +436,11 @@ MonoBehaviour:
   pathCreator: {fileID: 4663859754453072472}
   endOfPathInstruction: 2
   ural: {fileID: 0}
+  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
+  maxX: 1930
 --- !u!65 &344332340493129292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -511,7 +513,8 @@ MonoBehaviour:
   MaxWheelRotate: 15
   MaxTimeToChange: 6
   animSmooth: 50
-  changeRotate: 2
+  WheelchangeRotate: 0
+  ChangeRotate: 0
 --- !u!1 &378458585795150648
 GameObject:
   m_ObjectHideFlags: 0
@@ -11244,6 +11247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveWithTransform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198706150799401992, guid: a990e3ac1318b834488c784d851f42a9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199577645087675124, guid: a990e3ac1318b834488c784d851f42a9,
         type: 3}

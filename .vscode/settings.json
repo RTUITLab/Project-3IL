@@ -52,5 +52,10 @@
         "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
-    }
+    },
+    "cSpell.words": [
+        "coeff"
+	],
+	"cmake.configureOnOpen": true,
+	"python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe"
 }

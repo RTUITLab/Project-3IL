@@ -14,6 +14,7 @@ public class TerreinSync : MonoBehaviour {
     int size = 50; // the diameter of terrain portion that will raise under the game object
     float desiredHeight = 0; // the height we want that portion of terrain to be
     [SerializeField] float add = 0;
+    int coeffX, coeffY;
     void Start () {
 
         // terr = Terrain.activeTerrain;
@@ -24,7 +25,6 @@ public class TerreinSync : MonoBehaviour {
 
     void Update () {
         desiredHeight = (transform.position.y + add) / 500;
-
         // get the normalized position of this game object relative to the terrain
         Vector3 tempCoords = (transform.position - terr.gameObject.transform.position);
         Vector3 coords;
@@ -38,7 +38,7 @@ public class TerreinSync : MonoBehaviour {
 
         // we set an offset so that all the raising terrain is under this game object
         int offset = size / 2;
-
+        //Debug.Log ($"coeffY {coeffY},coeffX {coeffX}");
         // get the heights of the terrain under this game object
         float[, ] heights = terr.terrainData.GetHeights (posXInTerrain - offset, posYInTerrain - offset, size, size);
 
@@ -49,7 +49,7 @@ public class TerreinSync : MonoBehaviour {
         // go raising the terrain slowly
         //desiredHeight += Time.deltaTime;
         // set the new height
-        terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset / 20, heights);
+        terr.terrainData.SetHeights (posXInTerrain - offset, posYInTerrain - offset, heights);
 
     }
 
