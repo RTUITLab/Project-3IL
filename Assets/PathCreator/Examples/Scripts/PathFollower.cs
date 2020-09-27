@@ -9,6 +9,8 @@ public class PathFollower : MonoBehaviour {
     public PathCreator pathCreator;
     [SerializeField] EndOfPathInstruction endOfPathInstruction;
     [SerializeField] GameObject ural;
+	[SerializeField] bool isItPlayer=false;
+
     public float speed = 5;
     float distanceTravelled;
     public bool needRotate;
@@ -36,8 +38,9 @@ public class PathFollower : MonoBehaviour {
                 transform.rotation = pathCreator.path.GetRotationAtDistance (distanceTravelled, endOfPathInstruction);
             }
         }
-        if (transform.position.z > maxX) {
+        if (transform.position.z > maxX&& isItPlayer) {
             SceneManager.LoadScene ("Menu");
+			print ($"PathFollower -> LoadScene (\"Menu\");");
             Destroy (ural);
         }
     }

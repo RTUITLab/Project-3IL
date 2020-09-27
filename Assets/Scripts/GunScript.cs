@@ -84,6 +84,7 @@ public class GunScript : MonoBehaviour {
         if (Physics.Raycast (gameObject.transform.position, gun.transform.forward, out hit)) {
             Transform selection = hit.transform;
             if (selection.CompareTag ("Selectable")) {
+
                 _topBoxAnimation.SetBool ("TopBox", true);
                 if (Input.GetKey (KeyCode.R)) {
                     AmmoInPocket = 60;
