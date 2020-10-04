@@ -1,97 +1,94 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+#region enums
 enum WheelChangeRotate {
 	xRotate,
 	yRotate,
 	zRotate
 }
-enum ChangeRotate {
-	xRotate,
-	yRotate,
-	zRotate
+
+enum WayDirection {
+	x,
+	y,
+	z
 }
+#endregion
 public class EnemyWayChanger : MonoBehaviour {
 	public Transform way = null;
 	[SerializeField] Transform[] wheels = new Transform[2];
-	[Range (0f, 10f)]
-	[SerializeField] float MaxDeviation = 5;
-	[Range (0f, 45f)]
-	[SerializeField] float MaxWheelRotate = 45;
+	[SerializeField][Range (0f, 10f)] float MaxDeviation = 5;
+	[SerializeField][Range (0f, 45f)] float MaxWheelRotate = 45;
 	[SerializeField] float MaxTimeToChange = 7;
-	[Range (0.01f, 100)]
-	[SerializeField] float animSmooth = 40;
-	[SerializeField] WheelChangeRotate WheelchangeRotate = WheelChangeRotate.xRotate;
-	[SerializeField] ChangeRotate ChangeRotate = ChangeRotate.xRotate;
-
+	[SerializeField][Range (1, 3f)] float MovementSmooth = 0.5f;
+	[SerializeField] WheelChangeRotate WheelChangeRotate = WheelChangeRotate.xRotate;
+	[SerializeField] WayDirection WayDirection = WayDirection.x;
 	bool NowChangeWay = false;
 	float originalPosition = 0;
-	float endPositionX = 0;
+	float endPosition = 0;
 	bool RightDirection = true;
 	float distance;
 	Rigidbody _rigidbody = null;
 	void Start () {
-		originalPosition = way.position.x;
+		originalPosition = WayTranformCoord ();
 		_rigidbody = GetComponent<Rigidbody> ();
 		ChangeWay ();
 	}
 	void ChangeWay () {
-		endPositionX = originalPosition + Random.Range (-MaxDeviation, MaxDeviation);
-		if (endPositionX < originalPosition)
-			RightDirection = false;
-		else
-			RightDirection = true;
-		distance = (endPositionX - way.position.x) / MaxDeviation;
-		var rotation = MaxWheelRotate * distance;
-		if (distance < 0)
-			distance = -distance;
-		WheelRotate (rotation, 0.5f);
+		// we simulate movement to the right or to the left
+		endPosition = originalPosition + Random.Range (-MaxDeviation, MaxDeviation);
+		RightDirection = endPosition < originalPosition ? false : true;
+		distance = (endPosition - WayTranformCoord ()) / MaxDeviation;
+		// we multiply by the sign of the body rotation, because otherwise the wheel turns incorrectly
+		WheelRotate ((Mathf.Abs (transform.rotation.y) / transform.rotation.y) *
+			MaxWheelRotate * distance, 0.5f);
+		distance = Mathf.Abs (distance);
 		NowChangeWay = true;
 		Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
 	}
 
+	float WayTranformCoord () {
+		// we get the current coordinate: x, y or z
+		if (WayDirection == WayDirection.x)
+			return way.position.x;
+		else if (WayDirection == WayDirection.y)
+			return way.position.y;
+		else
+			return way.position.z;
+	}
 	private void Update () {
 		if (!NowChangeWay)
 			return;
-		if (ChangeRotate == ChangeRotate.xRotate) {
-			way.position += new Vector3 (endPositionX / animSmooth, way.position.y, way.position.z);
-
-		} else if (ChangeRotate == ChangeRotate.yRotate) {
-			way.position += new Vector3 (endPositionX, way.position.y / animSmooth, way.position.z);
-
-		} else {
-			way.position += new Vector3 (endPositionX, way.position.y, way.position.z / animSmooth);
+		Vector3 temp;
+		if (WayDirection == WayDirection.x)
+			temp = new Vector3 (endPosition, way.position.y, way.position.z);
+		else if (WayDirection == WayDirection.y)
+			temp = new Vector3 (way.position.x, endPosition, way.position.z);
+		else
+			temp = new Vector3 (way.position.x, way.position.y, endPosition);
+		// we add 1 to the distance so the animation speed ONLY increases
+		way.DOMove (temp, MovementSmooth * (distance + 1));
+		double wayPosition = WayTranformCoord ();
+		// At this moment we do not change position anymore
+		if ((RightDirection && WayTranformCoord () > endPosition) ||
+			(!RightDirection && WayTranformCoord () < endPosition)) {
+			NowChangeWay = false;
+			WheelRotate (0, 0.5f);
 		}
-		// TODO: make coordinate change for 3 axes
-		if (RightDirection) {
-			if (way.position.x > endPositionX)
-				Chill ();
-		} else if (!RightDirection && way.position.x < endPositionX)
-			Chill ();
-	}
-
-	private void Chill () {
-		NowChangeWay = false;
-		WheelRotate (0, 0.5f);
 	}
 	private void WheelRotate (float Rotate, float animSpeed) {
-		switch (WheelchangeRotate) {
+		// Turn the wheel depending on the selected coordinate
+		switch (WheelChangeRotate) {
 			case WheelChangeRotate.xRotate:
-				{
-					for (int i = 0; i < wheels.Length; i++)
-						wheels[i].DOLocalRotate (new Vector3 (Rotate, 0, 0), animSpeed);
-				}
+				foreach (var wheel in wheels)
+					wheel.DOLocalRotate (new Vector3 (Rotate, 0, 0), animSpeed);
 				break;
 			case WheelChangeRotate.yRotate:
-				{
-					for (int i = 0; i < wheels.Length; i++)
-						wheels[i].DOLocalRotate (new Vector3 (0, Rotate, 0), animSpeed);
-				}
+				foreach (var wheel in wheels)
+					wheel.DOLocalRotate (new Vector3 (0, Rotate, 0), animSpeed);
 				break;
 			case WheelChangeRotate.zRotate:
-				{
-					for (int i = 0; i < wheels.Length; i++)
-						wheels[i].DOLocalRotate (new Vector3 (0, 0, Rotate), animSpeed);
-				}
+				foreach (var wheel in wheels)
+					wheel.DOLocalRotate (new Vector3 (0, 0, Rotate), animSpeed);
 				break;
 		}
 	}
