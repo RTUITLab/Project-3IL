@@ -1365,6 +1365,7 @@ MonoBehaviour:
   pathCreator: {fileID: 155139773}
   endOfPathInstruction: 0
   ural: {fileID: 3819256476367761981}
+  isItPlayer: 0
   speed: 1.5
   needRotate: 1
   findPathName: 1
