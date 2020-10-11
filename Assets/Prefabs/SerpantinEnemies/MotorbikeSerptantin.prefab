@@ -3706,7 +3706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 4657394606355668444}
-  height: 0.7
+  height: 0.6
 --- !u!136 &6463799619668370735
 CapsuleCollider:
   m_ObjectHideFlags: 0
