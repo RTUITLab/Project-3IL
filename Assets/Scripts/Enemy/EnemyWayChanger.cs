@@ -39,8 +39,8 @@ public class EnemyWayChanger : MonoBehaviour {
 		RightDirection = endPosition < originalPosition ? false : true;
 		distance = (endPosition - WayTranformCoord ()) / MaxDeviation;
 		// we multiply by the sign of the body rotation, because otherwise the wheel turns incorrectly
-		WheelRotate ((Mathf.Abs (transform.rotation.y) / transform.rotation.y) *
-			MaxWheelRotate * distance, 0.5f);
+		WheelRotate ((transform.eulerAngles.y < 180 ? -1 : 1) * MaxWheelRotate * distance, 0.5f);
+		// print ($"43. EnemyWayChanger -> transform.rotation : {transform.eulerAngles}");
 		distance = Mathf.Abs (distance);
 		NowChangeWay = true;
 		Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
