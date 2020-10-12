@@ -806,10 +806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b148c187f21954f43bd06a5b6cd03081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_prefab: {fileID: 6091522811988747676, guid: 5197c03855f499d45be2645c7d62d7c6,
-    type: 3}
-  BTR_prefab: {fileID: 6091522811988747676, guid: 5cfcf3363530e9c47a4fd35d60469578,
-    type: 3}
+  Enemy1: {fileID: 6091522811988747676, guid: 5cfcf3363530e9c47a4fd35d60469578, type: 3}
+  Enemy2: {fileID: 6091522811988747676, guid: 5197c03855f499d45be2645c7d62d7c6, type: 3}
 --- !u!4 &1321022966
 Transform:
   m_ObjectHideFlags: 0

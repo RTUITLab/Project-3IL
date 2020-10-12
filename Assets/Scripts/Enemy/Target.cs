@@ -62,13 +62,13 @@ public class Target : MonoBehaviour
         {
             _health -= amount;
             if (_health < 100 && !_Fire.gameObject.activeInHierarchy)
-
+            {
                 _Fire.gameObject.SetActive(true);
-
+            }
             else if (_health <= 0f)
-
+            {
                 Die();
-
+            }
         }
     }
 
@@ -82,7 +82,7 @@ public class Target : MonoBehaviour
         Debug.Log(enemies.Length);
         if (enemies.Length == 1)
         {
-            SpawnEnemies.instance.Spawn();
+            SpawnEnemies.instance.Spawn_En();
         }
 
         _Explosion.gameObject.SetActive(true);
