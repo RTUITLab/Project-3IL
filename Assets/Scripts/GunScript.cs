@@ -157,6 +157,11 @@ public class GunScript : MonoBehaviour
             {
                 target.TakeDamage(_damage);
             }
+            TransferDamage TD = hit.transform.GetComponent<TransferDamage>();
+            if (TD != null)
+            {
+                TD.Damage(_damage);
+            }
             //if (hit.rigidbody != null) {
             // hit.rigidbody.AddForce (hit.normal * _impactForce);
             // }

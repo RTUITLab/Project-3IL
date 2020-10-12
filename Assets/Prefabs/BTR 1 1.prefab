@@ -405,12 +405,6 @@ MonoBehaviour:
   thisAudioSource: {fileID: 344332340493129295}
   Body: {fileID: 4947405180772261812}
   _pathFollower: {fileID: 344332340493129293}
-  Creators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _delayBeforeStart: 3.5
   _speedBeforAttack: 3
   _normalSpeed: 1.5
@@ -4170,6 +4164,7 @@ GameObject:
   - component: {fileID: 2859246512252935189}
   - component: {fileID: 7223408416183554483}
   - component: {fileID: 8325805673625645502}
+  - component: {fileID: 4850340822533945370}
   m_Layer: 0
   m_Name: shooter(stand)
   m_TagString: Blood
@@ -4229,6 +4224,19 @@ CapsuleCollider:
   m_Height: 2.0189998
   m_Direction: 1
   m_Center: {x: 0.1886858, y: -0.14421262, z: 0.019500244}
+--- !u!114 &4850340822533945370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235208654112949935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 344332340493129294}
 --- !u!1 &3248631319399454455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,7 +6437,7 @@ GameObject:
   - component: {fileID: 4803470551156850626}
   m_Layer: 0
   m_Name: BTR 1 1
-  m_TagString: Metal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

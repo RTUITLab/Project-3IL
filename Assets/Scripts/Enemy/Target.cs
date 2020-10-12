@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    [SerializeField] GameObject parentGO;
     [SerializeField] float _health = 100f;
     [SerializeField] ParticleSystem _Explosion = null;
     [SerializeField] ParticleSystem _Fire = null;
     [SerializeField] AudioSource thisAudioSource = null;
     [SerializeField] GameObject Body = null;
     [SerializeField] PathFollower _pathFollower = null;
-    [SerializeField] PathCreator[] Creators = null;
     [SerializeField] float _delayBeforeStart = 0;
     [SerializeField] float _speedBeforAttack = 5;
     [SerializeField] float _normalSpeed = 1.5f;
@@ -19,16 +19,11 @@ public class Target : MonoBehaviour
     [SerializeField] float distance = 7;
     [SerializeField] bool _NearPlayer = false;
     [SerializeField] VoiceEnemy _voiceEnemy = null;
-    public bool isLast = false;
 
     private void Start()
     {
-
-        int index = Random.Range(0, Creators.Length);
-       // _pathFollower.pathCreator = Creators[index];
         StartCoroutine(Go());
         Player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     private void FixedUpdate()
@@ -80,21 +75,21 @@ public class Target : MonoBehaviour
     void Die()
     {
         if (GunScript != null)
-
+        {
             GunScript.enabled = false;
-
-        if (isLast)
-
+        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(enemies.Length);
+        if (enemies.Length == 1)
+        {
             SpawnEnemies.instance.Spawn();
+        }
 
         _Explosion.gameObject.SetActive(true);
         _Fire.Stop();
         thisAudioSource.Play();
-        //now it die after boom
-        //Destroy(Body, 2f);
         Destroy(Body);
-        //disable colliders
-        Destroy(gameObject, 3f);
+        Destroy(parentGO, 3f);
     }
 
     IEnumerator Go()

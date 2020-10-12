@@ -12,6 +12,7 @@ TagManager:
   - PlayerObject
   - Blood
   - EnemyWay
+  - Enemy
   layers:
   - Default
   - TransparentFX

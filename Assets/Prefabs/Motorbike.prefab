@@ -2540,12 +2540,6 @@ MonoBehaviour:
   thisAudioSource: {fileID: 3516937551234959494}
   Body: {fileID: 7712474008251543986}
   _pathFollower: {fileID: 1986310962254746813}
-  Creators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _delayBeforeStart: 3
   _speedBeforAttack: 3
   _normalSpeed: 1.5
@@ -2574,7 +2568,8 @@ MonoBehaviour:
   MaxWheelRotate: 15
   MaxTimeToChange: 3
   animSmooth: 60
-  changeRotate: 2
+  WheelchangeRotate: 0
+  ChangeRotate: 0
 --- !u!114 &1986310962254746813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2591,9 +2586,11 @@ MonoBehaviour:
   pathCreator: {fileID: 5605647772015311547}
   endOfPathInstruction: 2
   ural: {fileID: 0}
+  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
+  maxX: 1930
 --- !u!65 &1981750732975298114
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2605,8 +2602,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.24, y: 0.67, z: 2.3878002}
-  m_Center: {x: -0.43443966, y: -0.15, z: -0.08207226}
+  m_Size: {x: 0.9685283, y: 0.23720357, z: 2.3878002}
+  m_Center: {x: 0.0172441, y: -0.4229455, z: -0.08207226}
 --- !u!136 &5563287875784857591
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2620,7 +2617,7 @@ CapsuleCollider:
   m_Radius: 0.2741031
   m_Height: 2.1000328
   m_Direction: 2
-  m_Center: {x: 0.24650007, y: -0.038898647, z: -0.38706017}
+  m_Center: {x: 0.01, y: 0.29, z: -0.38706017}
 --- !u!1 &3532791459586352847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,7 +3106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2401592576374736607}
 --- !u!1 &4297684280590076207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,7 +3603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2401592576374736607}
 --- !u!1 &5346134970095202704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,7 +3912,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -6279,7 +6276,7 @@ GameObject:
   - component: {fileID: 8548016149203443979}
   m_Layer: 0
   m_Name: Motorbike
-  m_TagString: Metal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7137,36 +7134,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2823587923397018822}
     m_Modifications:
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01
@@ -7234,6 +7201,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
