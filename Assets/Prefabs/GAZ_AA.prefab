@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817233501424539398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.619997, y: 14, z: 991.20013}
+  m_LocalPosition: {x: 30.61965, y: 14.000041, z: 991.20404}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2720018105805254607}
@@ -601,18 +601,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dde8da8bdca602479a45d38dd7d73b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentGO: {fileID: 0}
   _health: 300
   _Explosion: {fileID: 9063093232864407249}
   _Fire: {fileID: 3034389149723294156}
   thisAudioSource: {fileID: 3694344151632833372}
   Body: {fileID: 336089548025391816}
   _pathFollower: {fileID: 2047435457386455956}
-  Creators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _delayBeforeStart: 3.5
   _speedBeforAttack: 3
   _normalSpeed: 1.5
@@ -621,7 +616,6 @@ MonoBehaviour:
   distance: 17
   _NearPlayer: 0
   _voiceEnemy: {fileID: 0}
-  isLast: 1
 --- !u!114 &2047435457386455956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,9 +1142,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6925945219932916599}
-  m_LocalRotation: {x: -9.244464e-32, y: 4.440892e-16, z: -2.0816682e-16, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.000000091637, z: -0.00000018327}
-  m_LocalScale: {x: 2.5374, y: 2.5374, z: 2.5374}
+  m_LocalScale: {x: 0.68388903, y: 0.68388903, z: 0.68388903}
   m_Children:
   - {fileID: 2872002266842517231}
   - {fileID: 2720018105805254607}
