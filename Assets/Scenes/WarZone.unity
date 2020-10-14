@@ -1201,9 +1201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PathName: URALpath
   pathCreator: {fileID: 155139773}
-  endOfPathInstruction: 0
+  endOfPathInstruction: 2
   ural: {fileID: 3819256476367761981}
-  isItPlayer: 0
+  isItPlayer: 1
   speed: 1.5
   needRotate: 1
   findPathName: 1
@@ -3394,7 +3394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3819256476367761981}
   m_LocalRotation: {x: 0, y: -0.08089473, z: 0, w: 0.9967227}
-  m_LocalPosition: {x: 5.8, y: -2, z: 12.55}
+  m_LocalPosition: {x: 5.8, y: -1.04, z: 12.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5165255196022140923}

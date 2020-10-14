@@ -2534,6 +2534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dde8da8bdca602479a45d38dd7d73b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentGO: {fileID: 0}
   _health: 300
   _Explosion: {fileID: 4913063698355242432}
   _Fire: {fileID: 601885232144084193}
@@ -2545,10 +2546,9 @@ MonoBehaviour:
   _normalSpeed: 1.5
   Player: {fileID: 0}
   GunScript: {fileID: 5868095088004369353}
-  distance: 12
+  distance: 7
   _NearPlayer: 0
   _voiceEnemy: {fileID: 8295421757049402081}
-  isLast: 0
 --- !u!114 &459211557965537884
 MonoBehaviour:
   m_ObjectHideFlags: 0
