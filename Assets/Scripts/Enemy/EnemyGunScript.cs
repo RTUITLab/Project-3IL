@@ -67,7 +67,7 @@ public class EnemyGunScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Player.position, out hit))
         {
-            Debug.Log (hit.transform.name);
+            // Debug.Log (hit.transform.name);
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<PlayerHealth>().Damage();
