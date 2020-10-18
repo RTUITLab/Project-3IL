@@ -371,6 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1630611301470907885}
   - component: {fileID: 7109312323694632255}
+  - component: {fileID: 4574385439151325859}
   m_Layer: 0
   m_Name: RR
   m_TagString: Untagged
@@ -422,6 +423,19 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1.5
   m_Enabled: 1
+--- !u!114 &4574385439151325859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695431516006355054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1037576365166015959}
 --- !u!1 &1408244388554745798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2874062964504339278}
   - component: {fileID: 6779816275292878808}
+  - component: {fileID: 7831258527602821998}
   m_Layer: 0
   m_Name: RL
   m_TagString: Untagged
@@ -1194,6 +1209,19 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1.5
   m_Enabled: 1
+--- !u!114 &7831258527602821998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652488427220430846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1037576365166015959}
 --- !u!1 &4465305312041256341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,14 +1388,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0152a9e107c9c499fa2f90d949c91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WheelFL_T: {fileID: 2227742319011565637}
-  WheelFR_T: {fileID: 2327372943536097576}
-  WheelRL_T: {fileID: 2287577412835891999}
-  WheelRR_T: {fileID: 8254017944778704507}
-  WheelFL_C: {fileID: 2931707469505596763}
-  WheelFR_C: {fileID: 2625103237457688062}
-  WheelRL_C: {fileID: 6779816275292878808}
-  WheelRR_C: {fileID: 7109312323694632255}
+  Wheels_T:
+  - {fileID: 2227742319011565637}
+  - {fileID: 2327372943536097576}
+  - {fileID: 2287577412835891999}
+  - {fileID: 8254017944778704507}
+  Wheels_C:
+  - {fileID: 2931707469505596763}
+  - {fileID: 2625103237457688062}
+  - {fileID: 6779816275292878808}
+  - {fileID: 7109312323694632255}
 --- !u!1 &5899502299304938834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4752317139978392946}
   - component: {fileID: 2625103237457688062}
+  - component: {fileID: 7649907686414522751}
   m_Layer: 0
   m_Name: FR
   m_TagString: Untagged
@@ -1429,6 +1460,19 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1.5
   m_Enabled: 1
+--- !u!114 &7649907686414522751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899502299304938834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1037576365166015959}
 --- !u!1 &6091522811988747676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,6 +1890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1602373050282406309}
   - component: {fileID: 2931707469505596763}
+  - component: {fileID: 7282745311543446909}
   m_Layer: 0
   m_Name: FL
   m_TagString: Untagged
@@ -1897,6 +1942,19 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1.5
   m_Enabled: 1
+--- !u!114 &7282745311543446909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799789350941493024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3582bd6ff7af1248bd926923ce72f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1037576365166015959}
 --- !u!1001 &252205286102799103
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class WheelsTransform : MonoBehaviour
 {
-    [SerializeField] Transform WheelFL_T;
-    [SerializeField] Transform WheelFR_T;
-    [SerializeField] Transform WheelRL_T;
-    [SerializeField] Transform WheelRR_T;
-
-    [SerializeField] WheelCollider WheelFL_C;
-    [SerializeField] WheelCollider WheelFR_C;
-    [SerializeField] WheelCollider WheelRL_C;
-    [SerializeField] WheelCollider WheelRR_C;
+    [SerializeField] Transform[] Wheels_T;
+    [SerializeField] WheelCollider[] Wheels_C;
 
     void FixedUpdate()
     {
-        updWheelPos(WheelFL_T, WheelFL_C);
-        updWheelPos(WheelFR_T, WheelFR_C);
-        updWheelPos(WheelRL_T, WheelRL_C);
-        updWheelPos(WheelRR_T, WheelRR_C);
+        for (int i = 0; i < Wheels_T.Length - 1; i++)
+        {
+            updWheelPos(Wheels_T[i], Wheels_C[i]);
+        }
     }
 
     void updWheelPos(Transform wheel, WheelCollider collider)
