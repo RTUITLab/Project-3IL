@@ -333,12 +333,9 @@ MonoBehaviour:
   PathName: EnemyPath2
   pathCreator: {fileID: 2109173250609962396}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
-  maxX: 1930
 --- !u!114 &4599326904730107580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,7 +688,7 @@ MonoBehaviour:
       - 90
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -1099,6 +1096,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2334f51770b67b544af7d14410e93aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FreezeRotationX: 0
+  FreezeRotationY: 1
+  FreezeRotationZ: 0
+  FreezePositionXZ: 1
+  FreezePositionYZ: 0
 --- !u!114 &1271137657
 MonoBehaviour:
   m_ObjectHideFlags: 0
