@@ -6,21 +6,28 @@ using UnityEngine;
 public class FixedRotation : MonoBehaviour
 {
     Transform local;
-    Rigidbody RB;
 
     private void Start()
     {
         local = gameObject.transform;
-        RB = GetComponent<Rigidbody>();
     }
-    void Update()
+    private void Update()
     {
-        local.transform.localPosition = new Vector3(0, local.localPosition.y, 0);
+        SyncPos();
     }
-
     void FixedUpdate()
     {
-        Vector3 oldRot = transform.rotation.eulerAngles;
+        SyncRot();
+    }
+
+    void SyncRot()
+    {
+        Vector3 oldRot = local.localEulerAngles;
         transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
+    }
+
+    void SyncPos()
+    {
+        local.localPosition = new Vector3(0, local.localPosition.y, 0);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class LoadWarZone : MonoBehaviour
+public class LoadScene : MonoBehaviour
 {
     
     void Update()
@@ -13,8 +13,8 @@ public class LoadWarZone : MonoBehaviour
             SceneManager.LoadScene("WarZone");
         }
     }
-    public void loadWarzone()
+    public void loadScene(int id)
     {
-        SceneManager.LoadScene("WarZone");
+        SceneManager.LoadScene(id);
     }
 }

@@ -9,18 +9,17 @@ public class PathFollower : MonoBehaviour
     public string PathName = "ZILpath";
     public PathCreator pathCreator;
     [SerializeField] EndOfPathInstruction endOfPathInstruction;
-    [SerializeField] GameObject ural;
-    [SerializeField] bool isItPlayer = false;
 
     public float speed = 5;
     float distanceTravelled;
     public bool needRotate;
     public bool findPathName = true;
-    public int maxX = 1930;
     private void Awake()
     {
         if (findPathName)
+        {
             pathCreator = GameObject.Find(PathName).GetComponent<PathCreator>();
+        }
     }
 
     private void start()
@@ -45,12 +44,6 @@ public class PathFollower : MonoBehaviour
             {
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
             }
-        }
-        if (transform.position.z > maxX && isItPlayer)
-        {
-            SceneManager.LoadScene("Menu");
-            print($"PathFollower -> LoadScene (\"Menu\");");
-            Destroy(ural);
         }
     }
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path

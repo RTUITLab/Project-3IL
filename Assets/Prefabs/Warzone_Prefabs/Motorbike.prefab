@@ -3472,12 +3472,9 @@ MonoBehaviour:
   PathName: EnemyPath
   pathCreator: {fileID: 5605647772015311547}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
-  maxX: 1930
 --- !u!1 &3532791459586352847
 GameObject:
   m_ObjectHideFlags: 0

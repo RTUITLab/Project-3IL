@@ -405,7 +405,7 @@ MonoBehaviour:
   _normalSpeed: 1.5
   Player: {fileID: 0}
   GunScript: {fileID: 3187675665762482207}
-  distance: 17
+  distance: 20
   _NearPlayer: 0
   _voiceEnemy: {fileID: 2182178763355467345}
 --- !u!114 &344332340493129293
@@ -423,12 +423,9 @@ MonoBehaviour:
   PathName: EnemyPath2
   pathCreator: {fileID: 4663859754453072472}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
-  maxX: 1930
 --- !u!114 &344332340493129289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6159,7 +6156,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
