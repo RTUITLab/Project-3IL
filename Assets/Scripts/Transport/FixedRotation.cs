@@ -18,8 +18,6 @@ public class FixedRotation : MonoBehaviour
     void FixedUpdate()
     {
         SyncRot();
-        //Vector3 oldRot = transform.rotation.eulerAngles;
-        //transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
     }
 
     void SyncRot()
