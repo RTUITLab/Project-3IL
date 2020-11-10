@@ -1268,6 +1268,7 @@ GameObject:
   - component: {fileID: 5313035313227160859}
   - component: {fileID: 1271137657}
   - component: {fileID: 668809643451366428}
+  - component: {fileID: 105802445019350165}
   m_Layer: 0
   m_Name: Body
   m_TagString: Metal
@@ -1381,6 +1382,20 @@ MonoBehaviour:
   - {fileID: 2625103237457688062}
   - {fileID: 6779816275292878808}
   - {fileID: 7109312323694632255}
+--- !u!136 &105802445019350165
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973241323050825007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5899502299304938834
 GameObject:
   m_ObjectHideFlags: 0
