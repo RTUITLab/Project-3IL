@@ -343,7 +343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528232332373416505}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 329dcb54dfb2f8942ba509c60c21dc8e, type: 3}
   m_Name: 
@@ -1101,6 +1101,7 @@ MonoBehaviour:
   FreezeRotationZ: 0
   FreezePositionXZ: 1
   FreezePositionYZ: 0
+  FreezePositionYX: 0
 --- !u!114 &1271137657
 MonoBehaviour:
   m_ObjectHideFlags: 0
