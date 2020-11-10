@@ -12562,7 +12562,7 @@ SkinnedMeshRenderer:
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1.4677083, y: 0.76372, z: 2.2051334}
+    m_Extent: {x: 1.4677088, y: 0.76372, z: 2.2051342}
   m_DirtyAABB: 0
 --- !u!1 &807308258079778275
 GameObject:
@@ -13685,8 +13685,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1.3653338, y: 0.6219909, z: 0.05011545}
+    m_Center: {x: 0, y: 0, z: 0.000000029802322}
+    m_Extent: {x: 1.3653342, y: 0.6219909, z: 0.05011552}
   m_DirtyAABB: 0
 --- !u!1 &1698735513093830547
 GameObject:
@@ -14029,12 +14029,9 @@ MonoBehaviour:
   PathName: ZILpath
   pathCreator: {fileID: 0}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 1
-  maxX: 1930
 --- !u!1 &2814851316963056852
 GameObject:
   m_ObjectHideFlags: 0
@@ -14602,7 +14599,7 @@ GameObject:
   - component: {fileID: 718672255829024532}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
