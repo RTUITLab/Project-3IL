@@ -48,7 +48,7 @@ public class EnemyWayChanger : MonoBehaviour
         // print ($"43. EnemyWayChanger -> transform.rotation : {transform.eulerAngles}");
         distance = Mathf.Abs(distance);
         NowChangeWay = true;
-        Invoke("ChangeWay", Random.Range(0, MaxTimeToChange));
+        Invoke("ChangeWay", Random.Range(MaxTimeToChange - 3, MaxTimeToChange));
     }
 
     float WayTranformCoord()
