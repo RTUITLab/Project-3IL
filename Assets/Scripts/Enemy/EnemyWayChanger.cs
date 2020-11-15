@@ -43,7 +43,7 @@ public class EnemyWayChanger : MonoBehaviour {
 		// print ($"43. EnemyWayChanger -> transform.rotation : {transform.eulerAngles}");
 		distance = Mathf.Abs (distance);
 		NowChangeWay = true;
-		Invoke ("ChangeWay", Random.Range (0, MaxTimeToChange));
+		Invoke ("ChangeWay", Random.Range (MaxTimeToChange, MaxTimeToChange * 2));
 	}
 
 	float WayTranformCoord () {
@@ -58,15 +58,15 @@ public class EnemyWayChanger : MonoBehaviour {
 	private void Update () {
 		if (!NowChangeWay)
 			return;
-		Vector3 temp;
+		Vector3 newPos;
 		if (WayDirection == WayDirection.x)
-			temp = new Vector3 (endPosition, way.position.y, way.position.z);
+			newPos = new Vector3 (endPosition, way.position.y, way.position.z);
 		else if (WayDirection == WayDirection.y)
-			temp = new Vector3 (way.position.x, endPosition, way.position.z);
+			newPos = new Vector3 (way.position.x, endPosition, way.position.z);
 		else
-			temp = new Vector3 (way.position.x, way.position.y, endPosition);
+			newPos = new Vector3 (way.position.x, way.position.y, endPosition);
 		// we add 1 to the distance so the animation speed ONLY increases
-		way.DOMove (temp, MovementSmooth * (distance + 1));
+		way.DOMove (newPos, MovementSmooth * (distance + 1));
 		double wayPosition = WayTranformCoord ();
 		// At this moment we do not change position anymore
 		if ((RightDirection && WayTranformCoord () > endPosition) ||

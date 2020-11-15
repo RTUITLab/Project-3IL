@@ -1322,7 +1322,7 @@ MonoBehaviour:
       - 60.026985
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -7570,9 +7570,9 @@ MonoBehaviour:
   way: {fileID: 1269505954949206043}
   wheels:
   - {fileID: 1446230828992312137}
-  MaxDeviation: 5
+  MaxDeviation: 4
   MaxWheelRotate: 15
-  MaxTimeToChange: 2
+  MaxTimeToChange: 1
   MovementSmooth: 1
   WheelChangeRotate: 0
   WayDirection: 2
