@@ -441,10 +441,10 @@ MonoBehaviour:
   way: {fileID: 4663859755085960105}
   wheels:
   - {fileID: 4986997762300063995}
-  MaxDeviation: 5
+  MaxDeviation: 3
   MaxWheelRotate: 15
   MaxTimeToChange: 6
-  MovementSmooth: 0.5
+  MovementSmooth: 3
   WheelChangeRotate: 0
   WayDirection: 0
 --- !u!1 &378458585795150648
@@ -10624,6 +10624,7 @@ MonoBehaviour:
   FreezeRotationZ: 0
   FreezePositionXZ: 0
   FreezePositionYZ: 1
+  FreezePositionYX: 0
 --- !u!114 &5836679809480606349
 MonoBehaviour:
   m_ObjectHideFlags: 0

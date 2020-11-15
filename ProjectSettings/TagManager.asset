@@ -24,10 +24,10 @@ TagManager:
   - 
   - Lighting
   - Ground
-  - Postprocessing
+  - PlayerObject
   - Wheels
   - Car
-  - 
+  - PostProcessing
   - 
   - 
   - 
