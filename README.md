@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img  height=200px style="border-radius: 10px;" src="/screenshots/serpantin4.png" alt="Project logo"></a>
+ <img  height=500px style="border-radius: 10px;" src="/screenshots/serpantin4.png" alt="Project logo"></a>
 </p>
 
 <h1 align="center">Проект Зил</h3>
