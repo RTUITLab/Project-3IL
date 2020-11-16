@@ -3,7 +3,7 @@
  <img  height=200px style="border-radius: 10px;" src="/screenshots/serpantin4.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">Проект Зил</h3>
+<h1 align="center">Проект Зил</h3>
 
 <div align="center">
 
