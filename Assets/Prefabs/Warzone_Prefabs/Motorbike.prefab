@@ -3474,8 +3474,8 @@ MonoBehaviour:
   MaxWheelRotate: 15
   MaxTimeToChange: 3
   MovementSmooth: 3
-  WheelChangeRotate: 0
-  WayDirection: 0
+  WheelChangeRotate: 1
+  WayDirection: 1
 --- !u!114 &1986310962254746813
 MonoBehaviour:
   m_ObjectHideFlags: 0

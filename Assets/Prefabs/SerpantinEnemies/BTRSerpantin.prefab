@@ -2390,8 +2390,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 22.21, y: 37.16, z: 4.2}
-  m_Center: {x: 0, y: 0, z: -9.36}
+  m_Size: {x: 22.21, y: 30.72, z: 13.9}
+  m_Center: {x: 0, y: 0, z: -4.890186}
 --- !u!1 &1554536384462310089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,18 +7544,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dde8da8bdca602479a45d38dd7d73b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentGO: {fileID: 0}
   _health: 300
   _Explosion: {fileID: 2377938308079081659}
   _Fire: {fileID: 8623721691335421786}
   thisAudioSource: {fileID: 6188011018419672573}
   Body: {fileID: 1553703940624063494}
   _pathFollower: {fileID: 6188011018419672575}
-  Creators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _delayBeforeStart: 3.5
   _speedBeforAttack: 3
   _normalSpeed: 1.5
@@ -7564,7 +7559,6 @@ MonoBehaviour:
   distance: 17
   _NearPlayer: 0
   _voiceEnemy: {fileID: 5724008374659067363}
-  isLast: 1
 --- !u!114 &6188011018419672575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7580,12 +7574,9 @@ MonoBehaviour:
   PathName: way
   pathCreator: {fileID: 1071046527260601367}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
-  maxX: 1930
 --- !u!114 &6188011018419672571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11339,36 +11330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9030137476836542717}
     m_Modifications:
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01
@@ -11436,6 +11397,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
