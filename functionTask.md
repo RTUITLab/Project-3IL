@@ -30,7 +30,7 @@
 ![](screenshots/tropicsInside.png)
 ![](screenshots/tropics1.png)
 ![](screenshots/ushelue.png)
-![](screenshots/ushelue2.png)!
+![](screenshots/ushelue2.png)
 
 **Необходимые 3D -модели:**
 
