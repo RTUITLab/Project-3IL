@@ -19,7 +19,7 @@
 
 - [О проекте](#about)
 - [Установка](#getting_started)
-- [Функциональное задание](TODO.md)
+- [Функциональное задание](functionTask.md)
 - [Дедлайны](#deadlines)
 - [Авторы](#authors)
 
