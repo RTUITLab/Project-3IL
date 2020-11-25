@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tropics.unity
     guid: 36355937d886ad246bade024b4b21c70
+  - enabled: 1
+    path: Assets/Scenes/Serpantin.unity
+    guid: 733eb52f5669ce14e8cb3da40bac215f
+  - enabled: 1
+    path: Assets/Scenes/Winter.unity
+    guid: cd970b46a2216034a83713f6dcbe5464
   m_configObjects: {}
