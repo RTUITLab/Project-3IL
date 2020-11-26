@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class FixedRotation : MonoBehaviour
 {
-    /* Пока работает только с хаммером и квадроциклом, потому что
-     * другие префабы находятся в другом положении и для них
-     * необходимо доработать скрипт
-     * UPD: теперь работает с БТРом и мотиком с коляской
-     */
     Transform local;
     public bool FreezeRotationX = false;
     public bool FreezeRotationY = false;
@@ -18,6 +13,8 @@ public class FixedRotation : MonoBehaviour
     public bool FreezePositionXZ = false;
     public bool FreezePositionYZ = false;
     public bool FreezePositionYX = false;
+
+    public bool needToFix = false;
 
     private void Start()
     {
@@ -48,6 +45,14 @@ public class FixedRotation : MonoBehaviour
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+        }
+        if (needToFix)
+        {
+            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            {
+                Vector3 oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+            }
         }
     }
 
