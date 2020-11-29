@@ -56,7 +56,10 @@ public class Target : MonoBehaviour
         //with 15% chance, terrorist say something
         if (Random.Range(0, 100) < 15)
         {
-            _voiceEnemy.PlayVoice();
+            if (_voiceEnemy != null)
+            {
+                _voiceEnemy.PlayVoice();
+            }
         }
         if (_health > 0)
         {
@@ -79,7 +82,6 @@ public class Target : MonoBehaviour
             GunScript.enabled = false;
         }
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemies.Length);
         if (enemies.Length == 1)
         {
             SpawnEnemies.instance.Spawn_En();

@@ -30,13 +30,13 @@ public class EnemyWayChanger : MonoBehaviour
     float endPosition = 0;
     bool RightDirection = true;
     float distance;
-    Rigidbody _rigidbody = null;
+
     void Start()
     {
         originalPosition = WayTranformCoord();
-        _rigidbody = GetComponent<Rigidbody>();
         ChangeWay();
     }
+
     void ChangeWay()
     {
         // we simulate movement to the right or to the left
@@ -44,7 +44,7 @@ public class EnemyWayChanger : MonoBehaviour
         RightDirection = endPosition < originalPosition ? false : true;
         distance = (endPosition - WayTranformCoord()) / MaxDeviation;
         // we multiply by the sign of the body rotation, because otherwise the wheel turns incorrectly
-        WheelRotate((transform.eulerAngles.y < 180 ? -1 : 1) * MaxWheelRotate * distance, 0.5f);
+        //WheelRotate((transform.eulerAngles.y < 180 ? -1 : 1) * MaxWheelRotate * distance, 0.5f);
         // print ($"43. EnemyWayChanger -> transform.rotation : {transform.eulerAngles}");
         distance = Mathf.Abs(distance);
         NowChangeWay = true;
@@ -55,23 +55,41 @@ public class EnemyWayChanger : MonoBehaviour
     {
         // we get the current coordinate: x, y or z
         if (WayDirection == WayDirection.x)
+        {
             return way.position.x;
+        }
         else if (WayDirection == WayDirection.y)
+        {
             return way.position.y;
+        }
         else
+        {
             return way.position.z;
+        }
     }
     private void Update()
     {
+        float _endPosition = originalPosition + Random.Range(-MaxDeviation, MaxDeviation);
+        float _distance = (_endPosition - WayTranformCoord()) / MaxDeviation;
+        WheelRotate((transform.eulerAngles.y < 180 ? -1 : 1) * MaxWheelRotate * _distance, 0.5f);
+
         if (!NowChangeWay)
+        {
             return;
+        }
         Vector3 temp;
         if (WayDirection == WayDirection.x)
+        {
             temp = new Vector3(endPosition, way.position.y, way.position.z);
+        }
         else if (WayDirection == WayDirection.y)
+        {
             temp = new Vector3(way.position.x, endPosition, way.position.z);
+        }
         else
+        {
             temp = new Vector3(way.position.x, way.position.y, endPosition);
+        }
         // we add 1 to the distance so the animation speed ONLY increases
         way.DOMove(temp, MovementSmooth * (distance + 1));
         double wayPosition = WayTranformCoord();

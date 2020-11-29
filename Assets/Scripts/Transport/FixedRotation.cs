@@ -6,15 +6,15 @@ using UnityEngine;
 public class FixedRotation : MonoBehaviour
 {
     Transform local;
-    public bool FreezeRotationX = false;
-    public bool FreezeRotationY = false;
-    public bool FreezeRotationZ = false;
+    [SerializeField] bool FreezeRotationX = false;
+    [SerializeField] bool FreezeRotationY = false;
+    [SerializeField] bool FreezeRotationZ = false;
 
-    public bool FreezePositionXZ = false;
-    public bool FreezePositionYZ = false;
-    public bool FreezePositionYX = false;
+    [SerializeField] bool FreezePositionXZ = false;
+    [SerializeField] bool FreezePositionYZ = false;
+    [SerializeField] bool FreezePositionYX = false;
 
-    public bool needToFix = false;
+    [SerializeField] bool needToFix = false;
 
     private void Start()
     {
@@ -35,16 +35,46 @@ public class FixedRotation : MonoBehaviour
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
+            if ((local.eulerAngles.y < 320f && local.eulerAngles.y > 30f) || (local.eulerAngles.y < 330f && local.eulerAngles.y > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
+            }
+            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+            }
         }
         else if (FreezeRotationY)
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
+            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+            }
+            if ((local.eulerAngles.x < 320f && local.eulerAngles.x > 30f) || (local.eulerAngles.x < 330f && local.eulerAngles.x > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
+            }
         }
         else if (FreezeRotationZ)
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
+            if ((local.eulerAngles.y < 320f && local.eulerAngles.y > 30f) || (local.eulerAngles.y < 330f && local.eulerAngles.y > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
+            }
+            if ((local.eulerAngles.x < 320f && local.eulerAngles.x > 30f) || (local.eulerAngles.x < 330f && local.eulerAngles.x > 320f))
+            {
+                oldRot = local.localEulerAngles;
+                transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
+            }
         }
         if (needToFix)
         {
