@@ -993,6 +993,7 @@ MonoBehaviour:
   FreezePositionXZ: 1
   FreezePositionYZ: 0
   FreezePositionYX: 0
+  needToFix: 0
 --- !u!114 &1271137657
 MonoBehaviour:
   m_ObjectHideFlags: 0
