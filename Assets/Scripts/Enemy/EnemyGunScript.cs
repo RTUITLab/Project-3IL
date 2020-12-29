@@ -21,6 +21,7 @@ public class EnemyGunScript : MonoBehaviour
     [SerializeField] float _fireRate = 30;
     float _nextTimetoFire = 0f;
     int Ammo = 30;
+    public bool invert = false;
     #endregion
 
     private void Start()
@@ -49,7 +50,7 @@ public class EnemyGunScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        this.transform.LookAt(Player);
+        //this.transform.LookAt(Player);
     }
 
     void Shoot()
@@ -65,32 +66,66 @@ public class EnemyGunScript : MonoBehaviour
         _ThisAudioSource.PlayOneShot(_shootsSound);
         _muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Player.position, out hit))
+        if (!invert)
         {
-            // Debug.Log (hit.transform.name);
-            if (hit.transform.tag == "Player")
+            if (Physics.Raycast(transform.position, Vector3.forward, out hit))
             {
-                hit.transform.GetComponent<PlayerHealth>().Damage();
+                Debug.Log(hit.transform.name);
+                if (hit.transform.tag == "Player")
+                {
+                    hit.transform.GetComponent<PlayerHealth>().Damage();
+                }
+                if (hit.collider.tag == "Sand")
+                {
+                    GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
+                {
+                    GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Blood")
+                {
+                    GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Metal")
+                {
+                    GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
             }
-            if (hit.collider.tag == "Sand")
+        }
+        else
+        {
+            if (Physics.Raycast(transform.position, -Vector3.forward, out hit))
             {
-                GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
-            {
-                GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Blood")
-            {
-                GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Metal")
-            {
-                GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
+                Debug.Log(hit.transform.name);
+                if (hit.transform.tag == "Player")
+                {
+                    hit.transform.GetComponent<PlayerHealth>().Damage();
+                }
+                if (hit.collider.tag == "Sand")
+                {
+                    GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
+                {
+                    GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Blood")
+                {
+                    GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
+                else if (hit.collider.tag == "Metal")
+                {
+                    GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
+                    Impact.transform.parent = hit.transform;
+                }
             }
         }
         StartCoroutine(OffLight());
@@ -98,17 +133,23 @@ public class EnemyGunScript : MonoBehaviour
 
     IEnumerator ShootAnim()
     {
-        animator.SetBool("Shooting", true);
-        yield return new WaitForSeconds(1);
-        animator.SetBool("Shooting", false);
+        if (animator)
+        {
+            animator.SetBool("Shooting", true);
+            yield return new WaitForSeconds(1);
+            animator.SetBool("Shooting", false);
+        }
     }
 
     IEnumerator ReloadWeapon()
     {
-        animator.SetBool("Shooting", false);
-        animator.SetBool("Reloading", true);
-        yield return new WaitForSeconds(1.5f);
-        animator.SetBool("Reloading", false);
+        if (animator)
+        {
+            animator.SetBool("Shooting", false);
+            animator.SetBool("Reloading", true);
+            yield return new WaitForSeconds(1.5f);
+            animator.SetBool("Reloading", false);
+        }
         Ammo = 30;
     }
 

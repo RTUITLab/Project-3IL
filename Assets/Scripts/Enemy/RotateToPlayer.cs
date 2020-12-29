@@ -8,7 +8,7 @@ public class RotateToPlayer : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("PlayerObject");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()

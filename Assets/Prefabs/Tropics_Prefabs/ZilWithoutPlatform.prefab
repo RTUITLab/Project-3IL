@@ -10698,6 +10698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerMaterial: {fileID: 2100000, guid: 11b050e661ec0cf48a289a7266451e91, type: 2}
+  urpControllerMaterial: {fileID: 0}
   flashColor: {r: 1, g: 0.9170069, b: 0.453, a: 0.709}
   textHintPrefab: {fileID: 140952, guid: 5fa42bb9e52706a42b8a1eaf0b54326a, type: 3}
   hapticFlash:
@@ -10824,6 +10825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerMaterial: {fileID: 2100000, guid: 11b050e661ec0cf48a289a7266451e91, type: 2}
+  urpControllerMaterial: {fileID: 0}
   flashColor: {r: 1, g: 0.9170069, b: 0.453, a: 0.709}
   textHintPrefab: {fileID: 140952, guid: 5fa42bb9e52706a42b8a1eaf0b54326a, type: 3}
   hapticFlash:
@@ -14858,7 +14860,7 @@ GameObject:
   - component: {fileID: 4014969977890326623}
   - component: {fileID: 2966298787533302897}
   m_Layer: 0
-  m_Name: ZilOnPlatform
+  m_Name: ZilWithoutPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27776,7 +27778,7 @@ SkinnedMeshRenderer:
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1.4677082, y: 0.76372, z: 2.2051332}
+    m_Extent: {x: 1.4677083, y: 0.76372, z: 2.2051334}
   m_DirtyAABB: 0
 --- !u!1 &5374300356508418929
 GameObject:
@@ -29762,8 +29764,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: -0.000000022351742}
-    m_Extent: {x: 1.3653338, y: 0.6219909, z: 0.050115414}
+    m_Center: {x: 0, y: 0, z: 0.000000011175871}
+    m_Extent: {x: 1.3653338, y: 0.6219909, z: 0.05011547}
   m_DirtyAABB: 0
 --- !u!1 &6328128930380812819
 GameObject:
@@ -29778,7 +29780,7 @@ GameObject:
   - component: {fileID: 1940888647003273020}
   m_Layer: 0
   m_Name: ZIL
-  m_TagString: Untagged
+  m_TagString: PlayerObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40801,6 +40803,7 @@ MonoBehaviour:
   FreezePositionXZ: 1
   FreezePositionYZ: 0
   FreezePositionYX: 0
+  needToFix: 0
 --- !u!1 &8191248104564321754
 GameObject:
   m_ObjectHideFlags: 0
