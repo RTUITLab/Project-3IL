@@ -1320,7 +1320,7 @@ MonoBehaviour:
       - 63.976627
       - 53.248657
       - 60.026985
-      globalNormalsAngle: 0
+      globalNormalsAngle: 90
       flipNormals: 0
     vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
@@ -2275,7 +2275,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553703940624063494}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0.40557984, y: -0.5792279, z: -0.5792279, w: 0.40557984}
   m_LocalPosition: {x: 0, y: 0.85, z: 0}
   m_LocalScale: {x: 0.1210467, y: 0.121046685, z: 0.1210467}
   m_Children:
@@ -2295,7 +2295,7 @@ Transform:
   - {fileID: 1446230828992312137}
   m_Father: {fileID: 6188011018419672569}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
+  m_LocalEulerAnglesHint: {x: 200, y: 90, z: 90}
 --- !u!65 &1553703940624063497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5882,6 +5882,7 @@ MonoBehaviour:
   animator: {fileID: 3826327826939646465}
   Spread: 0.01
   _fireRate: 2
+  invert: 0
 --- !u!1 &4850265919801930872
 GameObject:
   m_ObjectHideFlags: 0
@@ -7320,6 +7321,7 @@ MonoBehaviour:
   animator: {fileID: 3826327826939646465}
   Spread: 0.01
   _fireRate: 2
+  invert: 0
 --- !u!1 &6115929189393215727
 GameObject:
   m_ObjectHideFlags: 0
@@ -11330,6 +11332,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9030137476836542717}
     m_Modifications:
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01
@@ -11397,36 +11429,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
