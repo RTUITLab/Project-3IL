@@ -3152,6 +3152,7 @@ MonoBehaviour:
   FreezePositionXZ: 0
   FreezePositionYZ: 1
   FreezePositionYX: 0
+  needToFix: 0
 --- !u!114 &5218521201669376452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4867,7 +4868,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -6626,7 +6627,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7712474008251543986}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -0.35758114, y: -0.17866611, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
@@ -6636,7 +6637,7 @@ Transform:
   - {fileID: 2626562472025514509}
   m_Father: {fileID: 5501004975180979321}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -90.00001, z: 0}
 --- !u!205 &8019133166934256244
 LODGroup:
   m_ObjectHideFlags: 0
@@ -7351,6 +7352,7 @@ MonoBehaviour:
   animator: {fileID: 8841970440899065583}
   Spread: 0.01
   _fireRate: 2
+  invert: 0
 --- !u!1 &8305656827965952510
 GameObject:
   m_ObjectHideFlags: 0

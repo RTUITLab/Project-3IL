@@ -41885,6 +41885,7 @@ GameObject:
   - component: {fileID: 5804518721730167552}
   - component: {fileID: 7980360136258055619}
   - component: {fileID: 7048793510420915459}
+  - component: {fileID: 5074012322286955382}
   m_Layer: 9
   m_Name: Bottom
   m_TagString: Untagged
@@ -41892,6 +41893,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5074012322286955382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074012322286955381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acac05daf7d8914f9b929b2222db9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  way: {fileID: 155139772}
+  height: 1
 --- !u!33 &5093831412373878562
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42163,6 +42178,7 @@ GameObject:
   - component: {fileID: 5540971906537338178}
   - component: {fileID: 5540971906537338179}
   - component: {fileID: 5540971906537338180}
+  - component: {fileID: 5540971906537338181}
   m_Layer: 12
   m_Name: URAL
   m_TagString: Player
@@ -42214,6 +42230,19 @@ MonoBehaviour:
   TraumaExponent: 1
   MaximumAngularShake: {x: 5, y: 5, z: 5}
   MaximumTranslationShake: {x: 5, y: 5, z: 5}
+--- !u!114 &5540971906537338181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540971906537338177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec5689a11a3bb649940b03f9b6af770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 1
 --- !u!108 &5636698418254334048
 Light:
   m_ObjectHideFlags: 0
