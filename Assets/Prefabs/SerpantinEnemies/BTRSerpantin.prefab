@@ -7591,14 +7591,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329dcb54dfb2f8942ba509c60c21dc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  way: {fileID: 1269505954949206043}
+  way: {fileID: 1071046527260601360}
   wheels:
-  - {fileID: 1446230828992312137}
-  MaxDeviation: 4
+  - {fileID: 0}
+  MaxDeviation: 5
   MaxWheelRotate: 15
   MaxTimeToChange: 1
-  MovementSmooth: 1
-  WheelChangeRotate: 0
+  MovementSmooth: 1.5
+  WheelChangeRotate: 2
   WayDirection: 2
 --- !u!1 &6188675050062047981
 GameObject:
