@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("reload game ");
             Destroy(transport);
-            //SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
             SceneManager.LoadScene("Menu");
         }
     }
