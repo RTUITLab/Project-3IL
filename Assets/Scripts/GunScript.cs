@@ -30,7 +30,6 @@ public class GunScript : MonoBehaviour
     bool isReloading = false;
     [SerializeField] float _reloadTime = 1;
     [SerializeField] float _fireRate = 30;
-    [SerializeField] float _impactForce = 30f;
     [SerializeField] Animator _topBoxAnimation = null;
 
     Transform Selection;
@@ -150,8 +149,6 @@ public class GunScript : MonoBehaviour
         StartCoroutine(ShotAnimation());
         if (Physics.Raycast(gameObject.transform.position, gun.transform.forward, out hit))
         {
-            // Debug.DrawLine (gameObject.transform.position, gun.transform.forward * 1000, Color.red, 20000);
-            //  Debug.DrawRay (gameObject.transform.position, gameObject.transform.forward * 1000, Color.red, 20000);
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
@@ -162,9 +159,6 @@ public class GunScript : MonoBehaviour
             {
                 TD.Damage(_damage);
             }
-            //if (hit.rigidbody != null) {
-            // hit.rigidbody.AddForce (hit.normal * _impactForce);
-            // }
             if (hit.collider.tag == "Sand")
             {
                 GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
