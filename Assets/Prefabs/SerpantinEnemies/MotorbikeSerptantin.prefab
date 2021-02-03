@@ -1274,18 +1274,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dde8da8bdca602479a45d38dd7d73b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentGO: {fileID: 0}
   _health: 300
   _Explosion: {fileID: 8035794953323325870}
   _Fire: {fileID: 2589577372569305231}
   thisAudioSource: {fileID: 1973976975667487976}
   Body: {fileID: 4657394606355668444}
   _pathFollower: {fileID: 3475264625598724307}
-  Creators:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _delayBeforeStart: 3
   _speedBeforAttack: 3
   _normalSpeed: 1.5
@@ -1294,7 +1289,6 @@ MonoBehaviour:
   distance: 12
   _NearPlayer: 0
   _voiceEnemy: {fileID: 6392041270958333583}
-  isLast: 0
 --- !u!114 &3311597025340444210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,12 +1325,9 @@ MonoBehaviour:
   PathName: way (1)
   pathCreator: {fileID: 2770757851979647184}
   endOfPathInstruction: 2
-  ural: {fileID: 0}
-  isItPlayer: 0
   speed: 1.5
   needRotate: 0
   findPathName: 0
-  maxX: 1930
 --- !u!1 &2132441761221717106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2021,7 @@ MonoBehaviour:
       - 60.026985
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -4966,8 +4957,8 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 1479558215976124570}
   Player: {fileID: 0}
   animator: {fileID: 5845294963178904193}
-  Spread: 0.01
   _fireRate: 2
+  invert: 0
 --- !u!1 &6406875597998865808
 GameObject:
   m_ObjectHideFlags: 0
