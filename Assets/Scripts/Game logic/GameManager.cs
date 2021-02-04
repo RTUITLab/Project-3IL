@@ -3,35 +3,34 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject transport;
-    bool stop = false;
+    [SerializeField] GameObject[] transport;
+    Transform spawnPlayer;
+    GameObject current_transport;
+    public int selected = 2;
+
     void Awake()
     {
-        Time.timeScale = 0;
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    void lateUpdate()
+    private void OnLevelWasLoaded(int level)
     {
-        Time.timeScale = 0;
+        if (level != 0)
+        {
+            spawnPlayer = GameObject.FindGameObjectWithTag("Player_Spawn").transform;
+            current_transport = Instantiate(transport[selected], spawnPlayer);
+        }
+        // найти спавнер ботов и заменить префабы
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && stop == false)
-        {
-            Time.timeScale = 0;
-            stop = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && stop == true)
-        {
-            Time.timeScale = 1;
-            stop = false;
-        }
-        if (Input.GetKeyDown(KeyCode.R) && stop == true)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("reload game ");
-            Destroy(transport);
+            Destroy(current_transport);
             SceneManager.LoadScene("Menu");
+            Destroy(this.gameObject);
         }
     }
 }
