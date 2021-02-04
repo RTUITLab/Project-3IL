@@ -227,7 +227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &53711674
 GameObject:
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 155139774}
   - component: {fileID: 155139773}
   m_Layer: 0
-  m_Name: URALpath
+  m_Name: Player_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,7 +708,7 @@ Transform:
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165009402
 GameObject:
@@ -753,7 +753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197940711
 GameObject:
@@ -1401,7 +1401,7 @@ Transform:
   m_Children:
   - {fileID: 1952545369}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &323445697
 GameObject:
@@ -1467,7 +1467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327054816
 GameObject:
@@ -6888,7 +6888,7 @@ Transform:
   - {fileID: 754332949}
   - {fileID: 1276552186}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &693626004
 MonoBehaviour:
@@ -18578,7 +18578,6 @@ MonoBehaviour:
   _ammoText: {fileID: 731403867}
   _reloadTime: 1.4
   _fireRate: 10
-  _impactForce: 30
   _topBoxAnimation: {fileID: 0}
   ThisAudioSource: {fileID: 1436320773}
   WeaponAnimator: {fileID: 1436320772}
@@ -25057,6 +25056,36 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &1957771701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957771702}
+  m_Layer: 0
+  m_Name: Player_Spawn
+  m_TagString: Player_Spawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957771702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957771701}
+  m_LocalRotation: {x: -0, y: -0.08089473, z: 0, w: 0.9967227}
+  m_LocalPosition: {x: -0.49, y: -1.69, z: 35.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1967874666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25069,8 +25098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathName: URALpath
-  pathCreator: {fileID: 155139773}
+  PathName: Player_Path
+  pathCreator: {fileID: 0}
   endOfPathInstruction: 2
   speed: 1.5
   needRotate: 1
@@ -25253,7 +25282,6 @@ MonoBehaviour:
   _ammoText: {fileID: 751124896}
   _reloadTime: 1.4
   _fireRate: 10
-  _impactForce: 30
   _topBoxAnimation: {fileID: 0}
   ThisAudioSource: {fileID: 2056963276}
   WeaponAnimator: {fileID: 2056963275}
@@ -27652,7 +27680,7 @@ Transform:
   - {fileID: 5165255196022140923}
   - {fileID: 8921375247428704290}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -9.28, z: 0}
 --- !u!1 &4312972778360330461
 GameObject:
