@@ -257,7 +257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &92308408
 Transform:
@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333923403
 GameObject:
@@ -428,7 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &936942760
 Transform:
@@ -586,6 +586,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1100018408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1100018409}
+  m_Layer: 0
+  m_Name: Player_Spawn
+  m_TagString: Player_Spawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1100018409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100018408}
+  m_LocalRotation: {x: -0, y: 0.9999265, z: -0, w: -0.012125699}
+  m_LocalPosition: {x: 236.9, y: 2.36, z: 1842}
+  m_LocalScale: {x: 0.68388915, y: 0.68388903, z: 0.68388915}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107249671
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 63.321003, y: 43.933002, z: 40.724003}
 --- !u!1 &1443192161
 GameObject:
@@ -817,7 +847,7 @@ PrefabInstance:
     - target: {fileID: 3067706174131523586, guid: 8833e26c174496a44b9fca73b8786bee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3067706174131523586, guid: 8833e26c174496a44b9fca73b8786bee,
         type: 3}
@@ -1063,7 +1093,7 @@ GameObject:
   - component: {fileID: 1790249951}
   - component: {fileID: 1790249950}
   m_Layer: 0
-  m_Name: GAZpath
+  m_Name: Player_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,11 +1114,11 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -6.30068, y: -1.7194414, z: -48.04222}
-      - {x: -6.374758, y: -1.7194414, z: -46.602566}
-      - {x: -6.448836, y: -1.7194414, z: -45.16291}
+      - {x: -6.3056726, y: -1.7194414, z: -48.07049}
+      - {x: -6.377124, y: -1.7194414, z: -46.620342}
+      - {x: -6.4485755, y: -1.7194414, z: -45.170193}
       - {x: -6.6157713, y: -1.7194414, z: -44.16552}
-      - {x: -6.762308, y: -1.7194414, z: -43.29}
+      - {x: -6.761496, y: -1.7194414, z: -43.289867}
       - {x: -7.071047, y: -1.7194414, z: -41.65472}
       - {x: -7.4623456, y: -1.7194414, z: -40.85792}
       - {x: -7.636584, y: -1.7194414, z: -40.50312}
@@ -1137,24 +1167,24 @@ MonoBehaviour:
       - {x: -0.79829425, y: -1.7105987, z: 56.09982}
       - {x: -0.8064815, y: -1.7108718, z: 58.729404}
       - {x: -0.81772095, y: -1.7112467, z: 62.339317}
-      - {x: -0.16151057, y: -1.7121645, z: 68.983574}
+      - {x: -0.16114822, y: -1.7121651, z: 68.98355}
       - {x: 0.07892816, y: -1.7126074, z: 72.58549}
-      - {x: 0.34196842, y: -1.7130919, z: 76.525986}
-      - {x: 1.4027077, y: -1.7138684, z: 83.79822}
-      - {x: 1.1336676, y: -1.7144357, z: 87.73831}
-      - {x: 1.0441357, y: -1.7146245, z: 89.04951}
-      - {x: 0.5443034, y: -1.71506, z: 91.449356}
-      - {x: 0.10047785, y: -1.7152656, z: 92.68639}
-      - {x: -0.20751396, y: -1.7154083, z: 93.54484}
-      - {x: -1.1156583, y: -1.7156552, z: 94.979744}
-      - {x: -1.5289818, y: -1.7157769, z: 95.792725}
-      - {x: -1.8923206, y: -1.715884, z: 96.50739}
-      - {x: -2.587084, y: -1.7160468, z: 97.81726}
-      - {x: -2.8912656, y: -1.7161508, z: 98.559044}
-      - {x: -3.3531308, y: -1.7163086, z: 99.685356}
-      - {x: -4.118472, y: -1.7165768, z: 101.81071}
+      - {x: 0.34226888, y: -1.7130926, z: 76.53647}
+      - {x: 1.4020014, y: -1.7138689, z: 83.82811}
+      - {x: 1.1334093, y: -1.7144357, z: 87.77873}
+      - {x: 1.0439135, y: -1.7146245, z: 89.09509}
+      - {x: 0.5451659, y: -1.7150596, z: 91.50497}
+      - {x: 0.10009037, y: -1.7152656, z: 92.74703}
+      - {x: -0.20756258, y: -1.7154081, z: 93.60559}
+      - {x: -1.1160457, y: -1.7156552, z: 95.04038}
+      - {x: -1.5293694, y: -1.7157769, z: 95.85336}
+      - {x: -1.8927082, y: -1.715884, z: 96.56803}
+      - {x: -2.5859685, y: -1.7160461, z: 97.87852}
+      - {x: -2.891653, y: -1.7161508, z: 98.61968}
+      - {x: -3.3500874, y: -1.7163076, z: 99.7312}
+      - {x: -4.119149, y: -1.7165784, z: 101.825874}
       - {x: -4.367285, y: -1.7167944, z: 103.002335}
-      - {x: -4.62443, y: -1.7170192, z: 104.23387}
+      - {x: -4.626926, y: -1.7170204, z: 104.23335}
       - {x: -4.937641, y: -1.7176203, z: 106.569885}
       - {x: -4.8068366, y: -1.7178473, z: 107.82117}
       - {x: -4.6705136, y: -1.7180841, z: 109.12524}
@@ -1554,7 +1584,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &33182860782485514
 Transform:
@@ -15014,7 +15044,6 @@ MonoBehaviour:
   _ammoText: {fileID: 1321306631668494363}
   _reloadTime: 1.4
   _fireRate: 10
-  _impactForce: 30
   _topBoxAnimation: {fileID: 0}
   ThisAudioSource: {fileID: 8439008117041661681}
   WeaponAnimator: {fileID: 3479564397152766141}
@@ -16872,12 +16901,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathName: GAZpath
-  pathCreator: {fileID: 1790249950}
+  PathName: Player_Path
+  pathCreator: {fileID: 0}
   endOfPathInstruction: 2
   speed: 1.5
   needRotate: 0
-  findPathName: 0
+  findPathName: 1
 --- !u!1 &5838666972593173448
 GameObject:
   m_ObjectHideFlags: 0
@@ -27319,7 +27348,7 @@ Transform:
   m_Children:
   - {fileID: 2984607413025769122}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 181.38998, z: 0}
 --- !u!4 &7762736725155403240
 Transform:
@@ -27391,7 +27420,6 @@ MonoBehaviour:
   _ammoText: {fileID: 1321306633449746835}
   _reloadTime: 1.4
   _fireRate: 10
-  _impactForce: 30
   _topBoxAnimation: {fileID: 0}
   ThisAudioSource: {fileID: 6076312647694726204}
   WeaponAnimator: {fileID: 4527692875906843735}
