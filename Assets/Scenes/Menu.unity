@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143421075}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1769,11 +1769,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f7fecbded91d74e88437066b984093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedTransport: 2
+  selectedBot1: 0
+  selectedBot2: 0
   transport:
   - {fileID: 1559257008201595451, guid: 933cb006a0643f34c91fe0cc3c8a69ca, type: 3}
   - {fileID: 5456832417175510277, guid: b013a8c12eafef64392bc0a678f83804, type: 3}
   - {fileID: 6686589178855915035, guid: 1b27f26c38918f64385f106436cd17cf, type: 3}
-  current_transport: {fileID: 0}
+  Bot1:
+  - {fileID: 6091522811988747676, guid: 5cfcf3363530e9c47a4fd35d60469578, type: 3}
+  - {fileID: 8548016149203443978, guid: f378ef8fe8724e74e9dc08edb1a55e1f, type: 3}
+  Bot2:
+  - {fileID: 6091522811988747676, guid: 5197c03855f499d45be2645c7d62d7c6, type: 3}
+  - {fileID: 4803470551156850627, guid: 9f5d0d1d8f9f8614fa17aa7813cb9f14, type: 3}
 --- !u!1 &2053058338
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,10 @@ public class WheelsTransform : MonoBehaviour
     {
         for (int i = 0; i < Wheels_T.Length - 1; i++)
         {
-            updWheelPos(Wheels_T[i], Wheels_C[i]);
+            if (Wheels_T[i] != null)
+            {
+                updWheelPos(Wheels_T[i], Wheels_C[i]);
+            }
         }
     }
 
@@ -23,6 +26,5 @@ public class WheelsTransform : MonoBehaviour
         collider.GetWorldPose(out pos, out rot);
 
         wheel.position = pos;
-        //wheel.rotation = rot;
     }
 }

@@ -26,7 +26,7 @@ public class SpawnEnemies : MonoBehaviour
     IEnumerator Spawn()
     {
         Instantiate(Enemy1, gameObject.transform.position, gameObject.transform.rotation);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         Instantiate(Enemy2, gameObject.transform.position, gameObject.transform.rotation);
     }
 }

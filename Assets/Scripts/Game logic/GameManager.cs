@@ -3,10 +3,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] transport;
+    public int selectedTransport = 2;
+    public int selectedBot1 = 0;
+    public int selectedBot2 = 0;
     Transform spawnPlayer;
     GameObject current_transport;
-    public int selected = 2;
+    [SerializeField] GameObject[] transport;
+    [SerializeField] GameObject[] Bot1;
+    [SerializeField] GameObject[] Bot2;
 
     void Awake()
     {
@@ -17,10 +21,12 @@ public class GameManager : MonoBehaviour
     {
         if (level != 0)
         {
+            SpawnEnemies SA = GameObject.FindGameObjectWithTag("Enemy_Spawn").GetComponent<SpawnEnemies>();
+            SA.Enemy1 = Bot1[selectedBot1];
+            SA.Enemy2 = Bot2[selectedBot2];
             spawnPlayer = GameObject.FindGameObjectWithTag("Player_Spawn").transform;
-            current_transport = Instantiate(transport[selected], spawnPlayer);
+            current_transport = Instantiate(transport[selectedTransport], spawnPlayer);
         }
-        // найти спавнер ботов и заменить префабы
     }
 
     private void Update()
