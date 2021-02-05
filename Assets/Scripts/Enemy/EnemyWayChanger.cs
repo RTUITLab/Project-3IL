@@ -33,6 +33,10 @@ public class EnemyWayChanger : MonoBehaviour
 
     void Start()
     {
+        if (way == null)
+        {
+            way = GameObject.Find("EnemyPath").transform;
+        }
         originalPosition = WayTranformCoord();
         ChangeWay();
     }
