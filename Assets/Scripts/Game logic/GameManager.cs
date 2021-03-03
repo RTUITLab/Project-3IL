@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
             spawnPlayer = GameObject.FindGameObjectWithTag("Player_Spawn").transform;
             current_transport = Instantiate(transport[selectedTransport], spawnPlayer);
         }
+        else
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Player_Spawn"));
+            Destroy(this.gameObject);
+        }
     }
 
     private void Update()
