@@ -13,6 +13,7 @@ public class LoadScene : MonoBehaviour
             SceneManager.LoadScene("WarZone");
         }
     }
+
     public void loadScene(int id)
     {
         SceneManager.LoadScene(id);
