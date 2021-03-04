@@ -21,24 +21,18 @@ public class AmmoRay : MonoBehaviour
         if (Selection != null)
         {
             _topBoxAnimation.SetBool("TopBox", false);
-            //     var selectionRenderer = Selection.GetComponent<Renderer>();
-            //     selectionRenderer.material = DefaultMaterial;
             Selection = null;
         }
 
         //old method
         Ray ray = new Ray(Camera.position, Camera.forward);
         //new method
-        // var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
-       // Debug.DrawRay(Camera.position, Camera.forward, Color.blue, 20);
         if (Physics.Raycast(ray, out hit))
         {
             Transform selection = hit.transform;
-//            Debug.Log(selection.tag);
             if (selection.CompareTag("Player"))
             {
-                //Renderer selectionRenderer = selection.GetComponent<Renderer>();
                 _topBoxAnimation.SetBool("TopBox", true);
                 if (Gun.AmmoInPocket == 0 && _topBoxAnimation.GetBool("TopBox"))
                 {

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 public class EnemyGunScript : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class EnemyGunScript : MonoBehaviour
     AudioSource _ThisAudioSource = null;
     [SerializeField] Animator animator;
     [SerializeField] float _fireRate = 30;
+    Dictionary<string, GameObject> effects = new Dictionary<string, GameObject>();
     float _nextTimetoFire = 0f;
     int Ammo = 30;
     public bool invert = false;
@@ -27,6 +29,11 @@ public class EnemyGunScript : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _ThisAudioSource = gameObject.GetComponent<AudioSource>();
+        effects.Add("Sand", SandImpact);
+        effects.Add("Stone", StoneImpact);
+        effects.Add("Untagged", StoneImpact);
+        effects.Add("Metal", MetalImpact);
+        effects.Add("Blood", BloodImpact);
     }
     private void Update()
     {
@@ -54,7 +61,7 @@ public class EnemyGunScript : MonoBehaviour
 
     void Shoot()
     {
-        Debug.DrawLine (transform.position, Player.position, Color.blue, 1);
+        Debug.DrawLine(transform.position, Player.position, Color.blue, 1);
         float changeLightGreen = Random.Range(100, 200); //make random color of orange light
         changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
@@ -68,64 +75,12 @@ public class EnemyGunScript : MonoBehaviour
         if (!invert)
         {
             if (Physics.Raycast(transform.position, Vector3.forward, out hit))
-            {
-                Debug.Log(hit.transform.name);
-                if (hit.transform.tag == "Player")
-                {
-                    hit.transform.GetComponent<PlayerHealth>().Damage();
-                }
-                if (hit.collider.tag == "Sand")
-                {
-                    GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
-                {
-                    GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Blood")
-                {
-                    GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Metal")
-                {
-                    GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-            }
+                Hit(hit);
         }
         else
         {
             if (Physics.Raycast(transform.position, -Vector3.forward, out hit))
-            {
-                Debug.Log(hit.transform.name);
-                if (hit.transform.tag == "Player")
-                {
-                    hit.transform.GetComponent<PlayerHealth>().Damage();
-                }
-                if (hit.collider.tag == "Sand")
-                {
-                    GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
-                {
-                    GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Blood")
-                {
-                    GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-                else if (hit.collider.tag == "Metal")
-                {
-                    GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                    Impact.transform.parent = hit.transform;
-                }
-            }
+                Hit(hit);
         }
         StartCoroutine(OffLight());
     }
@@ -156,5 +111,18 @@ public class EnemyGunScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.05f);
         _flashMuzzle.SetActive(false);
+    }
+    void Hit(RaycastHit hit)
+    {
+        Debug.Log(hit.transform.name);
+        if (hit.transform.tag == "Player")
+        {
+            hit.transform.GetComponent<PlayerHealth>().Damage();
+        }
+        else if (effects.ContainsKey(hit.transform.tag))
+        {
+            GameObject Impact = Instantiate(effects[hit.collider.tag], hit.point, Quaternion.LookRotation(hit.normal));
+            Impact.transform.parent = hit.transform;
+        }
     }
 }
