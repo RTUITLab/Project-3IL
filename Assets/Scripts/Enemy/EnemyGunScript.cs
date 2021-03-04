@@ -24,6 +24,7 @@ public class EnemyGunScript : MonoBehaviour
     int Ammo = 30;
     public bool invert = false;
     #endregion
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -34,6 +35,7 @@ public class EnemyGunScript : MonoBehaviour
         effects.Add("Metal", MetalImpact);
         effects.Add("Blood", BloodImpact);
     }
+
     private void Update()
     {
         if (Vector3.Distance(gameObject.transform.position, Player.transform.position) < 40)
@@ -52,13 +54,9 @@ public class EnemyGunScript : MonoBehaviour
             }
         }
     }
-    // void FixedUpdate()
-    // {
-    //this.transform.LookAt(Player);
-    // }
+
     void Shoot()
     {
-        Debug.DrawLine(transform.position, Player.position, Color.blue, 1);
         float changeLightGreen = Random.Range(100, 200); //make random color of orange light
         changeLightGreen /= 255;
         for (int i = 0; i < _muzzleFlashLight.Length; i++)
@@ -69,18 +67,15 @@ public class EnemyGunScript : MonoBehaviour
         _ThisAudioSource.PlayOneShot(_shootsSound);
         _muzzleFlash.Play();
         RaycastHit hit;
-        if (!invert)
+        if (Physics.Linecast(transform.position, Player.position, out hit))
         {
-            if (Physics.Raycast(transform.position, Vector3.forward, out hit))
-                Hit(hit);
-        }
-        else
-        {
-            if (Physics.Raycast(transform.position, -Vector3.forward, out hit))
-                Hit(hit);
+            Debug.Log(Player.position);
+            Debug.DrawLine(transform.position, Player.position, Color.red, hit.distance);
+            Hit(hit);
         }
         StartCoroutine(OffLight());
     }
+
     IEnumerator ShootAnim()
     {
         if (animator)
@@ -90,6 +85,7 @@ public class EnemyGunScript : MonoBehaviour
             animator.SetBool("Shooting", false);
         }
     }
+
     IEnumerator ReloadWeapon()
     {
         if (animator)
@@ -101,11 +97,13 @@ public class EnemyGunScript : MonoBehaviour
         }
         Ammo = 30;
     }
+
     IEnumerator OffLight()
     {
         yield return new WaitForSeconds(0.05f);
         _flashMuzzle.SetActive(false);
     }
+
     void Hit(RaycastHit hit)
     {
         Debug.Log(hit.transform.name);
