@@ -14,7 +14,11 @@ public class AmmoRay : MonoBehaviour
     //old method
     //wait, for what it?
     private Transform Camera;
-    private void Start() => Camera = gameObject.transform;
+    private void Start()
+    {
+        _topBoxAnimation = GameObject.Find("Box_Top").GetComponent<Animator>();
+        Camera = gameObject.transform;
+    }
 
     private void FixedUpdate()
     {
@@ -24,11 +28,8 @@ public class AmmoRay : MonoBehaviour
             Selection = null;
         }
 
-        //old method
         Ray ray = new Ray(Camera.position, Camera.forward);
-        //new method
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             Transform selection = hit.transform;
             if (selection.CompareTag("Player"))
