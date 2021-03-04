@@ -24,7 +24,6 @@ public class EnemyGunScript : MonoBehaviour
     int Ammo = 30;
     public bool invert = false;
     #endregion
-
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -53,12 +52,10 @@ public class EnemyGunScript : MonoBehaviour
             }
         }
     }
-
-    void FixedUpdate()
-    {
-        //this.transform.LookAt(Player);
-    }
-
+    // void FixedUpdate()
+    // {
+    //this.transform.LookAt(Player);
+    // }
     void Shoot()
     {
         Debug.DrawLine(transform.position, Player.position, Color.blue, 1);
@@ -84,7 +81,6 @@ public class EnemyGunScript : MonoBehaviour
         }
         StartCoroutine(OffLight());
     }
-
     IEnumerator ShootAnim()
     {
         if (animator)
@@ -94,7 +90,6 @@ public class EnemyGunScript : MonoBehaviour
             animator.SetBool("Shooting", false);
         }
     }
-
     IEnumerator ReloadWeapon()
     {
         if (animator)
@@ -106,7 +101,6 @@ public class EnemyGunScript : MonoBehaviour
         }
         Ammo = 30;
     }
-
     IEnumerator OffLight()
     {
         yield return new WaitForSeconds(0.05f);

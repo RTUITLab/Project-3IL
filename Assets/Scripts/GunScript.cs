@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Valve.VR;
@@ -38,6 +39,7 @@ public class GunScript : MonoBehaviour
     public Animator WeaponAnimator;
     public Animation WeaponAnimation;
     public AnimationClip Shot;
+    Dictionary<string, GameObject> effects = new Dictionary<string, GameObject>();
     public SteamVR_Action_Boolean grabPinchAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
 
     #endregion
@@ -53,6 +55,11 @@ public class GunScript : MonoBehaviour
         WeaponAnimator.SetBool("Reloading", false);
         currentAmmo = ClipSize;
         ReloadAmmoInfo();
+        effects.Add("Sand", SandImpact);
+        effects.Add("Stone", StoneImpact);
+        effects.Add("Untagged", StoneImpact);
+        effects.Add("Metal", MetalImpact);
+        effects.Add("Blood", BloodImpact);
     }
 
     private void Update()
@@ -81,7 +88,7 @@ public class GunScript : MonoBehaviour
             else
             {
                 ThisAudioSource.PlayOneShot(_EmptySound);
-                StartCoroutine(Reload()); // TODO For release, remove for stable release
+                StartCoroutine(Reload());
             }
         }
         RaycastHit hit;
@@ -159,30 +166,17 @@ public class GunScript : MonoBehaviour
             {
                 TD.Damage(_damage);
             }
-            if (hit.collider.tag == "Sand")
-            {
-                GameObject Impact = Instantiate(SandImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Stone" || hit.collider.tag == "Untagged")
-            {
-                GameObject Impact = Instantiate(StoneImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Metal")
-            {
-                GameObject Impact = Instantiate(MetalImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-            }
-            else if (hit.collider.tag == "Blood")
-            {
-                GameObject Impact = Instantiate(BloodImpact, hit.point, Quaternion.LookRotation(hit.normal));
-                Impact.transform.parent = hit.transform;
-                hit.transform.GetComponent<TransferDamage>().Damage(_damage);
-            }
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<PlayerHealth>().Damage();
+                GameObject Impact = Instantiate(effects["Metal"], hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
+            }
+            else if (effects.ContainsKey(hit.transform.tag))
+            {
+                GameObject Impact = Instantiate(effects[hit.collider.tag], hit.point, Quaternion.LookRotation(hit.normal));
+                Impact.transform.parent = hit.transform;
+                hit.transform.GetComponent<TransferDamage>().Damage(_damage);
             }
         }
         if (Random.Range(0, 100) < 5)
