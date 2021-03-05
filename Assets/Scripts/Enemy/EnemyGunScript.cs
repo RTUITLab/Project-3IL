@@ -18,7 +18,7 @@ public class EnemyGunScript : MonoBehaviour
     public Transform Player;
     AudioSource _ThisAudioSource = null;
     [SerializeField] Animator animator;
-    [SerializeField] float _fireRate = 30;
+    [SerializeField] float _fireRate = 45;
     Dictionary<string, GameObject> effects = new Dictionary<string, GameObject>();
     float _nextTimetoFire = 0f;
     int Ammo = 30;

@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Damage()
     {
-        HP -= 20;
+        HP -= 10;
         HPText.text = HP.ToString();
 
         if (HP <= 0)
