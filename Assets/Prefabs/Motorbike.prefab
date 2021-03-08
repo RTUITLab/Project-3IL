@@ -7135,7 +7135,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 4549242364214308084}
   Player: {fileID: 0}
   animator: {fileID: 8841970440899065583}
-  _fireRate: 2
+  _fireRate: 1.2
   invert: 0
 --- !u!1 &8305656827965952510
 GameObject:
