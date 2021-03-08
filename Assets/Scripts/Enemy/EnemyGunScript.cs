@@ -22,7 +22,6 @@ public class EnemyGunScript : MonoBehaviour
     Dictionary<string, GameObject> effects = new Dictionary<string, GameObject>();
     float _nextTimetoFire = 0f;
     int Ammo = 30;
-    public bool invert = false;
     #endregion
 
     private void Start()

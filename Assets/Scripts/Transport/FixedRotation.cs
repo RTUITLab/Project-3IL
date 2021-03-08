@@ -15,10 +15,15 @@ public class FixedRotation : MonoBehaviour
     [SerializeField] bool FreezePositionYX = false;
 
     [SerializeField] bool needToFix = false;
+    float _angle = 30f;
 
     private void Start()
     {
         local = gameObject.transform;
+        if (GameManager.instance.selectedMap == 3)
+        {
+            _angle = 70f;
+        }
     }
     private void Update()
     {
@@ -35,12 +40,12 @@ public class FixedRotation : MonoBehaviour
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
-            if ((local.eulerAngles.y < 320f && local.eulerAngles.y > 30f) || (local.eulerAngles.y < 330f && local.eulerAngles.y > 320f))
+            if ((local.eulerAngles.y < 350f - _angle && local.eulerAngles.y > _angle) || (local.eulerAngles.y < 360f - _angle && local.eulerAngles.y > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
             }
-            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            if ((local.eulerAngles.z < 350f - _angle && local.eulerAngles.z > _angle) || (local.eulerAngles.z < 360f - _angle && local.eulerAngles.z > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
@@ -50,12 +55,12 @@ public class FixedRotation : MonoBehaviour
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
-            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            if ((local.eulerAngles.z < 350f - _angle && local.eulerAngles.z > _angle) || (local.eulerAngles.z < 360f - _angle && local.eulerAngles.z > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
             }
-            if ((local.eulerAngles.x < 320f && local.eulerAngles.x > 30f) || (local.eulerAngles.x < 330f && local.eulerAngles.x > 320f))
+            if ((local.eulerAngles.x < 350f - _angle && local.eulerAngles.x > _angle) || (local.eulerAngles.x < 360f - _angle && local.eulerAngles.x > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
@@ -65,12 +70,12 @@ public class FixedRotation : MonoBehaviour
         {
             Vector3 oldRot = local.localEulerAngles;
             transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);
-            if ((local.eulerAngles.y < 320f && local.eulerAngles.y > 30f) || (local.eulerAngles.y < 330f && local.eulerAngles.y > 320f))
+            if ((local.eulerAngles.y < 350f - _angle && local.eulerAngles.y > _angle) || (local.eulerAngles.y < 360f - _angle && local.eulerAngles.y > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(oldRot.x, 0, oldRot.z);
             }
-            if ((local.eulerAngles.x < 320f && local.eulerAngles.x > 30f) || (local.eulerAngles.x < 330f && local.eulerAngles.x > 320f))
+            if ((local.eulerAngles.x < 350f - _angle && local.eulerAngles.x > _angle) || (local.eulerAngles.x < 360f - _angle && local.eulerAngles.x > 350f - _angle))
             {
                 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(0, oldRot.y, oldRot.z);
@@ -78,7 +83,7 @@ public class FixedRotation : MonoBehaviour
         }
         if (needToFix)
         {
-            if ((local.eulerAngles.z < 320f && local.eulerAngles.z > 30f) || (local.eulerAngles.z < 330f && local.eulerAngles.z > 320f))
+            if ((local.eulerAngles.z < 350f - _angle && local.eulerAngles.z > _angle) || (local.eulerAngles.z < 360f - _angle && local.eulerAngles.z > 350f - _angle))
             {
                 Vector3 oldRot = local.localEulerAngles;
                 transform.localRotation = Quaternion.Euler(oldRot.x, oldRot.y, 0);

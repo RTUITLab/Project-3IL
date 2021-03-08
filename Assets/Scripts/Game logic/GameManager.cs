@@ -1,8 +1,8 @@
-﻿//using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector] public static GameManager instance;
     public int selectedMap = 0;
     public int selectedTransport = 2;
     public int selectedBot1 = 0;
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        instance = this;
     }
 
     public void Select_map(int id)
