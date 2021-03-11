@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Player_Spawn
   - Enemy_Spawn
+  - EndGamePanel
   layers:
   - Default
   - TransparentFX

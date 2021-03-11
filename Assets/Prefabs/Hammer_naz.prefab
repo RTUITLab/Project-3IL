@@ -883,7 +883,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 826834568935812173}
   Player: {fileID: 0}
   animator: {fileID: 0}
-  _fireRate: 2
+  _fireRate: 1.2
   invert: 1
 --- !u!82 &4996760814392398775
 AudioSource:

@@ -497,7 +497,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 4220877539766647026}
   Player: {fileID: 0}
   animator: {fileID: 0}
-  _fireRate: 2
+  _fireRate: 1.2
   invert: 1
 --- !u!82 &3041393595951633626
 AudioSource:
