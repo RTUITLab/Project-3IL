@@ -68,7 +68,7 @@ public class EnemyGunScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Linecast(transform.position, Player.position, out hit))
         {
-            Debug.Log(Player.position);
+            // Debug.Log(Player.position);
             Debug.DrawLine(transform.position, Player.position, Color.red, hit.distance);
             Hit(hit);
         }
