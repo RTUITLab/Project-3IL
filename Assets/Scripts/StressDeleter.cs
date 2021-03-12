@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class StressDeleter : MonoBehaviour
 {
-    [SerializeField] byte _howOftenResetPlayer = 1;
+    [Range(0.1f, 10)]
+    [SerializeField] float _howOftenResetPlayer = 1;
     List<Rigidbody> _enemiesRb = new List<Rigidbody>();
     Rigidbody _rb;
     private void Start()
