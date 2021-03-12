@@ -1,30 +1,22 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StressDeleter : MonoBehaviour
 {
-    [SerializeField] float timer = 2f;
-    Rigidbody rb;
-    bool stable = true;
+    [SerializeField] byte _time = 1;
+    Rigidbody _rb;
     private void Start()
     {
-        rb = this.gameObject.GetComponent<Rigidbody>();
-        rb.Sleep();
-        StartCoroutine(unFreezeRotation(timer));
+        _rb = GameObject.Find("Body").GetComponent<Rigidbody>();
+        // get name of _rb parent
+        print($"10. StressDeleter -> _rb : {_rb.gameObject.transform.parent.gameObject.name}");
+        StartCoroutine(StopForce());
     }
-    IEnumerator unFreezeRotation(float time)
+
+    private IEnumerator StopForce()
     {
-        yield return new WaitForSeconds(time);
-        rb.freezeRotation = false;
-        stable = false;
-    }
-    private void Update()
-    {
-        if (stable)
-        {
-            rb.isKinematic = true;
-            rb.isKinematic = false;
-        }
+        yield return new WaitForSeconds(_time);
+        _rb.Sleep();
+        StartCoroutine(StopForce());
     }
 }

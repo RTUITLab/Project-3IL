@@ -402,7 +402,6 @@ GameObject:
   - component: {fileID: 531403570851929614}
   - component: {fileID: 531403570851929615}
   - component: {fileID: 531403570851929608}
-  - component: {fileID: 531403570851929609}
   - component: {fileID: 531403570851929610}
   m_Layer: 12
   m_Name: Body
@@ -594,19 +593,6 @@ MonoBehaviour:
   TraumaExponent: 1
   MaximumAngularShake: {x: 5, y: 5, z: 5}
   MaximumTranslationShake: {x: 5, y: 5, z: 5}
---- !u!114 &531403570851929609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531403570851929613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec5689a11a3bb649940b03f9b6af770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 1
 --- !u!114 &531403570851929610
 MonoBehaviour:
   m_ObjectHideFlags: 0
