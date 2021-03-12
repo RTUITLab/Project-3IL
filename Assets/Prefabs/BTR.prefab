@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 344332340493129289}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Metal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12006,6 +12006,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3203771812325804879}
     m_Modifications:
+    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
       propertyPath: m_Name
       value: MuzzleFlash01
@@ -12073,36 +12103,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198515452120210940, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 869406524552497571, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1676870047578678370, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520740, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827799616787520742, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526400655437605375, guid: b202b807427db224d9a94758cbb6558f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6613142626940030764, guid: b202b807427db224d9a94758cbb6558f,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0

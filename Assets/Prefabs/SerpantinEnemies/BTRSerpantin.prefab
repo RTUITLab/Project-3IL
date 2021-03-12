@@ -2258,12 +2258,11 @@ GameObject:
   - component: {fileID: 1553703940624063498}
   - component: {fileID: 1553703940624063499}
   - component: {fileID: 1553703940624063492}
-  - component: {fileID: 1553703940624063493}
   - component: {fileID: 7325530550264757918}
   - component: {fileID: 8208801863916353858}
   m_Layer: 0
-  m_Name: BTR
-  m_TagString: Untagged
+  m_Name: Body
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2349,20 +2348,6 @@ CapsuleCollider:
   m_Height: 2.6466823
   m_Direction: 0
   m_Center: {x: 0.020264864, y: 0, z: 2.1900082}
---- !u!114 &1553703940624063493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553703940624063494}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce787f6844336644cb0e0acb9635aba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 1553703940624063494}
-  height: 1.4
 --- !u!54 &7325530550264757918
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5880,9 +5865,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 2419617962246560780}
   Player: {fileID: 0}
   animator: {fileID: 3826327826939646465}
-  Spread: 0.01
   _fireRate: 2
-  invert: 0
 --- !u!1 &4850265919801930872
 GameObject:
   m_ObjectHideFlags: 0
@@ -7319,9 +7302,7 @@ MonoBehaviour:
   _muzzleFlash: {fileID: 7307058152022275506}
   Player: {fileID: 0}
   animator: {fileID: 3826327826939646465}
-  Spread: 0.01
   _fireRate: 2
-  invert: 0
 --- !u!1 &6115929189393215727
 GameObject:
   m_ObjectHideFlags: 0
@@ -7416,7 +7397,7 @@ GameObject:
   - component: {fileID: 6188011018419672571}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Metal
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11664,15 +11645,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
---- !u!198 &2377938308079081659 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
-  m_PrefabInstance: {fileID: 2576784323303134835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2576454842451699657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
+  m_PrefabInstance: {fileID: 2576784323303134835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2377938308079081659 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
   m_PrefabInstance: {fileID: 2576784323303134835}
   m_PrefabAsset: {fileID: 0}
