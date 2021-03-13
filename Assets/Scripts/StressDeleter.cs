@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class StressDeleter : MonoBehaviour
 {
-    [Range(0.1f, 10)]
+    [Range(0.1f, 20)]
     [SerializeField] float _howOftenResetPlayer = 1;
+
+    [Range(0.1f, 20)]
+    [SerializeField] float _howOftenResetEnemies = 1;
     List<Rigidbody> _enemiesRb = new List<Rigidbody>();
-    Rigidbody _rb;
+    Rigidbody _playerRb;
     private void Start()
     {
-        _rb = GameObject.Find("Body").GetComponent<Rigidbody>();
+        _playerRb = GameObject.Find("Body").GetComponent<Rigidbody>();
         // get name of _rb parent
-        print($"10. StressDeleter -> _rb : {_rb.gameObject.transform.parent.gameObject.name}");
-        StartCoroutine(StopForce());
-        StartCoroutine(FindEnemies());
+        print($"10. StressDeleter -> _rb : {_playerRb.gameObject.transform.parent.gameObject.name}");
+        StartCoroutine(StopForcePlayer());
+        StartCoroutine(StopForceEnemies());
     }
-    IEnumerator FindEnemies()
+    void FindEnemies()
     {
-        yield return new WaitForSeconds(5f);
+        _enemiesRb.Clear();
         var enemiesScripts = FindObjectsOfType(typeof(EnemyWayChanger)) as EnemyWayChanger[];
         print($"24. StressDeleter -> enemiesScripts.Length : {enemiesScripts.Length}");
         // add enemies rigibody to list
@@ -29,27 +33,33 @@ public class StressDeleter : MonoBehaviour
             _enemiesRb.Add(enemiesScripts[i].gameObject.transform.Find("Body").GetComponent<Rigidbody>());
         }
     }
-    private IEnumerator StopForce()
+    private IEnumerator StopForceEnemies()
     {
-        yield return new WaitForSeconds(_howOftenResetPlayer);
-        _rb.Sleep();
+        yield return new WaitForSeconds(_howOftenResetEnemies);
         int _rbSize = _enemiesRb.Count;
         // we reset force for all enemies
-        for (var i = 0; i < _rbSize; ++i)
+        // print($"43. StressDeleter -> _rbSize : {_rbSize}");
+        if (_rbSize < 2)
+            FindEnemies();
+        for (var i = 0; i < _rbSize; i++)
         {
             // check, if enemies was destroyed
             try
             {
-                if (_rbSize < 2)
-                    FindEnemies();
                 _enemiesRb[i].Sleep();
+                // print($"I sleep: {_enemiesRb[i].gameObject.transform.parent.parent.gameObject.name}");
             }
             catch (MissingReferenceException)
             {
                 _enemiesRb.Remove(_enemiesRb[i]);
-                FindEnemies();
             }
         }
-        StartCoroutine(StopForce());
+        StartCoroutine(StopForceEnemies());
+    }
+    private IEnumerator StopForcePlayer()
+    {
+        yield return new WaitForSeconds(_howOftenResetPlayer);
+        _playerRb.Sleep();
+        StartCoroutine(StopForcePlayer());
     }
 }
