@@ -14,6 +14,7 @@ public class StressDeleter : MonoBehaviour
     [SerializeField] float _howOftenResetEnemies = 1;
     List<Rigidbody> _enemiesRb = new List<Rigidbody>();
     Rigidbody _playerRb;
+
     private void Start()
     {
         _playerRb = GameObject.Find("Body").GetComponent<Rigidbody>();
