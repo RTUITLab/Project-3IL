@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using JetBrains.Annotations;
@@ -23,6 +23,7 @@ public class StressDeleter : MonoBehaviour
         StartCoroutine(StopForcePlayer());
         StartCoroutine(StopForceEnemies());
     }
+
     void FindEnemies()
     {
         _enemiesRb.Clear();
@@ -34,33 +35,39 @@ public class StressDeleter : MonoBehaviour
             _enemiesRb.Add(enemiesScripts[i].gameObject.transform.Find("Body").GetComponent<Rigidbody>());
         }
     }
+
     private IEnumerator StopForceEnemies()
     {
-        yield return new WaitForSeconds(_howOftenResetEnemies);
-        int _rbSize = _enemiesRb.Count;
-        // we reset force for all enemies
-        // print($"43. StressDeleter -> _rbSize : {_rbSize}");
-        if (_rbSize < 2)
-            FindEnemies();
-        for (var i = 0; i < _rbSize; i++)
+        while (true)
         {
-            // check, if enemies was destroyed
-            try
+            yield return new WaitForSeconds(_howOftenResetEnemies);
+            int _rbSize = _enemiesRb.Count;
+            // we reset force for all enemies
+            // print($"43. StressDeleter -> _rbSize : {_rbSize}");
+            if (_rbSize < 2)
+                FindEnemies();
+            for (var i = 0; i < _rbSize; i++)
             {
-                _enemiesRb[i].Sleep();
-                // print($"I sleep: {_enemiesRb[i].gameObject.transform.parent.parent.gameObject.name}");
-            }
-            catch (MissingReferenceException)
-            {
-                _enemiesRb.Remove(_enemiesRb[i]);
+                // check, if enemies was destroyed
+                try
+                {
+                    _enemiesRb[i].Sleep();
+                    // print($"I sleep: {_enemiesRb[i].gameObject.transform.parent.parent.gameObject.name}");
+                }
+                catch (MissingReferenceException)
+                {
+                    _enemiesRb.Remove(_enemiesRb[i]);
+                }
             }
         }
-        StartCoroutine(StopForceEnemies());
     }
+
     private IEnumerator StopForcePlayer()
     {
-        yield return new WaitForSeconds(_howOftenResetPlayer);
-        _playerRb.Sleep();
-        StartCoroutine(StopForcePlayer());
+        while (true)
+        {
+            yield return new WaitForSeconds(_howOftenResetPlayer);
+            _playerRb.Sleep();   
+        }
     }
 }
